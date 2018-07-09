@@ -26,9 +26,11 @@
 // Inline text link and icons
 //
 // markup:
-// <a href="#" class="b-link-text">Text link center</a>
-// <a href="#" class="b-link-text i-content--teddy">Text link icon left</a>
-// <a href="#" class="b-link-text i-content-after--teddy">Text link icon right</a>
+// <div class="g-grid__row g-grid__row--middle">
+// <div class="g-grid__col-3"><a href="#" class="b-link-text">Text link center</a></div>
+// <div class="g-grid__col-3"><a href="#" class="b-link-text i-content--teddy">Text link icon left</a></div>
+// <div class="g-grid__col-3"><a href="#" class="b-link-text i-content-after--teddy">Text link icon right</a></div>
+// </div>
 //
 // Styleguide 2.2
 
@@ -87,16 +89,19 @@
 // Link group
 //
 // markup:
+//  <div class="g-grid__row g-grid__row--middle"><div class="g-grid__col-6">
 //  <div class="b-link-group">
 //    <ul class="b-link-group__list">
 //      <li class="b-link-group__item"><a class="b-link-group__link" href="#">Link 1</a></li>
 //      <li class="b-link-group__item"><a class="b-link-group__link" href="#">Link 2</a></li>
+//      <li class="b-link-group__item"><a class="b-link-group__link" href="#">Link 3</a></li>
 //    </ul>
 //    <ul class="b-link-group__list">
-//      <li class="b-link-group__item"><a class="b-link-group__link" href="#">Some Long Link 3</a></li>
 //      <li class="b-link-group__item"><a class="b-link-group__link" href="#">Some Long Link 4</a></li>
+//      <li class="b-link-group__item"><a class="b-link-group__link" href="#">Some Long Link 5</a></li>
 //    </ul>
 //  </div>
+//  </div></div>
 //
 // Styleguide 2.3
 
@@ -136,6 +141,7 @@
 
         background-color: color(white);
         box-shadow: inset 0 0 0 1px color(grey, 2);
+        flex: 1;
         margin: 0 -1px -1px 0;
         position: relative;
 

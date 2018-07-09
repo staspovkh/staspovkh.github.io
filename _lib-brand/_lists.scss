@@ -38,24 +38,6 @@
 //   @include list-style-marker();
 //   @include list-style-marker-big();
 
-// Lists
-//
-// Styleguide 3.6
-
-// Bulleted list
-//
-// markup:
-// <div class="list-style-marker">
-//   <h3>Bulleted list header</h3>
-//   <ul>
-//     <li>Lorem ipsum dolor sit amet, consectetur</li>
-//     <li>Lorem ipsum dolor sit amet, consectetur</li>
-//     <li>Lorem ipsum dolor sit amet, consectetur</li>
-//   </ul>
-// </div>
-//
-// Styleguide 3.6.1
-
 @mixin list-style-marker (
     $title: "h3",
     $item: "li",
@@ -87,20 +69,6 @@
 
     @content;
 }
-
-// Iconed list
-//
-// markup:
-// <div class="list-style-marker-big">
-//   <h3>Iconed list header</h3>
-//   <ul>
-//     <li>Lorem ipsum dolor sit amet, consectetur</li>
-//     <li>Lorem ipsum dolor sit amet, consectetur</li>
-//     <li>Lorem ipsum dolor sit amet, consectetur</li>
-//   </ul>
-// </div>
-//
-// Styleguide 3.6.2
 
 @mixin list-style-marker-big (
     $title: "h3",

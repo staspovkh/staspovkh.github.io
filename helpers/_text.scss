@@ -93,10 +93,63 @@
     }
 }
 
+// Lists
+//
+// Styleguide 3.6
+
+// Bulleted list
+//
+// markup:
+// <div class="list-style-marker">
+//   <h3>Bulleted list header</h3>
+//   <ul>
+//     <li>Lorem ipsum dolor sit amet, consectetur</li>
+//     <li>Lorem ipsum dolor sit amet, consectetur</li>
+//     <li>Lorem ipsum dolor sit amet, consectetur</li>
+//   </ul>
+// </div>
+//
+// Styleguide 3.6.1
+
 .list-style-marker {
     @include list-style-marker;
 }
 
+// Iconed list
+//
+// markup:
+// <div class="list-style-marker-big">
+//   <h3>Iconed list header</h3>
+//   <ul>
+//     <li>Lorem ipsum dolor sit amet, consectetur</li>
+//     <li>Lorem ipsum dolor sit amet, consectetur</li>
+//     <li>Lorem ipsum dolor sit amet, consectetur</li>
+//   </ul>
+// </div>
+//
+// Styleguide 3.6.2
+
 .list-style-marker-big {
     @include list-style-marker-big;
+}
+
+// Ordered list
+//
+// markup:
+// <div class="list-style-number-big">
+// <h3>Ordered list header</h3>
+//   <ol>
+//     <li>Lorem ipsum dolor sit amet, consectetur</li>
+//     <li>Lorem ipsum dolor sit amet, consectetur</li>
+//     <li>Lorem ipsum dolor sit amet, consectetur</li>
+//   </ol>
+// </div>
+//
+// Styleguide 3.6.3
+
+.list-style-number-big {
+    @include list-style-marker-big(
+        $color: color(blue, light),
+        $counter: true
+    );
 }

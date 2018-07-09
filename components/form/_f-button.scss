@@ -41,7 +41,7 @@ $btn-height-large : rem(56);
     }
 
     &::after {
-        float: right;
+        margin-left: $icon-gap;
     }
 
     &::before,
@@ -286,25 +286,20 @@ $btn-height-large : rem(56);
 
 @mixin cta-icon-layout() {
     min-width: rem(64);
+    font-size: rem(22);
+
+    &[class*="i-"] {
+        text-align: center;
+    }
 
     .f-button__text,
     .f-cta__text {
         @include visually-hidden;
     }
 
-    &[class*="i-svg-"],
-    &[class*="i-social-"],
-    &[class*="i-font-"] {
-        font-size: rem(22);
-        text-align: center;
-
-        &::before {
-            margin-right: 0;
-        }
-    }
-
+    &::before,
     &::after {
-        float: none;
+        margin-right: 0;
     }
 }
 

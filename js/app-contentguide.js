@@ -26,6 +26,7 @@ var references = {
     'select' : require('./../../../../ecom-core/app_storefront_core_ext/cartridge/js/components/select'),
     'carousel' : require('./../../../../ecom-core/app_storefront_core_ext/cartridge/js/components/carousel'),
     'accordion' : require('./../../../../ecom-core/app_storefront_core_ext/cartridge/js/components/accordion'),
+    'tabs' : require('./../../../../ecom-core/app_storefront_core_ext/cartridge/js/components/tabs'),
     'common' : require('./../../../../ecom-core/app_storefront_core_ext/cartridge/js/components/common')
 };
 
@@ -36,7 +37,7 @@ $(document).ready(function () {
     });
 });
 
-},{"./../../../../ecom-core/app_storefront_core_ext/cartridge/js/components/accordion":11,"./../../../../ecom-core/app_storefront_core_ext/cartridge/js/components/carousel":12,"./../../../../ecom-core/app_storefront_core_ext/cartridge/js/components/common":13,"./../../../../ecom-core/app_storefront_core_ext/cartridge/js/components/select":14}],2:[function(require,module,exports){
+},{"./../../../../ecom-core/app_storefront_core_ext/cartridge/js/components/accordion":12,"./../../../../ecom-core/app_storefront_core_ext/cartridge/js/components/carousel":13,"./../../../../ecom-core/app_storefront_core_ext/cartridge/js/components/common":14,"./../../../../ecom-core/app_storefront_core_ext/cartridge/js/components/select":15,"./../../../../ecom-core/app_storefront_core_ext/cartridge/js/components/tabs":17}],2:[function(require,module,exports){
 'use strict';
 
 var progress = require('./progress'),
@@ -291,7 +292,7 @@ var dialog = {
 
 module.exports = dialog;
 
-},{"./ajax":2,"./util":5,"imagesloaded":24,"lodash":25}],4:[function(require,module,exports){
+},{"./ajax":2,"./util":5,"imagesloaded":26,"lodash":27}],4:[function(require,module,exports){
 'use strict';
 
 var $loader;
@@ -594,7 +595,7 @@ var util = {
 
 module.exports = util;
 
-},{"lodash":25}],6:[function(require,module,exports){
+},{"lodash":27}],6:[function(require,module,exports){
 module.exports={
     "baseSelector": ".js-accordion",
     "linkSelector": ".js-accordion-link",
@@ -652,6 +653,12 @@ module.exports={
 
 },{}],10:[function(require,module,exports){
 module.exports={
+    "baseSelector": ".js-tabs",
+    "active": 0
+}
+
+},{}],11:[function(require,module,exports){
+module.exports={
     "tooltipClass": "b-tooltip",
     "openOnClick": false,
     "closeOnBlur": false,
@@ -660,7 +667,7 @@ module.exports={
     "showCloseButton": true
 }
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict'
 
 var layout = require('./../utils/layout'),
@@ -767,7 +774,7 @@ module.exports = {
     }
 };
 
-},{"./../components-config/accordion-config-default":6,"./../util":17,"./../utils/layout":20,"./sticky-elements":15}],12:[function(require,module,exports){
+},{"./../components-config/accordion-config-default":6,"./../util":19,"./../utils/layout":22,"./sticky-elements":16}],13:[function(require,module,exports){
 'use strict'
 
 require('slick-carousel');
@@ -1038,7 +1045,7 @@ module.exports = {
     }
 };
 
-},{"./../components-config/carousel-config-default":7,"./../utils/layout":20,"slick-carousel":27}],13:[function(require,module,exports){
+},{"./../components-config/carousel-config-default":7,"./../utils/layout":22,"slick-carousel":29}],14:[function(require,module,exports){
 'use strict';
 
 var initialized = false,
@@ -1153,7 +1160,7 @@ module.exports = {
     initTextArea: initializeTextArea
 };
 
-},{"./../util":17,"./../utils/cssconstants":18,"./../utils/layout":20,"./tooltip":16}],14:[function(require,module,exports){
+},{"./../util":19,"./../utils/cssconstants":20,"./../utils/layout":22,"./tooltip":18}],15:[function(require,module,exports){
 'use strict';
 
 /* Include Select2 plugin */
@@ -1242,7 +1249,7 @@ var Select = {
  */
 module.exports = Select;
 
-},{"./../components-config/select-config-default":8,"./../utils/device":19,"select2":26}],15:[function(require,module,exports){
+},{"./../components-config/select-config-default":8,"./../utils/device":21,"select2":28}],16:[function(require,module,exports){
 'use strict';
 
 var layout = require('./../utils/layout'),
@@ -1681,7 +1688,77 @@ var stickyelements = {
 
 module.exports = stickyelements;
 
-},{"./../components-config/sticky-elements-config-default":9,"./../util":17,"./../utils/cssconstants":18,"./../utils/layout":20,"./../utils/scroll-listener":22}],16:[function(require,module,exports){
+},{"./../components-config/sticky-elements-config-default":9,"./../util":19,"./../utils/cssconstants":20,"./../utils/layout":22,"./../utils/scroll-listener":24}],17:[function(require,module,exports){
+var tabsDefaultOptions = require('./../components-config/tabs-config-default'),
+    tabsInitOptions = {};
+
+/**
+ * @function
+ * @description Initialize default tooltiptabs
+ * @returns {void}
+ */
+function initTabsOptions(params) {
+    tabsInitOptions = $.extend({}, tabsDefaultOptions, params || {});
+}
+
+function getFileNameFromURL(url) {
+    var regexp = url.toString().match(/.*\/(.+?)\./);
+    if (regexp && regexp.length > 1) {
+        return regexp[1];
+    }
+    return 'No File name';
+}
+
+function initCustomAction($tab) {
+    var data = $tab.data('tabdata');
+    switch ($tab.data('action')) {
+        case 'ajaxFile':
+            var $container = $($tab.find('.js-file-info')[0]);
+            data.map(function(file) {
+                return $.ajax({
+                    type: 'HEAD',
+                    url: file,
+                    complete: function(xhr) {
+                        var containerData = $container.text().trim();
+                        if (containerData.length) $container = $container.clone();
+                        $container.find('.js-file-size').html(xhr.getResponseHeader('content-length'));
+                        // @todo wait until PIM will send proper data
+                        $container.find('.js-file-name').html(getFileNameFromURL(file));
+                        $tab.append($container);
+                    }
+                })
+            })
+            break;
+        default:
+            return false;
+    }
+}
+
+/**
+ * @function
+ * @description Initialize custom tabs plugin based on jQuery UI Tabs
+ * @returns {void}
+ */
+function initTabs(context) {
+    $(context).find(tabsInitOptions.baseSelector).each(function() {
+        var $tabs = $(this),
+            tabsDataOptions = $tabs.data('tabs'),
+            tabsOptions = $.extend({}, tabsInitOptions, tabsDataOptions || {});
+        tabsOptions.activate = function(event, ui) {
+            initCustomAction(ui.newPanel);
+        }
+        $tabs.tabs(tabsOptions);
+    });
+}
+
+module.exports = {
+    init: function (params) {
+        initTabsOptions(params);
+        initTabs(params.container || document);
+    }
+};
+
+},{"./../components-config/tabs-config-default":10}],18:[function(require,module,exports){
 'use strict'
 
 var util = require('./../util');
@@ -1933,7 +2010,7 @@ var tooltip = {
 
 module.exports = tooltip;
 
-},{"./../components-config/tooltip-config-default":10,"./../util":17}],17:[function(require,module,exports){
+},{"./../components-config/tooltip-config-default":11,"./../util":19}],19:[function(require,module,exports){
 'use strict'
 
 var progress = require('./utils/progress'),
@@ -2667,7 +2744,7 @@ var util = {
 
 module.exports = util;
 
-},{"./../../../app_storefront_core/cartridge/js/dialog":3,"./utils/cssconstants":18,"./utils/progress":21}],18:[function(require,module,exports){
+},{"./../../../app_storefront_core/cartridge/js/dialog":3,"./utils/cssconstants":20,"./utils/progress":23}],20:[function(require,module,exports){
 'use strict';
 /**
  * CSS global modificators
@@ -2716,7 +2793,7 @@ module.exports = {
     VIDEO_FULLSCREEN: 'm-video-fullscreen'
 };
 
-},{}],19:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 /**
  * Used for strict device detection, for some specific scripts, when we need to know which device used.
  * For other cases, related to device view, please, use layout.js
@@ -2794,7 +2871,7 @@ var deviceUtils = {
 
 module.exports = deviceUtils;
 
-},{}],20:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 var util = require('./../util'),
     deviceUtils = require('./device'),
     cssConstants = require('./cssconstants'),
@@ -2918,7 +2995,7 @@ module.exports = {
     }
 };
 
-},{"./../util":17,"./cssconstants":18,"./device":19}],21:[function(require,module,exports){
+},{"./../util":19,"./cssconstants":20,"./device":21}],23:[function(require,module,exports){
 var $loader;
 
 module.exports = {
@@ -2960,7 +3037,7 @@ module.exports = {
     }
 }
 
-},{}],22:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 var latestKnownScrollY = 0,
     handlers = [],
     handler,
@@ -3052,7 +3129,7 @@ module.exports = {
     }
 };
 
-},{}],23:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 /*!
  * eventie v1.0.6
  * event binding helper
@@ -3136,7 +3213,7 @@ if ( typeof define === 'function' && define.amd ) {
 
 })( window );
 
-},{}],24:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 /*!
  * imagesLoaded v3.2.0
  * JavaScript is all like "You images are done yet or what?"
@@ -3522,7 +3599,7 @@ function makeArray( obj ) {
 
 });
 
-},{"eventie":23,"wolfy87-eventemitter":28}],25:[function(require,module,exports){
+},{"eventie":25,"wolfy87-eventemitter":30}],27:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -15878,7 +15955,7 @@ function makeArray( obj ) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],26:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 (function (global){
 /*!
  * Select2 4.0.6-rc.1
@@ -21730,7 +21807,7 @@ S2.define('jquery.select2',[
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],27:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 (function (global){
 /*
      _ _      _       _
@@ -24746,7 +24823,7 @@ S2.define('jquery.select2',[
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],28:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 /*!
  * EventEmitter v4.2.11 - git.io/ee
  * Unlicense - http://unlicense.org/

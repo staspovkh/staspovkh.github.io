@@ -294,7 +294,8 @@ a.pseudo-class-hover {
   text-decoration: none;
 }
 
-.f-button.pseudo-class-active {
+.touch .f-button.pseudo-class-active,
+.non-touch .f-button.pseudo-class-active {
   background-color: #2aace2;
   border-color: #2aace2;
   -webkit-box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.15);
@@ -322,8 +323,10 @@ a.pseudo-class-hover {
   border-color: #f7f7f7;
 }
 
-.f-button-link.pseudo-class-active,
-.b-store__map-link.pseudo-class-active {
+.touch .f-button-link.pseudo-class-active,
+.non-touch .f-button-link.pseudo-class-active,
+.touch .b-store__map-link.pseudo-class-active,
+.non-touch .b-store__map-link.pseudo-class-active {
   background: #2aace2;
   border-color: #2aace2;
   -webkit-box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.15);
@@ -349,7 +352,8 @@ a.pseudo-class-hover {
   box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.15);
 }
 
-.f-cta-primary.pseudo-class-active {
+.touch .f-cta-primary.pseudo-class-active,
+.non-touch .f-cta-primary.pseudo-class-active {
   -webkit-box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.15);
 }
@@ -372,7 +376,8 @@ a.pseudo-class-hover {
   box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.15);
 }
 
-.f-cta-primary--small.pseudo-class-active {
+.touch .f-cta-primary--small.pseudo-class-active,
+.non-touch .f-cta-primary--small.pseudo-class-active {
   -webkit-box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.15);
 }
@@ -395,7 +400,8 @@ a.pseudo-class-hover {
   box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15);
 }
 
-.f-cta-secondary.pseudo-class-active {
+.touch .f-cta-secondary.pseudo-class-active,
+.non-touch .f-cta-secondary.pseudo-class-active {
   -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.15);
 }
@@ -418,7 +424,8 @@ a.pseudo-class-hover {
   box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15);
 }
 
-.f-cta-secondary--small.pseudo-class-active {
+.touch .f-cta-secondary--small.pseudo-class-active,
+.non-touch .f-cta-secondary--small.pseudo-class-active {
   -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.15);
 }
@@ -441,7 +448,8 @@ a.pseudo-class-hover {
   box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15);
 }
 
-.f-cta-icon-primary.pseudo-class-active {
+.touch .f-cta-icon-primary.pseudo-class-active,
+.non-touch .f-cta-icon-primary.pseudo-class-active {
   -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.15);
 }
@@ -464,7 +472,8 @@ a.pseudo-class-hover {
   box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15);
 }
 
-.f-cta-icon-secondary.pseudo-class-active {
+.touch .f-cta-icon-secondary.pseudo-class-active,
+.non-touch .f-cta-icon-secondary.pseudo-class-active {
   -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.15);
 }
@@ -478,7 +487,8 @@ a.pseudo-class-hover {
   color: #fff;
 }
 
-.f-cta-icon-secondary.pseudo-class-active {
+.touch .f-cta-icon-secondary.pseudo-class-active,
+.non-touch .f-cta-icon-secondary.pseudo-class-active {
   background-color: #de004d;
   color: #fff;
 }
@@ -496,7 +506,8 @@ a.pseudo-class-hover {
   background-color: #bed731;
 }
 
-.f-cta-icon-squircle.pseudo-class-active {
+.touch .f-cta-icon-squircle.pseudo-class-active,
+.non-touch .f-cta-icon-squircle.pseudo-class-active {
   background-color: #bed731;
 }
 
@@ -515,8 +526,10 @@ a.pseudo-class-hover {
   background-color: #bed731;
 }
 
-.f-cta-icon-squircle--small.pseudo-class-active,
-.ui-slider-handle.pseudo-class-active {
+.touch .f-cta-icon-squircle--small.pseudo-class-active,
+.non-touch .f-cta-icon-squircle--small.pseudo-class-active,
+.touch .ui-slider-handle.pseudo-class-active,
+.non-touch .ui-slider-handle.pseudo-class-active {
   background-color: #bed731;
 }
 

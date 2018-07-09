@@ -15,6 +15,23 @@
 //
 // Styleguide 6.4
 
+// Select with filter
+//
+// markup:
+// <div class="f-field f-field--select">
+//     <label class="f-label">
+//         <span class="f-label__text">Select title (requires select2 js plugin)</span>
+//     </label>
+//     <div class="f-field__inner">
+//         <select class="f-select js-select" data-select='{"minimumResultsForSearch": 1}'>
+//             <option value="Option value 1">Option value 1</option>
+//             <option value="Option value 2">Option value 2</option>
+//         </select>
+//     </div>
+// </div>
+//
+// Styleguide 6.5
+
 .f-select,
 %f-select {
     background-color: color(grey, 4);
