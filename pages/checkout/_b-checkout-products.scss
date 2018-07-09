@@ -1,0 +1,9 @@
+.b-checkout-products {
+    &__item {
+        border-bottom: 1px solid color(grey, 2);
+        
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+}

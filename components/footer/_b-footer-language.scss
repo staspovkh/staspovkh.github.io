@@ -1,0 +1,10 @@
+.b-footer-language {
+    display: flex;
+    font-weight: $font-main-bold;
+    justify-content: center;
+    margin: 0 baseline(-1);
+
+    &__item {
+        margin: 0 baseline(1);
+    }
+}

@@ -1,0 +1,119 @@
+@mixin icon-sg-styles($size: 1em) {
+    display: inline-block;
+    font-family: "icon-sg";
+    font-size: $size;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+    text-decoration: none;
+    text-transform: none;
+    vertical-align: middle;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+%icon-sg {
+    @include icon-sg-styles;
+}
+
+@function icon-sg-char($filename) {
+    $char: "";
+    @if $filename == user {
+        $char: "#";
+    }
+    @if $filename == search {
+        $char: "";
+    }
+    @if $filename == envelope {
+        $char: "";
+    }
+    @if $filename == facebook-square {
+        $char: "";
+    }
+    @if $filename == linkedin-square {
+        $char: "";
+    }
+    @if $filename == twitter-square {
+        $char: "";
+    }
+    @if $filename == youtube-square {
+        $char: "";
+    }
+    @if $filename == star-half-o {
+        $char: "";
+    }
+    @if $filename == star-o {
+        $char: "";
+    }
+    @if $filename == star {
+        $char: "";
+    }
+    @if $filename == shopping-cart {
+        $char: "";
+    }
+    @if $filename == map-marker {
+        $char: "";
+    }
+    @if $filename == th-list {
+        $char: "";
+    }
+    @if $filename == th {
+        $char: "";
+    }
+    @if $filename == remove {
+        $char: "";
+    }
+    @if $filename == chevron-circle-down {
+        $char: "";
+    }
+    @if $filename == angle-double-left {
+        $char: "";
+    }
+    @if $filename == angle-double-right {
+        $char: "";
+    }
+    @if $filename == angle-left {
+        $char: "";
+    }
+    @if $filename == angle-right {
+        $char: "";
+    }
+    @if $filename == envelope-square {
+        $char: "";
+    }
+    @if $filename == google-plus-square {
+        $char: "";
+    }
+    @if $filename == pinterest-square {
+        $char: "";
+    }
+    @if $filename == archive {
+        $char: "";
+    }
+    @if $filename == bookmark {
+        $char: "";
+    }
+    @if $filename == cube {
+        $char: "";
+    }
+    @if $filename == home {
+        $char: "";
+    }
+    @if $filename == money {
+        $char: "";
+    }
+    @return $char;
+}
+
+@mixin icon-sg($filename, $insert: before, $extend: true, $size: 16px) {
+    &:#{$insert} {
+        @if $extend {
+            @extend %icon-sg;
+        } @else {
+            @include icon-sg-styles($size);
+        }
+        content: icon-sg-char($filename);
+        @content;
+    }
+}

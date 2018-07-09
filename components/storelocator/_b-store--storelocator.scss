@@ -1,0 +1,52 @@
+.b-store {
+    $selector: &;
+
+    &--storelocator {
+        border-top: 1px solid color(grey, 3);
+        padding: baseline(3) rem(35) baseline(3) 0;
+        position: relative;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        @media (--extra-small) {
+            padding: baseline(3) rem(35) baseline(3) map-get($outer-margins, "-xs");
+        }
+
+        &:first-child {
+            border-top: 0;
+        }
+
+        #{$selector}__link {
+            bottom: 0;
+            font-size: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+
+            &::after {
+                @include icon-styles();
+                @include transition(opacity);
+
+                color: color(black);
+                content: icon-char(chevron-right) rtl("\"" + icon-char(chevron-left) + "\"");
+                font-size: rem(16);
+                opacity: 1;
+                position: absolute;
+                right: rem(16);
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            @media (--extra-small) {
+                margin-right: 0;
+            }
+
+            .non-touch &:hover::after {
+                opacity: 0.6;
+            }
+        }
+    }
+}

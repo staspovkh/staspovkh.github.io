@@ -1,0 +1,15 @@
+.b-download-product {
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        margin-bottom: baseline(3);
+        width: 25%;
+
+        @media (--extra-small) {
+            width: 100%;
+        }
+    }
+}

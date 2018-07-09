@@ -1,0 +1,310 @@
+// PLP - Product Listing Page Hero
+//
+// Please refer to Content managment documentation for specific settings: https://alfuttaim.atlassian.net/wiki/spaces/SH/pages/170557747/TRU+-+PLP+-+Product+Listing+Page#TRU-PLP-ProductListingPage-Herocontentassets-generalstructure
+//
+// markup:
+// <!-- SAMPLE #1 -->
+// <div class="b-bnr b-bnr--hero m-bg--green-tint js-banner-hero">
+//     <div class="b-bnr__inner">
+//         <!-- PICTURE section is formed automatically from asset's Images custom fields -->
+//         <picture class="b-bnr__picture">
+//             <img src="images/banners/hero/kid-play.png" alt="Banner Hero (Toys)" class="b-bnr__image">
+//         </picture>
+//         <div class="b-bnr__content">
+//             <!-- BEGIN of content asset's BODY field (rest of additional wrappers are added automatically) -->
+//             <!--  Config for parallax elements (".js-parallax__element") depends on their order in html and setted in banners-config.json -->
+//             <span class="b-bnr__shape i-shape-blast m-clr--green js-parallax__element"></span>
+//             <span class="b-bnr__shape i-shape-blast m-clr--green js-parallax__element"></span>
+//             <i class="b-bnr__icon i-content--remote-control-car js-parallax__element"></i>
+//             <i class="b-bnr__icon i-content--teddy js-parallax__element"></i>
+//             <i class="b-bnr__icon i-content--hero js-parallax__element"></i>
+//             <i class="b-bnr__icon i-content--doll js-parallax__element"></i>
+//             <i class="b-bnr__icon i-content--blocks js-parallax__element"></i>
+//             <h4 class="b-bnr__title">Toys</h4>
+//             <p class="b-bnr__text h-rtlfix">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+//             <!-- END of content asset's BODY -->
+//         </div>
+//     </div>
+// </div>
+// <!-- SAMPLE #2 -->
+// <div class="b-bnr b-bnr--hero m-bg--yellow-tint js-banner-hero">
+//     <div class="b-bnr__inner">
+//         <picture class="b-bnr__picture">
+//             <img src="images/banners/hero/kid-babies.png" alt="Banner Hero (Babies)" class="b-bnr__image">
+//         </picture>
+//         <div class="b-bnr__content">
+//             <!--  Config for parallax elements (".js-parallax__element") depends on their order in html and setted in banners-config.json -->
+//             <span class="b-bnr__shape i-shape-splat m-clr--yellow js-parallax__element" style=""></span>
+//             <span class="b-bnr__shape i-shape-splat m-clr--yellow js-parallax__element" style=""></span>
+//             <i class="b-bnr__icon i-content--bath js-parallax__element" style=""></i>
+//             <i class="b-bnr__icon i-content--bath js-parallax__element" style=""></i>
+//             <i class="b-bnr__icon i-content--dummy js-parallax__element" style=""></i>
+//             <i class="b-bnr__icon i-content--crib js-parallax__element" style=""></i>
+//             <i class="b-bnr__icon i-content--bottle js-parallax__element" style=""></i>
+//             <h4 class="b-bnr__title">Babies</h4>
+//             <p class="b-bnr__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+//         </div>
+//     </div>
+// </div>
+// <!-- SAMPLE #3 -->
+// <div class="b-bnr b-bnr--hero m-bg--purple-tint js-banner-hero">
+//     <div class="b-bnr__inner">
+//         <picture class="b-bnr__picture">
+//             <img src="images/banners/hero/kid-pretent.png" alt="Banner Hero (Pretend Play)" class="b-bnr__image">
+//         </picture>
+//         <div class="b-bnr__content">
+//             <!--  Config for parallax elements (".js-parallax__element") depends on their order in html and setted in banners-config.json -->
+//             <span class="b-bnr__shape i-shape-spiral m-clr--purple js-parallax__element"></span>
+//             <span class="b-bnr__shape i-shape-spiral m-clr--purple js-parallax__element"></span>
+//             <i class="b-bnr__icon i-content--crown js-parallax__element"></i>
+//             <i class="b-bnr__icon i-content--hero js-parallax__element"></i>
+//             <i class="b-bnr__icon i-content--necklace js-parallax__element"></i>
+//             <i class="b-bnr__icon i-content--house js-parallax__element"></i>
+//             <i class="b-bnr__icon i-content--party js-parallax__element"></i>
+//             <h4 class="b-bnr__title">Pretend Play</h4>
+//             <p class="b-bnr__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide 8.10
+
+.b-bnr--hero {
+    .b-bnr {
+        &__inner {
+            height: baseline(50);
+            overflow: hidden;
+            position: relative;
+
+            @media (--extra-small) {
+                height: baseline(58);
+            }
+
+            @media (--small) {
+                height: baseline(47);
+            }
+        }
+
+        &__image {
+            bottom: 0;
+            left: 50%;
+            max-height: baseline(44);
+            position: absolute;
+            transform: translateX(-60rem);
+            transition: $transition-duration-regular;
+            width: auto;
+            z-index: $z-small;
+
+            @media (--extra-small) {
+                left: 50%;
+                max-height: baseline(38);
+                transform: translateX(-50%);
+            }
+
+            @media (--small) {
+                max-height: 300px;
+                transform: translateX(-37rem);
+            }
+
+            @media (--medium) {
+                transform: translateX(-49rem);
+            }
+
+            @media (--large) {
+                transform: translateX(-60rem);
+            }
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            @media (--extra-small) {
+                padding: baseline(3) baseline(2);
+                text-align: center;
+            }
+
+            @media (--from-small) {
+                justify-content: center;
+            }
+        }
+
+        &__title,
+        &__text {
+            left: 50%;
+            position: relative;
+            transition: $transition-duration-regular;
+
+            @media (--extra-small) {
+                left: 0;
+            }
+
+            @media (--small) {
+                width: 36%;
+            }
+
+            @media (--medium) {
+                transform: translateX(-9rem);
+                width: 35%;
+            }
+
+            @media (--large) {
+                max-width: 60rem;
+                transform: translateX(-12rem);
+                width: 30%;
+            }
+        }
+
+        &__title {
+            @include t-hero-title;
+
+            color: color(blue);
+            margin-bottom: baseline(2);
+        }
+
+        &__shape {
+            font-size: rem(448);
+            position: absolute;
+
+            @media (--small) {
+                font-size: rem(416);
+            }
+
+            &:nth-of-type(1) {
+                bottom: -20%;
+                left: 0;
+                transform: translateX(-600px) rotate(45deg);
+
+                @media (--extra-small) {
+                    bottom: -38%;
+                    font-size: rem(384);
+                    left: 50%;
+                    transform: translateX(-50%) scale(0.5);
+                }
+
+                @media (--small) {
+                    bottom: -14%;
+                    transform: translateX(-450px) rotate(45deg);
+                }
+            }
+
+            &:nth-of-type(2) {
+                right: 0;
+                transform: translateX(600px) rotate(45deg);
+                top: -20%;
+
+                @media (--small) {
+                    transform: translateX(450px) rotate(45deg);
+                }
+
+                @media (--extra-small) {
+                    display: none;
+                }
+            }
+        }
+
+        &__icon {
+            font-size: 8rem;
+            position: absolute;
+            transform: rotate(-15deg);
+            z-index: $z-min;
+
+            &:nth-of-type(1) {
+                bottom: 11%;
+                font-size: 7rem;
+                left: 1%;
+                transform: rotate(15deg);
+
+                @media (--extra-small) {
+                    bottom: 40%;
+                    left: auto;
+                    right: 75%;
+                    transform: translate3d(110px, 100px, 0px) rotate(-360deg);
+                }
+
+                @media (--small) {
+                    bottom: 4%;
+                }
+
+                @media (--large) {
+                    left: calc(30% - 47rem);
+                }
+            }
+
+            &:nth-of-type(2) {
+                top: 23%;
+
+                @media (--extra-small) {
+                    display: none;
+                }
+
+                @media (--small) {
+                    left: 5%;
+                }
+
+                @media (--medium) {
+                    left: 6%;
+                }
+
+                @media (--large) {
+                    left: calc(50% - 76rem);
+                }
+            }
+
+            &:nth-of-type(3) {
+                font-size: 7rem;
+                right: 34%;
+                top: 8%;
+
+                @media (--extra-small) {
+                    display: none;
+                }
+
+                @media (--small) {
+                    right: 22%;
+                }
+
+                @media (--medium) {
+                    right: 27%;
+                }
+            }
+
+            &:nth-of-type(4) {
+                right: 9%;
+                top: 21%;
+                transform: rotate(20deg);
+
+                @media (--to-small) {
+                    display: none;
+                }
+
+                @media (--medium) {
+                    right: 4%;
+                    top: 20%;
+                }
+            }
+
+            &:nth-of-type(5) {
+                bottom: 11%;
+                right: 16%;
+
+                @media (--extra-small) {
+                    bottom: 24%;
+                    left: 77%;
+                    right: auto;
+                    transform: translate3d(-110px, 100px, 0px) rotate(-360deg);
+                }
+
+                @media (--small) {
+                    bottom: 4%;
+                    left: 90%;
+                }
+
+                @media (--medium) {
+                    right: 8%;
+                }
+            }
+        }
+    }
+}

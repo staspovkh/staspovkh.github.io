@@ -1,0 +1,151 @@
+// Homepage - Big Brands
+//
+// Please refer to Content managment documentation for specific settings: https://alfuttaim.atlassian.net/wiki/spaces/SH/pages/170524709/TRU+-+HP+-+Homepage#TRU-HP-Homepage-BigBrands(homepage-slot-6)
+//
+// markup:
+// <div class="g-grid">
+// <div class="b-content-slot b-content-slot--brand m-title-divider g-grid__row">
+//     <!-- clp-slot (Content Slot) "callout" field is the title -->
+//     <h3 class="b-content-slot__title">
+//         <span class="b-content-slot__title-text">Big brands</span>
+//     </h3>
+//     <!-- 1st asset of Content Slot's asset list - left image -->
+//     <div class="b-bnr b-bnr--brand__image-1  h-hidden__extra-small h-hidden__small m-rtl-flip-image">
+//         <div class="b-bnr__inner">
+//             <picture class="b-bnr__picture">
+//                 <img src="images/banners/brand/banner-brand-image-1.png" alt="" class="b-bnr__image">
+//             </picture>
+//         </div>
+//     </div>
+//     <!-- 2..n assets of Content Slot's asset list - they contain only logos -->
+//     <div class="b-bnr b-bnr--brand g-grid__col-3 g-grid__col-xs-4 m-rectangle">
+//         <div class="b-bnr__inner">
+//             <picture class="b-bnr__picture">
+//                 <img src="images/banners/brand/brand-lego.png" alt="" class="b-bnr__image">
+//             </picture>
+//             <div class="b-bnr__content">
+//                 <a href="#" class="b-bnr__fullsize-link" target="_blank"></a>
+//             </div>
+//         </div>
+//     </div>
+//     <div class="b-bnr b-bnr--brand g-grid__col-3 g-grid__col-xs-4 m-rectangle">
+//         <div class="b-bnr__inner">
+//             <picture class="b-bnr__picture">
+//             <img src="images/banners/brand/brand-starwars.png" alt="" class="b-bnr__image">
+//             </picture>
+//             <div class="b-bnr__content">
+//                 <a href="#" class="b-bnr__fullsize-link" target="_blank"></a>
+//             </div>
+//         </div>
+//     </div>
+//     <div class="b-bnr b-bnr--brand g-grid__col-3 g-grid__col-xs-4 m-rectangle">
+//         <div class="b-bnr__inner">
+//             <picture class="b-bnr__picture">
+//             <img src="images/banners/brand/brand-marvel.png" alt="" class="b-bnr__image">
+//             </picture>
+//             <div class="b-bnr__content">
+//                 <a href="#" class="b-bnr__fullsize-link" target="_blank"></a>
+//             </div>
+//         </div>
+//     </div>
+//     <div class="b-bnr b-bnr--brand g-grid__col-3 g-grid__col-xs-4 m-rectangle">
+//         <div class="b-bnr__inner">
+//             <picture class="b-bnr__picture">
+//             <img src="images/banners/brand/brand-barbie.png" alt="" class="b-bnr__image">
+//             </picture>
+//             <div class="b-bnr__content">
+//                 <a href="#" class="b-bnr__fullsize-link" target="_blank"></a>
+//             </div>
+//         </div>
+//     </div>
+//     <div class="b-bnr b-bnr--brand g-grid__col-3 g-grid__col-xs-4 m-rectangle">
+//         <div class="b-bnr__inner">
+//             <picture class="b-bnr__picture">
+//             <img src="images/banners/brand/brand-nerf.png" alt="" class="b-bnr__image">
+//             </picture>
+//             <div class="b-bnr__content">
+//                 <a href="#" class="b-bnr__fullsize-link" target="_blank"></a>
+//             </div>
+//         </div>
+//     </div>
+//     <div class="b-bnr b-bnr--brand g-grid__col-3 g-grid__col-xs-4 m-rectangle">
+//         <div class="b-bnr__inner">
+//             <picture class="b-bnr__picture">
+//             <img src="images/banners/brand/brand-dc.png" alt="" class="b-bnr__image">
+//             </picture>
+//             <div class="b-bnr__content">
+//                 <a href="#" class="b-bnr__fullsize-link" target="_blank"></a>
+//             </div>
+//         </div>
+//     </div>
+//     <!-- Last asset of Content Slot's asset list - right image -->
+//     <div class="b-bnr b-bnr--brand__image-2 h-hidden__extra-small h-hidden__small m-rtl-flip-image">
+//         <div class="b-bnr__inner">
+//             <picture class="b-bnr__picture">
+//                 <img src="images/banners/brand/banner-brand-image-2.png" alt="" class="b-bnr__image">
+//             </picture>
+//         </div>
+//     </div>
+// </div>
+// </div>
+//
+// Styleguide 8.4
+
+.b-bnr--brand {
+    margin-bottom: baseline(2.5);
+
+    .non-touch &:hover {
+        .b-bnr__inner {
+            box-shadow: $box-shadow-regular;
+        }
+    }
+
+    &.m-full {
+        .b-bnr__inner {
+            padding: 0;
+        }
+    }
+
+    &.m-rectangle {
+        .b-bnr__inner {
+            padding: baseline(2);
+
+            @media (--extra-small) {
+                padding: baseline(1);
+            }
+        }
+    }
+
+    .b-bnr__inner {
+        @include block-proportions(1/1);
+        @include transition(box-shadow);
+
+        align-items: center;
+        border-radius: $border-radius-small;
+        display: flex;
+        overflow: hidden;
+        padding: baseline(3);
+
+        @media (--extra-small) {
+            padding: baseline(2);
+        }
+    }
+
+    &__image-1,
+    &__image-2 {
+        margin-bottom: 0;
+        position: absolute;
+        top: baseline(8);
+        z-index: $z-min;
+    }
+
+    &__image-1 {
+        left: 0;
+        transform: translateX(-100%);
+    }
+
+    &__image-2 {
+        right: 0;
+        transform: translateX(100%);
+    }
+}

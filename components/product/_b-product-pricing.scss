@@ -1,0 +1,39 @@
+.b-product-pricing {
+    font-family: $font-family-akcent;
+    font-size: baseline(4);
+    line-height: baseline(3.5) rtl(baseline(3));
+
+    &__currency {
+        font-size: $font-size-small;
+        line-height: 1;
+        text-decoration: inherit;
+        vertical-align: top;
+    }
+
+    &__standard {
+        color: color(grey, 5);
+        font-family: $font-family-main;
+        font-size: $font-size-small;
+        font-weight: $font-main-medium;
+        line-height: 1;
+        margin-bottom: rem(2);
+        text-decoration: line-through;
+    }
+
+    &__standard &__currency {
+        line-height: 1;
+    }
+
+    &__standard + &__sale {
+        color: color(orange, deep);
+    }
+
+    &__callout {
+        color: $color-text;
+        font-family: $font-family-main;
+        font-size: $font-size-small;
+        font-weight: $font-main-regular;
+        line-height: 1;
+        margin-top: baseline(1);
+    }
+}

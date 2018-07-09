@@ -1,0 +1,109 @@
+.b-header-search {
+    @media (--from-medium) {
+        width: 100%;
+    }
+
+    @media (--to-small) {
+        flex: 1;
+    }
+
+    &__wrapper {
+        position: relative;
+
+        @media (--to-small) {
+            margin: -#{($header-search-height - $header-icon-size) / 2} 0;
+        }
+    }
+
+    &__form {
+        display: flex;
+        position: relative;
+        z-index: $z-min;
+    }
+
+    &__textinput {
+        background-color: color(white, $opacity: shadow);
+        border: none;
+        border-radius: rem(4);
+        color: color(white);
+        font-family: $font-family-main;
+        font-size: $font-size-regular;
+        font-weight: $font-main-medium;
+        height: rem(44);
+        line-height: rem(24);
+        outline: none;
+        padding: $header-search-gutter baseline(6);
+        position: relative;
+        width: 100%;
+        z-index: $z-min;
+
+        @media (--to-small) {
+            background-color: color(white);
+            color: color(blue);
+        }
+
+        &::placeholder {
+            color: color(white);
+            opacity: 1;
+
+            @media (--to-small) {
+                opacity: 0;
+            }
+        }
+    }
+
+    &__open,
+    &__submit {
+        @include f-button-clear;
+
+        color: color(white);
+        font-size: $header-icon-size;
+        left: $header-search-gutter;
+        margin-top: - $header-icon-size / 2;
+        position: absolute;
+        top: 50%;
+        width: rem(25);
+        z-index: $z-small;
+
+        &:hover {
+            color: color(white);
+        }
+    }
+
+    &__open {
+        @media (--from-medium) {
+            display: none;
+        }
+    }
+
+    &__close {
+        @include b-close-button(
+            $button-color: color(blue),
+            $active-state-modifier: $const-search-active
+        );
+
+        color: color(blue);
+        position: absolute;
+        right: $header-search-gutter;
+        top: 50%;
+        margin-top: -($header-icon-size / 2);
+        z-index: $z-small;
+
+        &:hover {
+            &::before,
+            &::after {
+                background-color: color(blue, light);
+            }
+        }
+
+        @media (--from-medium) {
+            &::before {
+                transform: rotate(-45deg);
+            }
+
+            &::after {
+                transform: rotate(45deg);
+            }
+        }
+    }
+}

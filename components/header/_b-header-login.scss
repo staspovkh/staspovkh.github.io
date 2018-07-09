@@ -1,0 +1,3 @@
+.b-header-login {
+    @include b-header-mini-menu($justify-content: flex-end);
+}

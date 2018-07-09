@@ -1,0 +1,26 @@
+.b-store-no-results {
+    margin: 0 auto;
+    max-width: rem(400);
+    padding-top: baseline(2);
+    text-align: center;;
+
+    @media (--extra-small) {
+        padding: baseline(2) map-get($outer-margins, "-xs");
+    }
+
+    &::before {
+        @include i-svg();
+        @include i-svg--info();
+
+        content: "";
+        display: block;
+        font-size: baseline(8);
+        margin: 0 auto baseline(1);
+    }
+
+    &__title {
+        @include t-section-header;
+
+        margin-bottom: baseline(2);
+    }
+}

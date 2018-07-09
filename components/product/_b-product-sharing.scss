@@ -1,0 +1,23 @@
+.b-product-sharing {
+    &__label {
+        margin-right: rem(16);
+    }
+
+    &,
+    &__list {
+        align-items: center;
+        display: flex;
+    }
+
+    &__item {
+        margin-left: rem(16);
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    &__link {
+        font-size: baseline(5);
+    }
+}

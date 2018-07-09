@@ -1,0 +1,26 @@
+.b-type-product {
+    border-bottom: 1px solid color(grey, 3);
+    margin-bottom: baseline(4);
+    padding-bottom: baseline(1);
+    padding-top: baseline(1);
+
+    @media (--extra-small) {
+        margin-bottom: baseline(3);
+        padding-bottom: baseline(1);
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__item {
+        margin-bottom: baseline(3);
+        width: 48%;
+
+        @media (--to-small) {
+            width: 100%;
+        }
+    }
+}

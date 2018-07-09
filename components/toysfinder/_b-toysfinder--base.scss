@@ -1,0 +1,118 @@
+@mixin toysfinder-wave($color) {
+    background-image: svg-uri("<svg viewBox=\"0 0 1020 45\" fill=\"#{$color}\" preserveAspectRatio=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path id=\"badgeshape\" d=\"M1020,45H0c24.5-1.1,86.6-2.6,122-7s47.6-5.7,91-11s84.3-13.1,133-17S458.8,0,510,0c51.2,0,91.6,3.1,142,7,s101.1,13.6,147,19c38.5,4.6,43.2,6,97,12C933,42,994.3,44,1020,45z\"/></svg>");
+}
+
+.b-toysfinder {
+    background-color: color(yellow, tint);
+    overflow: hidden;
+    position: relative;
+
+    &__wrapper {
+        @media (--from-small) {
+            margin-top: baseline(5);
+        }
+    }
+
+    &__title {
+        @include t-sub-section-header;
+
+        background-color: color(purple, deep);
+        background-image: url("../images/starburst-violet.svg");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: auto rem(786);
+        color: color(white);
+        font-weight: $font-main-medium;
+        min-height: rem(100);
+        padding: baseline(2);
+        position: relative;
+        text-align: center;
+
+        &::after {
+            @include toysfinder-wave(color(yellow, tint));
+
+            background-position: 50% 100%;
+            background-size: 100% 100%;
+            bottom: -1%;
+            content: "";
+            height: rem(45);
+            left: 0;
+            margin: 0 auto;
+            position: absolute;
+            right: 0;
+
+            @media (--extra-small) {
+                background-size: rem(720) rem(45);
+            }
+        }
+    }
+
+    &__subtitle {
+        @include t-section-header;
+
+        position: relative;
+        text-align: center;
+        z-index: $z-min;
+    }
+
+    &__steps {
+        margin-top: baseline(-2);
+    }
+
+    &__step-indicator {
+        font-weight: $font-main-bold;
+        position: relative;
+        text-align: center;
+        z-index: $z-min;
+    }
+
+    &__step-content {
+        min-height: baseline(34);
+    }
+
+    &__clear {
+        line-height: baseline(2);
+        padding: baseline(2);
+        position: relative;
+        text-align: center;
+        z-index: $z-min;
+    }
+
+    &__clear-btn {
+        background-color: color(yellow, tint);
+        border-radius: 100%;
+        box-shadow: 0 0 baseline(1.5) baseline(1.5) color(yellow, tint);
+        font-weight: $font-main-bold;
+    }
+
+    &__back {
+        @include site-width;
+
+        left: 0;
+        padding-bottom: baseline(2);
+        padding-top: baseline(2);
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    &__back-btn {
+        color: color(white);
+        font-size: baseline(3);
+    }
+
+    &__actions {
+        margin: baseline(3) baseline(2);
+        text-align: center;
+    }
+
+    &__submit-btn {
+        background-color: color(blue, light);
+        border: 0;
+        min-width: rem(248);
+
+        .b-toysfinder__actions--last-step & {
+            background-color: color(green);
+        }
+    }
+}

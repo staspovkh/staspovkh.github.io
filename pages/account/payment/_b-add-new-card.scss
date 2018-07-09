@@ -1,0 +1,24 @@
+.b-add-new-card {
+    .f-field {
+        &--exp-date {
+            display: flex;
+            flex-wrap: wrap;
+
+            .f-label {
+                width: 100%;
+            }
+        }
+
+        &--month,
+        &--year {
+            margin-bottom: 0;
+            margin-right: baseline(1);
+            margin-top: 0;
+            width: rem(104);
+
+            .f-label {
+                display: none;
+            }
+        }
+    }
+}

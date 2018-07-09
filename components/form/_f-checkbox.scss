@@ -1,0 +1,107 @@
+// Checkboxes, radios
+//
+// markup:
+// <ul>
+//     <li class="f-field f-field--radio">
+//         <input id="radio1" name="radio" class="f-radio" type="radio" checked>
+//         <label for="radio1" class="f-label">
+//             <span class="f-label__text">Radio title 1</span>
+//         </label>
+//     </li>
+//     <li class="f-field f-field--radio">
+//         <input id="radio2" name="radio" class="f-radio" type="radio">
+//         <label for="radio2" class="f-label">
+//             <span class="f-label__text">Radio title 2</span>
+//         </label>
+//     </li>
+// </ul>
+// <ul>
+//     <li class="f-field f-field--checkbox">
+//         <input id="checkbox1" name="checkbox" class="f-checkbox" type="checkbox" checked>
+//         <label for="checkbox1" class="f-label">
+//             <span class="f-label__text">Checkbox title 1</span>
+//         </label>
+//     </li>
+//     <li class="f-field f-field--checkbox">
+//         <input id="checkbox2" name="checkbox" class="f-checkbox" type="checkbox">
+//         <label for="checkbox2" class="f-label">
+//             <span class="f-label__text">Checkbox title 2</span>
+//         </label>
+//     </li>
+// </ul>
+//
+// Styleguide 6.3
+
+$checkbox-size: baseline(3);
+$checkbox-glyph-size: baseline(1.5);
+$checkbox-label-padding: baseline(1);
+
+.f-checkbox,
+.f-radio {
+    @include f-checkbox {
+        background-color: color(white);
+        border: 1px solid color(grey, 3);
+        border-radius: $border-radius-small;
+        height: $checkbox-size;
+        margin-right: rem(10);
+        width: $checkbox-size;
+    }
+
+    ~ .f-label {
+        @include f-checkbox-label;
+
+        display: inline-flex;
+        line-height: 1.3;
+        vertical-align: top;
+
+        &::before {
+            flex-shrink: 0;
+        }
+    }
+
+    &:checked ~ .f-label {
+        font-weight: $font-main-medium;
+
+        .non-touch &:hover {
+            background-color: color(green, tint);
+        }
+    }
+}
+
+.f-checkbox {
+    ~ .f-label {
+        position: relative;
+
+        &::before {
+            @include transition((background-color, border-color));
+        }
+
+        &::after {
+            @include icon-styles($checkbox-glyph-size);
+            @include transition((max-width, visibility));
+
+            color: color(white);
+            content: icon-char(tick);
+            height: $checkbox-size;
+            left: $checkbox-label-padding + ($checkbox-size - $checkbox-glyph-size) / 2;
+            line-height: $checkbox-size / $checkbox-glyph-size;
+            max-width: 0;
+            overflow: hidden;
+            position: absolute;
+            top: $checkbox-label-padding;
+            visibility: hidden;
+        }
+    }
+
+    &:checked ~ .f-label {
+        &::before {
+            background-color: color(green, light);
+            border-color: color(green, light);
+        }
+
+        &::after {
+            max-width: $checkbox-glyph-size;
+            visibility: visible;
+        }
+    }
+}

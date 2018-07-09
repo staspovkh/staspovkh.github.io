@@ -1,0 +1,111 @@
+.l-pdp__sticky-actions {
+    margin-top: baseline(2);
+    bottom: baseline(-12);
+}
+
+.l-pdp__sticky-actions#{$const-sticky} {
+    @include bottom-actions-layout(false);
+
+    display: flex;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    z-index: $z-product-actions;
+
+    .l-pdp__sticky-actions-inner {
+        @include site-width;
+
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .l-pdp__sticky-actions-buttons {
+        display: flex;
+        justify-content: flex-end;
+
+        @media (--extra-small) {
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+
+    &.l-pdp__sticky-actions--default {
+        .b-product__name {
+            @media (--from-small) {
+                flex-shrink: 1;
+                font-size: $font-size-medium;
+                line-height: $line-height-medium;
+                margin: 0;
+                margin-right: rem(15);
+                max-width: rem(300);
+            }
+        }
+
+        .b-product-actions__controls {
+            justify-content: flex-end;
+        }
+
+        .b-product-pricing {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-right: rem(20);
+
+            @media (--extra-small) {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    }
+
+    &.l-pdp__sticky-actions--notifyme {
+        .l-pdp__sticky-actions-inner,
+        .l-pdp__sticky-actions-buttons {
+            justify-content: center;
+        }
+
+        .b-product-notifyme {
+            background: none;
+            border: 0;
+            margin: 0;
+            padding: 0;
+
+            &__header {
+                line-height: $line-height-medium;
+                margin-bottom: 0;
+
+                &::before {
+                    font-size: rem(40);
+                    min-width: rem(50);
+                }
+            }
+
+            &__title {
+                font-size: $font-size-regular;
+                margin-bottom: 0;
+            }
+
+            &__subtitle {
+                display: block;
+                font-size: $font-size-small;
+            }
+
+            &__view-more {
+                font-weight: $font-main-bold;
+            }
+        }
+    }
+
+    .b-product-form {
+        margin: 0;
+    }
+
+    .b-product-add-to-cart {
+        flex: none;
+
+        @media (--extra-small) {
+            margin-right: 0;
+        }
+    }
+}

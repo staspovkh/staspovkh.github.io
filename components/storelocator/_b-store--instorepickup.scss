@@ -1,0 +1,92 @@
+.b-store {
+    $selector: &;
+
+    &--instorepickup {
+        font-size: $font-size-small;
+
+        #{$selector}__address {
+            display: inline;
+        }
+
+        #{$selector}__details {
+            @include transition((max-height, border));
+    
+            border-width: 0 0 1px;
+            border-style: solid;
+            border-color: color(grey, 3);
+
+            &#{$const-expanded} {
+                max-height: rem(800);
+
+                @media (--from-small) {
+                    border-color: transparent;
+                }
+
+                @media (--extra-small) {
+                    border-width: 1px 0;
+                }
+            }
+        }
+
+        &:last-child #{$selector}__details {
+            @media (--from-small) {
+                border-bottom: 0;
+            }
+        }
+
+        #{$selector}__details-inner {
+            background-color: color(grey, 4);
+            border-radius: $border-radius-small;
+            display: flex;
+            flex-wrap: wrap;
+            padding: baseline(3) baseline(5);
+
+            @media (--small) {
+                padding: baseline(3);
+            }
+
+            @media (--extra-small) {
+                border-radius: 0;
+                display: block;
+                padding: baseline(3) map-get($outer-margins, "-xs");
+            }
+        }
+
+        #{$selector}__details-item {
+            margin-bottom: baseline(2);
+
+            @media (--from-small) {
+                max-width: rem(270);
+                padding-right: rem(30);
+                width: 50%;
+            }
+
+            table {
+                td {
+                    padding-right: rem(12);
+                }
+
+                td:nth-child(2) {
+                    font-weight: $font-main-regular;
+                }
+            }
+        }
+
+        #{$selector}__details-item-title {
+            font-size: $font-size-regular;
+            font-weight: $font-main-bold;
+            margin-bottom: baseline(1);
+        }
+
+        #{$selector}__contact-item {
+            &::before {
+                color: $color-text;
+                margin-right: rem(10);
+            }
+        }
+
+        #{$selector}__contact-label {
+            color: $color-text;
+        }
+    }
+}

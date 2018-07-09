@@ -1,0 +1,32 @@
+.b-cart-header {
+    margin-bottom: baseline(2);
+
+    @media (--extra-small) {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 #{map-get($outer-margins, "-xs")};
+    }
+
+    &__title {
+        @include t-subpage-title($font-family-main);
+
+        display: inline-block;
+        vertical-align: bottom;
+    }
+
+    &__quantity {
+        font-size: $font-size-large;
+        line-height: $line-height-larger;
+        padding-left: rem(2);
+
+        @media (--extra-small) {
+            font-size: $font-size-medium;
+            line-height: $line-height-large;
+        }
+    }
+
+    &__total {
+        @include t-sub-section-header;
+    }
+}

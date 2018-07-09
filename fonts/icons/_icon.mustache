@@ -1,0 +1,12 @@
+[class*="i-font-"]::before,
+[class*="i-font-"]::after {
+    @include {{options.fontId}}-styles;
+}
+
+{{#glyphs}}
+.i-font-{{name}}::before,
+.i-font-after-{{name}}::after {
+    content: {{options.fontId}}-char({{name}});
+}
+
+{{/glyphs}}

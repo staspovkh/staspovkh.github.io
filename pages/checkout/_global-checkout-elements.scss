@@ -1,0 +1,42 @@
+@mixin checkout-title(
+    $edit: true
+) {
+    @include t-section-header;
+
+    font-weight: $font-main-bold;
+    margin-bottom: baseline(2);
+
+    @if $edit {
+        padding-right: baseline(8);
+    }
+}
+
+@mixin checkout-message {
+    color: color(grey);
+    margin-bottom: baseline(3);
+}
+
+@mixin checkout-address {
+    line-height: $line-height-large;
+    margin: 0 0 baseline(3);
+}
+
+@mixin checkout-button-change {
+    @extend %b-link;
+
+    position: absolute;
+    right: 0;
+    top: rem(6);
+
+    @media (--extra-small) {
+        top: rem(1);
+    }
+}
+
+@mixin checkout-button-edit {
+    @extend %f-button-link;
+}
+
+@mixin checkout-button-select {
+    @extend %f-button;
+}

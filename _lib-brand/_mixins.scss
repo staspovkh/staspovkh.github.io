@@ -1,0 +1,292 @@
+@mixin bottom-actions-layout($position: relative) {
+    background-color: color(grey, 4);
+    box-shadow: 0 0 rem(40) rem(-10) color(grey);
+    min-height: baseline(11);
+    padding: baseline(2);
+
+    @if $position {
+        position: $position;
+    }
+}
+
+@mixin form-basic-action-bar() {
+    margin-top: baseline(4);
+
+    @media (--extra-small) {
+        margin-top: baseline(3);
+    }
+
+    &__action,
+    [class*="f-cta-"],
+    [class="f-button"] {
+        display: block;
+        margin: baseline(1) auto 0;
+        max-width: 100%;
+        width: $width-form-regular;
+
+        @media (--extra-small) {
+            width: 100%;
+        }
+    }
+}
+
+@mixin f-checkbox-label($checkbox-label-padding: baseline(1)) {
+    @include transition(background-color);
+
+    border-radius: $border-radius-small;
+    margin: 0 -#{$checkbox-label-padding};
+    padding: $checkbox-label-padding;
+
+    .non-touch &:hover {
+        background-color: color(black, null, 0.05);
+        text-decoration: none;
+    }
+}
+
+@mixin brand-scrollbar() {
+    @include custom-scrollbar(
+        $bg-color: color(grey, 4),
+        $thumb-color: color(grey, $opacity: overlay),
+        $scrollbar-width: rem(7)
+    );
+}
+
+@mixin box() {
+    @media (--from-small) {
+        border: 1px solid color(grey, 2);
+        border-radius: $border-radius-regular;
+        padding: baseline(6) baseline(10);
+    }
+}
+
+@mixin border-bottom($margin-bottom: baseline(3)) {
+    border-bottom: 1px solid color(grey, 3);
+    margin-bottom: $margin-bottom;
+    padding-bottom: baseline(3);
+}
+
+@mixin border-top() {
+    border-top: 1px solid color(grey, 3);
+    margin-top: baseline(3);
+    padding-top: baseline(3);
+}
+
+@mixin sidebar-box() {
+    background-color: color(white);
+
+    @media (--from-small) {
+        border-radius: $border-radius-regular;
+        padding: baseline(2);
+    }
+}
+
+@mixin primary-box() {
+    background-color: color(white);
+
+    @media (--from-small) {
+        border-radius: $border-radius-regular;
+        margin-bottom: baseline(3);
+        padding: baseline(4) baseline(6) baseline(5);
+    }
+
+    @media (--from-medium) {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @media (--extra-small) {
+        border-bottom: baseline(1) solid color(grey, 3);
+        padding: baseline(3) map-get($outer-margins, "-xs");
+    }
+}
+
+// Buttons
+
+@mixin b-close-button(
+    $button-size: baseline(3),
+    $button-weight: 16%,
+    $button-color: $color-text,
+    $active-state-modifier: "",
+    $hide-after-close: true,
+    $animation-duration: $transition-duration-regular
+) {
+    @include f-button-clear;
+
+    cursor: pointer;
+    display: block;
+    height: $button-size;
+    position: relative;
+    width: $button-size;
+
+    @if $hide-after-close {
+        @include transition(opacity);
+
+        opacity: 0;
+        pointer-events: none;
+
+        #{$active-state-modifier} & {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+
+    &::before,
+    &::after {
+        background-color: $button-color;
+        border-radius: $button-size;
+        content: "";
+        height: $button-weight;
+        left: 0;
+        margin-top: -#{$button-weight / 2};
+        position: absolute;
+        top: 50%;
+        width: 100%;
+    }
+
+    &::before {
+        animation: search-halfspin-reverse $animation-duration both;
+
+        #{$active-state-modifier} & {
+            animation: search-halfspin $animation-duration $animation-duration both;
+        }
+    }
+
+    &::after {
+        animation: search-halfspin-2-reverse $animation-duration both;
+
+        #{$active-state-modifier} & {
+            animation: search-halfspin-2 $animation-duration $animation-duration both;
+        }
+    }
+}
+
+@mixin b-arrow-button(
+    $button-size: baseline(2),
+    $button-weight: 25%,
+    $button-color: $color-text,
+    $parent-selector: false,
+    $animation-duration: $transition-duration-long
+) {
+    $button-height: ($button-weight / 100%) * $button-size;
+
+    min-height: $button-size;
+    min-width: $button-size;
+    position: relative;
+
+    &::before,
+    &::after {
+        @include transition(transform, $animation-duration / 4);
+
+        background-color: $button-color;
+        border-radius: $button-size;
+        content: "";
+        display: block;
+        height: ($button-weight / 100%) * $button-size;
+        left: 50%;
+        margin-left: -#{$button-size / 2};
+        margin-top: -#{$button-height / 2};
+        position: absolute;
+        top: 50%;
+        transform-origin: #{$button-height / 2} 50%;
+        width: $button-size;
+    }
+
+    &::before {
+        animation: arrow-bounce-top $animation-duration;
+        transform: rotate(-45deg);
+    }
+
+    &::after {
+        animation: arrow-bounce-bottom $animation-duration;
+        transform: rotate(45deg);
+    }
+
+    @if $parent-selector {
+        #{$parent-selector}:active & {
+            &::before {
+                animation: unset;
+                transform: rotate(-15deg);
+            }
+
+            &::after {
+                animation: unset;
+                transform: rotate(15deg);
+            }
+        }
+    } @else {
+        &:active {
+            &::before {
+                animation: unset;
+                transform: rotate(-15deg);
+            }
+
+            &::after {
+                animation: unset;
+                transform: rotate(15deg);
+            }
+        }
+    }
+}
+
+@mixin b-toggle-button(
+    $button-size: baseline(2),
+    $button-color: $color-text,
+    $active-state-modifier: $const-expanded,
+    $parent-selector: false,
+    $animation-duration: $transition-duration-regular
+) {
+    position: relative;
+
+    &::before,
+    &::after {
+        @include icon-styles($button-size);
+        @include transition((transform, opacity), $animation-duration);
+
+        color: $button-color;
+        content: icon-char(add);
+        margin-top: -#{$button-size / 2};
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform-origin: 50% 50%;
+
+        @content;
+    }
+
+    &::before {
+        transform: rotate(0deg) scale(1);
+    }
+
+    &::after {
+        content: icon-char(minus);
+        opacity: 0;
+        transform: rotate(-90deg);
+    }
+
+    @if $parent-selector {
+        $selector: &;
+        @at-root {
+            #{$active-state-modifier} {
+                #{$selector} {
+                    @include b-toggle-button--active;
+                }
+            }
+        }
+    } @else {
+        &#{$active-state-modifier} {
+            @include b-toggle-button--active;
+        }
+    }
+}
+
+@mixin b-toggle-button--active {
+    &::before {
+        transform: rotate(90deg) scale(0);
+    }
+
+    &::after {
+        opacity: 1;
+        transform: rotate(0);
+    }
+}

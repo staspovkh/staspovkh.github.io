@@ -1,0 +1,24 @@
+.ui-autocomplete {
+    @include custom-scrollbar(
+        $bg-color: color(grey, 3),
+        $thumb-color: color(grey, $opacity: overlay),
+        $scrollbar-width: rem(4)
+    );
+
+    background-color: color(white);
+    border-radius: $border-radius-small;
+    box-shadow: $box-shadow-regular;
+    padding: baseline(1);
+
+    .ui-menu-item {
+        border-radius: $border-radius-small;
+        font-size: $font-size-small;
+        padding: baseline(1);
+
+        .non-touch &:hover,
+        &.ui-state-focus {
+            background-color: color(grey, 4);
+            cursor: pointer;
+        }
+    }
+}

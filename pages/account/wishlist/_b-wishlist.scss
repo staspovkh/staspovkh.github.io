@@ -1,0 +1,64 @@
+.b-wishlist {
+    position: relative;
+
+    @media (--extra-small) {
+        margin-top:baseline(4.5);
+    }
+
+    &__title {
+
+        @media (--extra-small) {
+            padding-left: baseline(4);
+            text-align: left;
+        }
+    }
+
+    &__empty {
+        text-align: center;
+    }
+
+    &__empty-title {
+        @include t-sub-section-header;
+    }
+
+    &__empty-text {
+        line-height: rem(38);
+    }
+
+    &__empty-button {
+        margin-top: baseline(2);
+        max-width: rem(240);
+        width: 100%;
+    }
+
+    &__message {
+        margin: 0 auto baseline(4);
+        max-width: 620px;
+        padding: baseline(2.5) baseline(2.5) baseline(2.5) baseline(8);
+        position: relative;
+        width: 100%;
+    }
+
+    &__message-icon {
+        @include icon(info);
+
+        background-color: color(yellow);
+        border-radius: 50%;
+        height: baseline(4);
+        left: baseline(2);
+        position: absolute;
+        text-align: center;
+        top: baseline(3);
+        width: baseline(4);
+
+        &::before {
+            font-size: baseline(2.5);
+            line-height: baseline(4);
+        }
+    }
+
+    &__message-days-left,
+    &__message-register-link {
+        font-weight: $font-main-bold;
+    }
+}

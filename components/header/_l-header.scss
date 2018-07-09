@@ -1,0 +1,108 @@
+.l-header {
+    &__top {
+        background-color: color(black);
+
+        &-wrapper {
+            @include site-width;
+
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            padding-bottom: rem(10);
+            padding-top: rem(10);
+        }
+
+        &-promo {
+            @media (--to-small) {
+                width: 100%;
+            }
+        }
+
+        &-help,
+        &-login {
+            @media (--to-small) {
+                display: none;
+            }
+        }
+    }
+
+    &__main {
+        background-color: color(blue);
+        padding: baseline(3) 0;
+        position: relative;
+
+        &,
+        &#{$const-sticky} {
+            z-index: $z-header;
+        }
+
+        @media (--to-small) {
+            padding: baseline(2) 0;
+
+            .l-header--checkout & {
+                padding: baseline(1.5) 0;
+            }
+        }
+
+        &-wrapper {
+            @include site-width;
+            @include transition(transform);
+
+            align-items: center;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            transform: translateX(0);
+
+            #{$const-mobile-megamenu-opened} & {
+                transform: translateX(100%);
+            }
+        }
+
+        &-logo {
+            width: 22.5%;
+
+            @media (--to-small) {
+                width: 50%;
+            }
+        }
+
+        &-search {
+            max-width: rem(490);
+            width: 55%;
+
+            @media (--to-small) {
+                align-items: center;
+                display: flex;
+                order: -1;
+                width: 25%;
+            }
+        }
+
+        &-menu {
+            width: 22.5%;
+
+            @media (--to-small) {
+                width: 25%;
+            }
+        }
+    }
+
+    &__navigation {
+        background-color: color(blue);
+
+        &-wrapper {
+            max-height: rem(84);
+        }
+    }
+
+    &__slot {
+        @media (--from-small) {
+            background-color: color(grey, 4);
+        }
+
+        &-wrapper {
+            @include site-width;
+        }
+    }
+}

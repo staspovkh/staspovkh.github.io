@@ -1,0 +1,13 @@
+.b-billing-legal-asset {
+    font-size: $font-size-small;
+    padding: baseline(1) 0;
+    text-align: center;
+
+    @media (--extra-small) {
+        padding: baseline(1) 0 baseline(2);
+    }
+
+    a {
+        font-weight: $font-main-bold;
+    }
+}

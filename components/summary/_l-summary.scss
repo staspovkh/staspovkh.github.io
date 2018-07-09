@@ -1,0 +1,34 @@
+.l-summary {
+    min-width: rem(300);
+
+    &__inner {
+        @include sidebar-box;
+    }
+
+    &__coupons {
+        .b-summary-coupons {
+            margin-bottom: baseline(2);
+        }
+    }
+
+    &__actions {
+        margin-top: baseline(3);
+
+        @media (--extra-small) {
+            padding: 0 map-get($outer-margins, "-xs") baseline(2);
+        }
+    }
+
+    &__ordertotal {
+        @media (--extra-small) {
+            margin-left: map-get($outer-margins, "-xs");
+            margin-right: map-get($outer-margins, "-xs");
+        }
+
+        .l-checkout & {
+            border-bottom: 1px solid color(grey, 3);
+            margin-bottom: baseline(2);
+            padding-bottom: baseline(1);
+        }
+    }
+}

@@ -1,0 +1,215 @@
+// Icons & Graphics
+//
+// There are two types of icons styles.
+//
+// Styleguide 5
+
+// Monochrome Icons
+//
+// A one colour variation, designed for simplicity and recognisability, gives immediate meaning and provides additional context.  They are child-like in nature, withe chunky strokes and generous curves.  They have been design with uniform stroke widths, curves and overall shape language in order to achieve consistency.  
+//
+// markup:
+// <div class="sg-iconset">
+//   <i class="i-font-add">add</i>
+//   <i class="i-font-basket-filled">basket-filled</i>
+//   <i class="i-font-basket">basket</i>
+//   <i class="i-font-calendar">calendar</i>
+//   <i class="i-font-chevron-down">chevron-down</i>
+//   <i class="i-font-chevron-left">chevron-left</i>
+//   <i class="i-font-chevron-right">chevron-right</i>
+//   <i class="i-font-chevron-up">chevron-up</i>
+//   <i class="i-font-close">close</i>
+//   <i class="i-font-email">email</i>
+//   <i class="i-font-exclamation">exclamation</i>
+//   <i class="i-font-filter">filter</i>
+//   <i class="i-font-handle">handle</i>
+//   <i class="i-font-heart-filled">heart-filled</i>
+//   <i class="i-font-heart">heart</i>
+//   <i class="i-font-info">info</i>
+//   <i class="i-font-location-filled">location-filled</i>
+//   <i class="i-font-location">location</i>
+//   <i class="i-font-lock">lock</i>
+//   <i class="i-font-menu">menu</i>
+//   <i class="i-font-minus">minus</i>
+//   <i class="i-font-phone">phone</i>
+//   <i class="i-font-search">search</i>
+//   <i class="i-font-show">show</i>
+//   <i class="i-font-sort">sort</i>
+//   <i class="i-font-star">star</i>
+//   <i class="i-font-tick">tick</i>
+//   <i class="i-font-user-filled">user-filled</i>
+//   <i class="i-font-user">user</i>
+//   <i class="i-font-zoom">zoom</i>
+//   <i class="i-font-select-arrows">select-arrows</i>
+//   <i class="i-font-star-rotated">star-rotated</i>
+//   <i class="i-font-play-arrow">play-arrow</i>
+//   <i class="i-font-warning">warning</i>
+//   <i class="i-font-list">list</i>
+//   <i class="i-font-location-marker">location-marker</i>
+//   <i class="i-font-location-marker-star">location-marker-star</i>
+//   <i class="i-font-direction">direction</i>
+//   <i class="i-font-question">question</i>
+//   <i class="i-font-add-circle">add-circle</i>
+//   <i class="i-font-share">share</i>
+// </div>
+//
+// Styleguide 5.1
+
+@mixin icon-styles($size: 1em) {
+    display: inline-block;
+    font-family: "icon";
+    font-size: $size;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: none;
+    text-transform: none;
+    vertical-align: top;
+}
+
+%icon {
+    @include icon-styles;
+}
+
+@function icon-char($filename) {
+    $char: "";
+    @if $filename == add {
+        $char: "";
+    }
+    @if $filename == basket-filled {
+        $char: "";
+    }
+    @if $filename == basket {
+        $char: "";
+    }
+    @if $filename == calendar {
+        $char: "";
+    }
+    @if $filename == chevron-down {
+        $char: "";
+    }
+    @if $filename == chevron-left {
+        $char: "";
+    }
+    @if $filename == chevron-right {
+        $char: "";
+    }
+    @if $filename == chevron-up {
+        $char: "";
+    }
+    @if $filename == close {
+        $char: "";
+    }
+    @if $filename == email {
+        $char: "";
+    }
+    @if $filename == exclamation {
+        $char: "";
+    }
+    @if $filename == filter {
+        $char: "";
+    }
+    @if $filename == handle {
+        $char: "";
+    }
+    @if $filename == heart-filled {
+        $char: "";
+    }
+    @if $filename == heart {
+        $char: "";
+    }
+    @if $filename == info {
+        $char: "";
+    }
+    @if $filename == location-filled {
+        $char: "";
+    }
+    @if $filename == location {
+        $char: "";
+    }
+    @if $filename == lock {
+        $char: "";
+    }
+    @if $filename == menu {
+        $char: "";
+    }
+    @if $filename == minus {
+        $char: "";
+    }
+    @if $filename == phone {
+        $char: "";
+    }
+    @if $filename == search {
+        $char: "";
+    }
+    @if $filename == show {
+        $char: "";
+    }
+    @if $filename == sort {
+        $char: "";
+    }
+    @if $filename == star {
+        $char: "";
+    }
+    @if $filename == tick {
+        $char: "";
+    }
+    @if $filename == user-filled {
+        $char: "";
+    }
+    @if $filename == user {
+        $char: "";
+    }
+    @if $filename == zoom {
+        $char: "";
+    }
+    @if $filename == select-arrows {
+        $char: "";
+    }
+    @if $filename == star-rotated {
+        $char: "";
+    }
+    @if $filename == play-arrow {
+        $char: "";
+    }
+    @if $filename == warning {
+        $char: "";
+    }
+    @if $filename == list {
+        $char: "";
+    }
+    @if $filename == location-marker {
+        $char: "";
+    }
+    @if $filename == location-marker-star {
+        $char: "";
+    }
+    @if $filename == direction {
+        $char: "";
+    }
+    @if $filename == question {
+        $char: "";
+    }
+    @if $filename == add-circle {
+        $char: "";
+    }
+    @if $filename == share {
+        $char: "";
+    }
+    @return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true, $size: 16px) {
+    &:#{$insert} {
+        content: icon-char($filename);
+        @if $extend {
+            @extend %icon;
+        } @else {
+            @include icon-styles($size);
+        }
+        @content;
+    }
+}

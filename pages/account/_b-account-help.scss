@@ -1,0 +1,85 @@
+.b-account-help {
+    background-color: color(white);
+    margin-bottom: rem(-1); // to overlap footer top border if present
+    padding: baseline(5) 0 baseline(6);
+    position: relative;
+
+    @media (--extra-small) {
+        margin-top: 0;
+        padding: baseline(3) baseline(2);
+    }
+
+    &__wrapper {
+        @include site-width();
+
+        @media (--extra-small) {
+            margin: 0 baseline(-2);
+        }
+    }
+
+    &__title {
+        @include t-subpage-title(false);
+
+        font-weight: $font-main-bold;
+        margin-bottom: baseline(4);
+        text-align: center;
+
+        @media (--extra-small) {
+            margin-bottom: baseline(2.5);
+            text-align: left;
+        }
+    }
+
+    &__content {
+        @media (--from-small) {
+            background-color: color(grey, 4);
+            border-radius: $border-radius-regular;
+            padding: baseline(6);
+        }
+    }
+
+    &__list {
+        align-items: stretch;
+        display: flex;
+        justify-content: space-around;
+        
+        @media (--extra-small) {
+            flex-direction: column;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__contact {
+        align-items: flex-start;
+        display: flex;
+
+        @media (--extra-small) {
+            font-size: $font-size-small;
+            margin-bottom: baseline(2.5);
+        }
+
+        &::before {
+            flex-shrink: 0;
+            font-size: rem(40);
+            margin-right: baseline(3);
+
+            @media (--extra-small) {
+                font-size: rem(32);
+            }
+        }
+    }
+
+    &__contact-title {
+        font-weight: $font-main-bold;
+    }
+
+    &__contact-info {
+        font-size: $font-size-small;
+        padding-top: baseline(1);
+    }
+}

@@ -1,0 +1,116 @@
+// Content Banners Tiles (Homepage Slot 3)
+//
+// Please refer to Content managment documentation for specific settings: https://alfuttaim.atlassian.net/wiki/spaces/SH/pages/170524709/TRU+-+HP+-+Homepage#TRU-HP-Homepage-HomepageSlot2(homepage-slot-2)
+//
+// markup:
+// <div class="b-content-slot g-grid__row h-site-width">
+//     <!-- 1..3 assets of Content Slot's asset list - each represents content tile -->
+//     <div class="b-bnr b-bnr--content g-grid__col-4 g-grid__col-xs-12">
+//         <div class="b-bnr__inner">
+//             <!-- PICTURE section is formed automatically from asset's Images custom fields -->
+//             <picture class="b-bnr__picture">
+//                 <source srcset="images/banners/promo/moana-sm.jpg" media="(max-width : 767px)">
+//                 <img src="images/banners/promo/moana.jpg" alt="Asset description" class="b-bnr__image">
+//             </picture>
+//             <div class="b-bnr__content">
+//                 <!-- BEGIN of content asset's BODY field -->
+//                 <h4 class="b-bnr__title">Moana toys</h4>
+//                 <p class="b-bnr__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+//                 <a class="b-bnr__fullsize-link" href="#"></a>
+//                 <!-- END of content asset's BODY -->
+//             </div>
+//         </div>
+//     </div>
+//     <div class="b-bnr b-bnr--content g-grid__col-4 g-grid__col-xs-12">
+//         <div class="b-bnr__inner">
+//             <picture class="b-bnr__picture">
+//                 <source srcset="images/banners/promo/paw-sm.jpg" media="(max-width : 767px)">
+//                 <img src="images/banners/promo/paw.jpg" alt="Asset description" class="b-bnr__image">
+//             </picture>
+//             <div class="b-bnr__content">
+//                 <h4 class="b-bnr__title">Paw Patrol toys</h4>
+//                 <p class="b-bnr__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+//                 <a class="b-bnr__fullsize-link" href="#"></a>
+//             </div>
+//         </div>
+//         </div>
+//     <div class="b-bnr b-bnr--content g-grid__col-4 g-grid__col-xs-12">
+//         <div class="b-bnr__inner">
+//             <picture class="b-bnr__picture">
+//                 <source srcset="images/banners/promo/starwars-sm.jpg" media="(max-width : 767px)">
+//                 <img src="images/banners/promo/starwars.jpg" alt="Asset description" class="b-bnr__image">
+//             </picture>
+//             <div class="b-bnr__content">
+//                 <h4 class="b-bnr__title">Star Wars toys</h4>
+//                 <p class="b-bnr__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+//                 <a class="b-bnr__fullsize-link" href="#"></a>
+//             </div>
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide 8.2
+
+.b-bnr--content {
+    @media (--extra-small) {
+        &:first-child {
+            .b-bnr__inner {
+                border-top: 0;
+            }
+        }
+    }
+
+    .b-bnr {
+        &__inner {
+            @include transition((background-color, box-shadow));
+
+            position: relative;
+
+            @media (--extra-small) {
+                border-top: 1px solid color(grey, 3);
+                display: flex;
+                padding: baseline(3) 0;
+            }
+
+            &:hover {
+                @media (--from-small) {
+                    background-color: color(white);
+                    box-shadow: $box-shadow-regular;
+                }
+            }
+        }
+
+        &__picture {
+            @media (--extra-small) {
+                flex-basis: baseline(11);
+                flex-shrink: 0;
+                margin-right: baseline(2);
+            }
+        }
+
+        &__image {
+            @media (--extra-small) {
+                border-radius: $border-radius-small;
+            }
+        }
+
+        &__content {
+            @media (--from-small) {
+                padding: baseline(3) baseline(4) baseline(4);
+                text-align: center;
+            }
+        }
+
+        &__title {
+            font-size: $font-size-medium;
+            font-weight: $font-main-bold;
+            line-height: $line-height-medium;
+            margin-bottom: baseline(1);
+        }
+
+        &__text {
+            font-size: $font-size-small;
+            line-height: $line-height-small;
+        }
+    }
+}

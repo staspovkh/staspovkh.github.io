@@ -1,0 +1,117 @@
+.fa::before {
+    content: "";
+    @include icon-sg-styles;
+}
+
+.fa-user::before {
+    content: icon-sg-char(user);
+}
+
+.fa-search::before {
+    content: icon-sg-char(search);
+}
+
+.fa-envelope::before {
+    content: icon-sg-char(envelope);
+}
+
+.fa-facebook-square::before {
+    content: icon-sg-char(facebook-square);
+}
+
+.fa-linkedin-square::before {
+    content: icon-sg-char(linkedin-square);
+}
+
+.fa-twitter-square::before {
+    content: icon-sg-char(twitter-square);
+}
+
+.fa-youtube-square::before {
+    content: icon-sg-char(youtube-square);
+}
+
+.fa-star-half-o::before {
+    content: icon-sg-char(star-half-o);
+}
+
+.fa-star-o::before {
+    content: icon-sg-char(star-o);
+}
+
+.fa-star::before {
+    content: icon-sg-char(star);
+}
+
+.fa-shopping-cart::before {
+    content: icon-sg-char(shopping-cart);
+}
+
+.fa-map-marker::before {
+    content: icon-sg-char(map-marker);
+}
+
+.fa-th-list::before {
+    content: icon-sg-char(th-list);
+}
+
+.fa-th::before {
+    content: icon-sg-char(th);
+}
+
+.fa-remove::before {
+    content: icon-sg-char(remove);
+}
+
+.fa-chevron-circle-down::before {
+    content: icon-sg-char(chevron-circle-down);
+}
+
+.fa-angle-double-left::before {
+    content: icon-sg-char(angle-double-left);
+}
+
+.fa-angle-double-right::before {
+    content: icon-sg-char(angle-double-right);
+}
+
+.fa-angle-left::before {
+    content: icon-sg-char(angle-left);
+}
+
+.fa-angle-right::before {
+    content: icon-sg-char(angle-right);
+}
+
+.fa-envelope-square::before {
+    content: icon-sg-char(envelope-square);
+}
+
+.fa-google-plus-square::before {
+    content: icon-sg-char(google-plus-square);
+}
+
+.fa-pinterest-square::before {
+    content: icon-sg-char(pinterest-square);
+}
+
+.fa-archive::before {
+    content: icon-sg-char(archive);
+}
+
+.fa-bookmark::before {
+    content: icon-sg-char(bookmark);
+}
+
+.fa-cube::before {
+    content: icon-sg-char(cube);
+}
+
+.fa-home::before {
+    content: icon-sg-char(home);
+}
+
+.fa-money::before {
+    content: icon-sg-char(money);
+}
+

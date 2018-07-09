@@ -1,0 +1,28 @@
+.b-tooltip {
+    &__arrow {
+        width: baseline(6);
+    }
+
+    &__content {
+        max-width: baseline(36);
+    }
+
+    &__content,
+    &__body,
+    &__close {
+        padding: baseline(1);
+    }
+
+    &__arrow::after,
+    &__content {
+        background-color: color(white);
+        border-radius: baseline(0.5);
+        box-shadow: 0 0 baseline(1.5) 0 color(black, null, 0.3);
+    }
+
+    &__close-button {
+        @include f-button-clear;
+
+        font-size: baseline(3);
+    }
+}

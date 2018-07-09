@@ -1,0 +1,32 @@
+.b-delivery-form {
+    margin: 0 auto;
+    max-width: rem(300);
+
+    @media (--extra-small) {
+        max-width: none;
+    }
+
+    &__title {
+        @include checkout-title($edit: false);
+    }
+
+    &__actions-or {
+        font-weight: $font-main-bold;
+        margin: baseline(3) 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .f-field {
+        &--title {
+            width: 50%;
+        }
+
+        &--trn {
+            .f-label__optional-text,
+            .f-tooltip {
+                display: none;
+            }
+        }
+    }
+}

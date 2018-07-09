@@ -1,0 +1,119 @@
+$progress-bar-height-mobile: baseline(6);
+
+.b-progress-bar {
+    @media (--extra-small) {
+        padding-top: $progress-bar-height-mobile;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    &__item {
+        flex: 1;
+        text-align: center;
+
+        &.m-disabled-step {
+            cursor: not-allowed;
+        }
+
+        &.m-active-step,
+        &.m-checked-step,
+        &.m-passed-step {
+            &::after {
+                background-color: color(yellow);
+                content: "";
+                display: block;
+                height: rem(2);
+                margin: 0 baseline(-2);
+            }
+        }
+    }
+
+    &__title {
+        align-items: center;
+        color: color(grey, 5);
+        display: flex;
+        font-size: $font-size-small;
+        justify-content: center;
+        padding: baseline(1.5) 0;
+        position: relative;
+        z-index: $z-min;
+
+        .m-disabled-step & {
+            cursor: not-allowed;
+        }
+
+        @media (--extra-small) {
+            display: none;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        .m-active-step & {
+            color: color(grey);
+            font-weight: $font-main-bold;
+
+            @media (--extra-small) {
+                bottom: 0;
+                display: flex;
+                justify-content: flex-start;
+                left: 0;
+                position: absolute;
+            }
+        }
+    }
+
+    &__title-name {
+        margin-left: baseline(2);
+    }
+
+    &__step {
+        display: flex;
+    }
+
+    &__step-current,
+    &__step-of {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &__step-current {
+        align-items: center;
+        background-color: color(grey, 2);
+        border-radius: rem(24);
+        color: color(white);
+        display: flex;
+        flex: 0 0 rem(24);
+        font-weight: $font-main-bold;
+        height: rem(24);
+        justify-content: center;
+        line-height: 1;
+        width: rem(24);
+
+        .m-active-step & {
+            background-color: color(blue, light);
+        }
+
+        .m-checked-step & {
+            @include icon(tick, $extend: false, $size: rem(10));
+
+            background-color: color(green, light);
+            font-size: 0;
+        }
+
+        @media (--extra-small) {
+            margin-right: baseline(1);
+        }
+    }
+
+    &__step-of {
+        color: color(blue, light);
+        font-weight: $font-main-bold;
+    }
+}

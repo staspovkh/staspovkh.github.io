@@ -1,0 +1,17 @@
+.l-breadcrumbs {
+    position: relative;
+    z-index: $z-breadcrumbs;
+
+    @media (--from-small) {
+        margin: baseline(2) 0;
+    }
+
+    &__content {
+        @include site-width;
+
+        @media (--extra-small) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}

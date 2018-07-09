@@ -1,0 +1,15 @@
+.b-checkout-message {
+    @include b-message(error);
+
+    margin-bottom: baseline(2);
+
+    @media (--extra-small) {
+        border-radius: 0;
+        border-width: 1px 0;
+        margin-bottom: 0;
+
+        + .b-checkout-message {
+            margin-top: baseline(1);
+        }
+    }
+}

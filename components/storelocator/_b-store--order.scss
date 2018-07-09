@@ -1,0 +1,31 @@
+.b-store {
+    $selector: &;
+
+    &--order {
+        #{$selector}__marker {
+            margin-right: baseline(2);
+
+            &::before {
+                color: color(grey, 3);
+                content: icon-char(location-filled);
+                font-size: baseline(3);
+            }
+        }
+
+        #{$selector}__marker-text {
+            display: none;
+        }
+
+        #{$selector}__name {
+            font-size: $font-size-regular;
+        }
+
+        #{$selector}__info-address {
+            margin-bottom: baseline(0.5);
+        }
+
+        #{$selector}__message {
+            font-weight: $font-main-bold;
+        }
+    }
+}

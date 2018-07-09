@@ -1,0 +1,290 @@
+.b-content-slot {
+    flex-shrink: 0;
+    position: relative;
+    width: 100%;
+
+    &__title {
+        @include t-subpage-title(false);
+
+        margin: baseline(5) 0;
+        text-align: center;
+        width: 100%;
+
+        @media (--extra-small) {
+            margin: baseline(3) 0;
+        }
+    }
+
+    &.m-title-divider {
+        &::before {
+            border-top: 1px solid color(grey, 2);
+            content: "";
+            display: block;
+            margin-top: baseline(5);
+            width: rem(300);
+
+            @media (--extra-small) {
+                margin-top: baseline(4);
+                width: 100%;
+            }
+        }
+    }
+
+    &.m-bg--cinema,
+    &.m-bg--wave,
+    &.m-bg--wave-top,
+    &.m-bg--wave-simple {
+        &::before {
+            bottom: 0;
+            content: "";
+            left: 50%;
+            margin-left: -50vw;
+            position: absolute;
+            top: 0;
+            width: 100vw;
+            z-index: -1;
+        }
+    }
+
+    &.m-bg--cinema {
+        margin-top: baseline(5);
+        padding-bottom: baseline(16);
+        padding-top: baseline(8);
+
+        @media (--extra-small) {
+            margin-top: baseline(3);
+        }
+
+        &::before {
+            background-image: url("../images/bg/bg-cinema.svg");
+            background-position: 50% 0;
+            background-repeat: repeat-x;
+            background-size: rem(1024) 100%;
+
+            @media (--extra-small) {
+                background-position: 100% 0;
+            }
+        }
+    }
+
+    &.m-bg--wave {
+        @media (--from-small) {
+            margin-top: baseline(5);
+        }
+
+        &::before {
+            background-image: url("../images/bg/bg-wave.svg");
+            background-position: 50% baseline(3);
+            background-repeat: no-repeat;
+            background-size: 100% rem(554);
+
+            @media (--extra-small) {
+                background-position: 35% baseline(3);
+                background-size: rem(900) 99%;
+            }
+        }
+    }
+
+    &.m-bg--wave-top {
+        padding-top: baseline(1);
+
+        @media (--from-small) {
+            margin-top: baseline(5);
+        }
+
+        @media (--extra-small) {
+            background-color: color(grey, 4);
+        }
+
+        &::before {
+            background-image: url("../images/bg/bg-wave.svg");
+            background-position: 50% baseline(3);
+            background-repeat: no-repeat;
+            background-size: 100% 120%;
+            top: baseline(-10);
+
+            @media (--extra-small) {
+                display: none;
+            }
+        }
+    }
+
+    &.m-bg--wave-simple {
+        @media (--extra-small) {
+            background-color: color(grey, 4);
+        }
+
+        &::before {
+            background-image: url("../images/bg/bg-wave-simple.svg");
+            background-position: 50% 0;
+            background-repeat: repeat-x;
+            background-size: rem(1020) 100%;
+            bottom: baseline(-6);
+            top: baseline(-6);
+
+            @media (--extra-small) {
+                content: none;
+            }
+        }
+    }
+
+    &--hero {
+        @media (--from-small) {
+            margin-bottom: baseline(5);
+        }
+    }
+
+    &--categories {
+        @media (--extra-small) {
+            background-color: color(grey, 4);
+            margin-bottom: 0;
+        }
+    }
+
+    &--video {
+        margin-bottom: baseline(2);
+
+        @media (--extra-small) {
+            margin-bottom: baseline(3);
+        }
+    }
+
+    &--brand {
+        $banner-count: 4;
+        $banner-width: rem(140);
+        @include site-width;
+
+        justify-content: center;
+        min-height: 1px; // force a reflow for IE
+        position: relative;
+
+        &.m-bottom-divider {
+            &::after {
+                background: color(grey, 2);
+                content: "";
+                display: block;
+                height: 1px;
+                width: 100%;
+            }
+        }
+
+        &:last-child {
+            margin-bottom: baseline(1);
+        }
+
+        @media (--large) {
+            max-width: get-grid-width($banner-width, $banner-count, "-lg");
+        }
+
+        @media (--medium) {
+            max-width: get-grid-width($banner-width, $banner-count, "-md");
+        }
+
+        @media (--small) {
+            max-width: get-grid-width($banner-width, $banner-count, "-sm");
+        }
+
+        @media (--extra-small) {
+            max-width: get-grid-width($banner-width, 3, "-xs");
+            padding-bottom: baseline(2);
+        }
+    }
+
+    &--offers {
+        padding: 0 #{map-get($outer-margins, "-xs")} baseline(4);
+
+        @media (--from-small) {
+            align-items: flex-start;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+        }
+
+        .b-content-slot__title {
+            margin-bottom: baseline(4);
+
+            @media (--extra-small) {
+                margin-bottom: baseline(3);
+            }
+        }
+
+        .b-content-slot__title-text {
+            @include badge-header(color(red), false);
+
+            color: color(white);
+            display: inline-block;
+            font-size: $font-size-larger;
+            font-weight: $font-main-bold;
+            min-width: rem(317);
+            padding: baseline(1) baseline(3);
+
+            @media (--extra-small) {
+                font-size: $font-size-large;
+                min-width: rem(285);
+            }
+        }
+    }
+
+    .b-carousel--product {
+        @include site-width;
+    }
+
+    &--fav-characters {
+        margin-top: baseline(4);
+
+        @media (--large) {
+            max-width: rem(2020);
+        }
+
+        @media (--extra-small) {
+            margin-top: baseline(1);
+        }
+
+        .slick-list {
+            margin-left: auto;
+            margin-right: auto;
+
+            @media (--to-medium) {
+                width: percentage(2/3);
+            }
+
+            @media (--extra-small) {
+                width: percentage(2.5/3);
+            }
+        }
+
+        .b-carousel {
+            @media (--large) {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: rem(1345);
+            }
+        }
+
+        .slick-slider,
+        .slick-list {
+            overflow: visible;
+        }
+
+        .slick-track:hover {
+            .slick-slide {
+                transform: translateX(-5%);
+            }
+        }
+
+        .slick-slide {
+            @include transition(transform);
+
+            margin: 0 baseline(0.5);
+            position: relative;
+
+            &.slick-slide:hover {
+                transform: scale(1.1);
+
+                ~ .slick-slide {
+                    transform: translateX(5%);
+                }
+            }
+        }
+    }
+}

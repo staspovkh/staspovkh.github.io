@@ -1,0 +1,14 @@
+.b-product-promotion {
+    &__title {
+        font-size: $font-size-small;
+        line-height: rem(18);
+    }
+
+    &__link {
+        font-weight: $font-main-bold;
+    }
+
+    &__callout {
+        margin-top: baseline(1);
+    }
+}

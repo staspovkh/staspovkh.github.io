@@ -1,0 +1,117 @@
+.b-credit-card {
+    &__label {
+        cursor: pointer;
+        display: block;
+
+        &.f-label::before {
+            display: none;
+        }
+    }
+
+    &__radio:checked ~ &__label.f-label {
+        font-weight: initial;
+    }
+
+    &__radio:checked ~ &__label &__data-name {
+        font-weight: $font-main-bold;
+    }
+
+    &__radio:checked ~ &__label &__header {
+        &::before {
+            opacity: 1;
+        }
+    }
+
+    &__header {
+        align-items: center;
+        display: flex;
+        position: relative;
+        
+        &::before {
+            @include i-payment;
+
+            font-size: rem(30);
+            margin-right: baseline(1);
+            opacity: 0.3;
+        }
+
+        &--Visa::before {
+            @include i-payment--visa;
+        }
+
+        &--Amex::before {
+            @include i-payment--amex;
+        }
+
+        &--MasterCard::before,
+        &--Master::before {
+            @include i-payment--mastercard;
+        }
+        
+        &--Cirrus::before {
+            @include i-payment--cirrus;
+        }
+
+        &--Maestro::before {
+            @include i-payment--maestro;
+        }
+
+        &--new::before {
+            align-items: center;
+            background-color: color(blue);
+            background-image: none;
+            border-radius: $border-radius-small;
+            color: color(white);
+            content: "+";
+            display: flex;
+            font-size: $font-size-regular;
+            height: rem(30);
+            justify-content: center;
+            width: rem(50);
+        }
+    }
+
+    &__data {
+        line-height: $line-height-small;
+    }
+
+    &__data-card {
+        color: color(grey);
+        font-size: $font-size-small;
+    }
+}
+
+.b-credit-cards {
+    &.m-only-form {
+        padding: baseline(2) 0;
+
+        @media (--extra-small) {
+            padding: baseline(1) 0;
+        }
+    }
+
+    &.m-saved-cards .b-credit-cards {
+        &__wrapper {
+            background-color: color(grey, 4);
+            border-radius: $border-radius-small;
+            margin: baseline(2) 0;
+            padding: baseline(2) baseline(3);
+
+            @media (--extra-small) {
+                border-radius: 0;
+                margin: baseline(2) baseline(-2);
+                padding: baseline(2);
+            }
+
+            .f-field {
+                &--saveCard {
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .f-field--useShippingAddress {
+        margin-bottom: baseline(2);
+    }
+}

@@ -1,0 +1,89 @@
+.b-content {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: 0.5em;
+        margin-top: 1.5em;
+    }
+
+    ul,
+    ol,
+    p,
+    table {
+        margin-bottom: 1em;
+        margin-top: 1em;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    ul,
+    ol,
+    p,
+    table {
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    h1 {
+        @include t-hero-title;
+    }
+    
+    h2 {
+        @include t-subpage-title(false);
+    }
+    
+    h3 {
+        @include t-section-header;
+    }
+    
+    h4 {
+        @include t-sub-section-header;
+    }
+
+    h5 {
+        font-size: $font-size-regular;
+        font-weight: $font-main-bold;
+    }
+
+    h6 {
+        @include t-emphasis;
+    }
+
+    ul {
+        @include list-style-marker(
+            $color: color(blue),
+            $title: false
+        );
+    }
+
+    ol {
+        @include list-style-marker-big(
+            $color: color(blue, light),
+            $title: false,
+            $item: "> li",
+            $counter: true
+        );
+    }
+}
+
+.b-table {
+    @include table-style;
+
+    &__wrapper {
+        @include brand-scrollbar;
+
+        overflow: auto;
+    }
+}

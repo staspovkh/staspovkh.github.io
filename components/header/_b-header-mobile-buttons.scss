@@ -1,0 +1,77 @@
+.b-header-toggle-menu {
+    margin-right: $header-small-icon-gutter;
+
+    @media (--from-medium) {
+        display: none;
+    }
+
+    &__link {
+        @include f-button-clear;
+
+        color: color(white);
+        height: $header-icon-size;
+        position: relative;
+        vertical-align: middle;
+        width: $header-icon-size;
+
+        &::before,
+        &::after {
+            background-color: color(white);
+            border-radius: $header-icon-size;
+            content: "";
+            height: 12.5%;
+            left: 0;
+            position: absolute;
+            width: 75%;
+        }
+
+        &::before {
+            animation: from-center-to-top 0.3s 0.3s both;
+            top: 0;
+
+            #{$const-mobile-megamenu-opened} & {
+                animation: from-top-to-center 0.3s 0.3s both;
+                top: 43.5%;
+            }
+        }
+
+        &::after {
+            animation: from-center-to-bottom 0.3s 0.3s both;
+            bottom: 0;
+
+            #{$const-mobile-megamenu-opened} & {
+                animation: from-bottom-to-center 0.3s 0.3s both;
+                bottom: 43.5%;
+            }
+        }
+    }
+
+    &__link-text {
+        background-color: color(white);
+        border-radius: $header-icon-size;
+        display: block;
+        font-size: 0;
+        height: 12.5%;
+        left: 0;
+        margin-top: -6.5%;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+    }
+}
+
+@keyframes from-center-to-top {
+    @include property-bounce-animation(top, 43.5%, 0%);
+}
+
+@keyframes from-top-to-center {
+    @include property-bounce-animation(top, 0%, 43.5%);
+}
+
+@keyframes from-center-to-bottom {
+    @include property-bounce-animation(bottom, 43.5%, 0%);
+}
+
+@keyframes from-bottom-to-center {
+    @include property-bounce-animation(bottom, 0%, 43.5%);
+}

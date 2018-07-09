@@ -1,0 +1,13 @@
+.b-account-wrapper {
+    background-color: color(white);
+    padding: baseline(4) baseline(6) baseline(5);
+
+    @media (--from-small) {
+        border-radius: $border-radius-regular;
+    }
+
+    @media (--extra-small) {
+        border-bottom: baseline(1) solid color(grey, 3);
+        padding: baseline(3) map-get($outer-margins, "-xs");
+    }
+}

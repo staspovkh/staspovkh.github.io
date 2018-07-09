@@ -1,0 +1,11 @@
+.b-login-pageheader {
+    @include t-hero-title;
+
+    color: color(blue);
+    margin-bottom: baseline(5);
+    text-align: center;
+
+    @media (--extra-small) {
+        margin-bottom: baseline(3);
+    }
+}

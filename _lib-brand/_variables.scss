@@ -1,0 +1,176 @@
+//----------------------------------------------------------------------
+// Color Palette
+//----------------------------------------------------------------------
+
+// Colours
+//
+// Content managers can use utility classes: "m-bg--[color-variation]" to specify background colour and "m-clr--[color-variation]" to specify foreground (fonts etc) colour.
+//
+// Styleguide 4
+
+// Primary colours
+//
+//The core Toys R Us palette is made up from the 4 logo colours.  They are bold, vivid colours and are reserved for elements that require the most standout, such as buttons and promotions.  They have been adapted from their original values to achieve accessible font combinations; acceptable combinations can be seen in each colour.
+//
+// markup:
+// <div class="sg-color-block"><span class="m-bg--blue"></span><span>Blue<br/>#1450a0</span></div>
+// <div class="sg-color-block"><span class="m-bg--green"></span><span>Green<br/>#6da10c</span></div>
+// <div class="sg-color-block"><span class="m-bg--orange"></span><span>Orange<br/>#e65d00</span></div>
+// <div class="sg-color-block"><span class="m-bg--red"></span><span>Red<br/>#de004d</span></div>
+//
+// Styleguide 4.1
+
+// Secondary colours
+//
+// A secondary palette of brighter colours are used to compliment the core Toys R Us palette.  They are used for supporting items, such as icons, backgrounds, badges and other graphic elements. 
+//
+// markup:
+// <div class="sg-color-block"><span class="m-bg--blue-light"></span><span>Blue Light<br/>#2aace2</span></div>
+// <div class="sg-color-block"><span class="m-bg--teal"></span><span>Teal<br/>#45cab9</span></div>
+// <div class="sg-color-block"><span class="m-bg--yellow"></span><span>Yellow<br/>#fed204</span></div>
+// <div class="sg-color-block"><span class="m-bg--green-light"></span><span>Green Light<br/>#bed731</span></div>
+// <div class="sg-color-block"><span class="m-bg--pink"></span><span>Pink<br/>#f599b8</span></div>
+// <div class="sg-color-block"><span class="m-bg--purple"></span><span>Purple<br/>#b986ee</span></div>
+//
+// Styleguide 4.2
+
+// Tints
+//
+// Tints at act as backgrounds to elements that require subtle standout and high legibility.  This typically includes notifications, form validation and hero backgrounds.
+//
+// markup:
+// <div class="sg-color-block"><span class="m-bg--blue-tint"></span><span>Blue Tint<br/>#d7f1fd</span></div>
+// <div class="sg-color-block"><span class="m-bg--teal-tint"></span><span>Teal Tint<br/>#dcfffa</span></div>
+// <div class="sg-color-block"><span class="m-bg--yellow-tint"></span><span>Yellow Tint<br/>#fffddc</span></div>
+// <div class="sg-color-block"><span class="m-bg--green-tint"></span><span>Green Tint<br/>#f0f7cf</span></div>
+// <div class="sg-color-block"><span class="m-bg--pink-tint"></span><span>Pink Tint<br/>#ffdfea</span></div>
+// <div class="sg-color-block"><span class="m-bg--purple-tint"></span><span>Purple Tint<br/>#f2e6ff</span></div>
+//
+// Styleguide 4.3
+
+// Greys
+//
+// A simple grayscale is used to keep variations to a minimum whilst providing sufficient contrast when used in combination.
+// Black and Grey 1 are typically used for type.
+// Grey 2 is used for borders and dividers.
+// Grey 3 and Grey 4 are used for backgrounds.
+// White is used for type and backgrounds.
+//
+// markup:
+// <div class="sg-color-block"><span class="m-bg--black"></span><span>Black<br/>#000000</span></div>
+// <div class="sg-color-block"><span class="m-bg--grey"></span><span>Grey<br/>#666666</span></div>
+// <div class="sg-color-block"><span class="m-bg--grey-2"></span><span>Grey 2<br/>#dbdbdb</span></div>
+// <div class="sg-color-block"><span class="m-bg--grey-3"></span><span>Grey 3<br/>#ebebeb</span></div>
+// <div class="sg-color-block"><span class="m-bg--grey-4"></span><span>Grey 4<br/>#f7f7f7</span></div>
+// <div class="sg-color-block"><span class="m-bg--grey-5"></span><span>Grey 5<br/>#999999</span></div>
+//
+// Styleguide 4.4
+
+// Whites
+//
+// markup:
+// <div class="sg-color-block"><span class="m-bg--white"></span><span>White<br/>#ffffff</span></div>
+// <div class="sg-color-block"><span class="m-bg--white-cream"></span><span>White Cream<br/>#f6ffc9</span></div>
+//
+// Styleguide 4.5
+
+$color-palette: (
+    default       : (base: #000),
+    black         : (base: #000),
+    blue          : (base: #1450a0, light: #2aace2, bright: #66d1ff, tint: #d7f1fd),
+    green         : (base: #6da10c, light: #bed731, tint: #f0f7cf),
+    grey          : (base: #666666, 2: #dbdbdb, 3: #ebebeb, 4: #f7f7f7, 5: #999999),
+    orange        : (base: #e67700, deep: #e65d00),
+    pink          : (base: #f599b8, tint: #ffdfea),
+    purple        : (base: #b986ee, light: #dab8ff, tint: #f2e6ff, deep: #9554e5),
+    red           : (base: #de004d, light: #ff3a33),
+    teal          : (base: #45cab9, light: #4ddbc8, tint: #dcfffa),
+    yellow        : (base: #fed204, tint: #fffddc),
+    white         : (base: #fff, cream: #f6ffc9),
+    none          : (base: transparent)
+);
+
+$color-opacity: (
+    original: 1,
+    light: 0.8,
+    overlay: 0.7,
+    dark: 0.4,
+    shadow: 0.15
+);
+
+// Global colors
+$color-text              : color(black);
+$color-link              : color(blue);
+$color-error             : color(red);
+$color-success           : color(green);
+$color-input-border      : color(grey, 2);
+
+//----------------------------------------------------------------------
+// Fonts
+//----------------------------------------------------------------------
+
+// Base font size
+$baseline              : get-baseline(8px);
+
+// Font families
+$font-family-main      : "Nunito Sans", "El Messiri", sans-serif;
+$font-family-akcent    : "Shag Expert", "Baloo Bhaijaan", sans-serif;
+
+// Letter spacing
+$letter-spacing-main   : rem(0.25);
+
+// Font weight
+$font-main-regular     : 300;
+$font-main-medium      : 600;
+$font-main-bold        : 700;
+$font-akcent-regular   : 400;
+
+// Font style
+$font-main-oblique     : oblique;
+
+//----------------------------------------------------------------------
+// Height
+//----------------------------------------------------------------------
+
+$height-form-field: baseline(6);
+
+//----------------------------------------------------------------------
+// Simple Search Animation
+//----------------------------------------------------------------------
+
+$header-icon-size: baseline(3);
+$header-small-icon-gutter: baseline(2);
+
+$header-search-height: rem(44);
+$header-search-gutter: rem(10);
+$header-search-animation-duration: $transition-duration-regular;
+$header-search-animation-delay: $transition-duration-short;
+
+$header-search-suggestions-bg: color(grey, 4);
+
+//----------------------------------------------------------------------
+// Block Corner Radius
+//----------------------------------------------------------------------
+
+$border-radius-regular: rem(8);
+$border-radius-small: rem(4);
+
+//----------------------------------------------------------------------
+// Block Shadow
+//----------------------------------------------------------------------
+
+$box-shadow-small: 0 rem(-2) rem(11) 0 color(black, $opacity: shadow);
+$box-shadow-regular: 0 rem(6) rem(30) rem(-8) color(black, $opacity: 0.6);
+$box-shadow-big: 0 rem(8) rem(40) rem(-6) color(black, $opacity: 0.6);
+
+//----------------------------------------------------------------------
+// Zoom
+//----------------------------------------------------------------------
+
+$zoom-nav-bg: color(grey, 4);
+
+//----------------------------------------------------------------------
+// Forms
+//----------------------------------------------------------------------
+
+$width-form-regular: rem(300);

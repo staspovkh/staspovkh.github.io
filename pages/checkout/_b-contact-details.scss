@@ -1,0 +1,17 @@
+.b-contact-details {
+    position: relative;
+
+    &__title {
+        @include checkout-title;
+    }
+
+    &__button-change {
+        @include checkout-button-change;
+    }
+
+    &__contact {
+        @include checkout-address;
+
+        margin: 0;
+    }
+}

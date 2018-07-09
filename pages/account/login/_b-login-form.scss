@@ -1,0 +1,39 @@
+.b-login-form {
+    &__subheader {
+        @include t-emphasis;
+
+        padding-bottom: baseline(1);
+    }
+
+    &__caption {
+        @include t-caption;
+    }
+
+    &__password {
+        position: relative;
+    }
+
+    &__password-reset {
+        font-size: $font-size-small;
+        line-height: 1;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    &__submit-wrapper {
+        padding-top: baseline(2);
+    }
+
+    .f-field--checkoutLoginType {
+        margin: baseline(2) 0;
+
+        > .f-label {
+            display: none;
+        }
+    }
+
+    .f-cta-primary {
+        width: 100%;
+    }
+}

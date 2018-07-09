@@ -1,0 +1,25 @@
+.b-product-badge {
+    text-align: center;
+
+    &__message {
+        @include badge-header;
+    
+        color: color(white);
+        padding: baseline(1) 0;
+        text-align: center;
+    
+        &--new {
+            @include bg-badge-header-shape(color(green, light));
+        }
+    
+        &--discount {
+            @include bg-badge-header-shape(color(red));
+        }
+    
+        &--out-of-stock {
+            background-color: color(yellow);
+            background-image: none;
+            color: color(black);
+        }
+    }
+}

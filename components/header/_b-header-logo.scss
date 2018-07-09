@@ -1,0 +1,19 @@
+.b-header-logo {
+    @media (--to-small) {
+        position: relative;
+        z-index: $z-min;
+        text-align: center;
+    }
+
+    &__link {
+        display: inline-block;
+    }
+
+    img {
+        width: rem(155);
+
+        @media (--to-small) {
+            width: rem(112);
+        }
+    }
+}

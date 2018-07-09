@@ -1,0 +1,149 @@
+.b-bonus-product {
+    @media (--extra-small) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__image {
+        margin-bottom: baseline(3);
+
+        @media (--extra-small) {
+            margin-bottom: baseline(2);
+            width: 30%;
+        }
+    }
+
+    &__title {
+        font-size: baseline(2);
+        font-weight: $font-main-medium;
+        line-height: baseline(2.75);
+        margin-bottom: baseline(2);
+
+        @media (--extra-small) {
+            padding-left: baseline(2);
+            width: 70%;
+        }
+    }
+
+    &__variations {
+        margin-bottom: baseline(1);
+
+        @media (--extra-small) {
+            width: 100%;
+        }
+    }
+
+    .b-product-variations {
+        &__list {
+            margin: 0;
+
+            @media (--extra-small) {
+                justify-content: space-between;
+            }
+        }
+
+        &__item--selectboxes {
+            padding: 0 0 baseline(1);
+            width: 100%;
+
+            @media (--extra-small) {
+                flex-grow: 0;
+                width: 49%;
+            }
+        }
+    }
+
+    &__selection {
+        margin-bottom: baseline(2);
+
+        @media (--extra-small) {
+            margin: 0;
+            width: 100%;
+        }
+    }
+
+    .f-field--checkbox {
+        margin: 0;
+
+        .f-label {
+            @extend %f-cta-secondary;
+
+            align-items: center;
+            display: flex;
+            font-size: $font-size-regular;
+            font-weight: $font-main-bold;
+            height: 100%;
+            justify-content: center;
+            margin: 0;
+            position: relative;
+            width: 100%;
+
+            &::before {
+                @include icon-styles(rem(14));
+
+                background: none;
+                border: none;
+                color: color(black);
+                content: icon-char(add);
+                left: baseline(2);
+                line-height: inherit;
+                position: absolute;
+                top: 0;
+            }
+
+            .m-checked {
+                display: none;
+            }
+        }
+
+        .f-checkbox {
+            &:checked ~ .f-label {
+                background-color: color(green, tint);
+                border-color: color(green);
+
+                &::before {
+                    color: color(green);
+                    content: icon-char(tick);
+                }
+
+                .m-not-checked {
+                    display: none;
+                }
+
+                .m-checked {
+                    display: inline;
+                }
+            }
+        }
+    }
+
+    &.m-variant {
+        .b-product-variations {
+            &__label {
+                align-items: center;
+                display: flex;
+                height: baseline(6);
+
+                &-text {
+                    margin-right: baseline(0.5);
+                }
+            }
+
+            &__value {
+                display: none;
+            }
+        }
+    }
+
+    &.m-master {
+        .b-product-variations {
+            &__label {
+                display: none;
+            }
+
+            &__value {
+                display: block;
+            }
+        }
+    }
+}

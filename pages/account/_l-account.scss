@@ -1,0 +1,40 @@
+.l-account {
+    background-color: color(grey, 4);
+
+    &__content {
+        @include site-width();
+
+        @media (--extra-small) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    &__welcome {
+        position: relative;
+
+        @media (--from-small) {
+            padding-bottom: baseline(6);
+        }
+    }
+
+    &__content-page {
+        @media (--from-small) {
+            padding-bottom: baseline(6);
+        }
+    }
+}
+
+.p-wishlist,
+.p-account {
+    .l-header__slot,
+    .l-footer__newsletter {
+        display: none;
+    }
+
+    .l-footer {
+        @media (--from-small) {
+            border-top: rem(1) solid color(grey, 2);
+        }
+    }
+}

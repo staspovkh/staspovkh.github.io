@@ -1,0 +1,48 @@
+.b-account-card {
+    &__type {
+        margin-bottom: baseline(3);
+        padding-right: baseline(3);
+
+        &::before {
+            @include i-payment;
+
+            font-size: rem(42);
+        }
+
+        &--Visa::before {
+            @include i-payment--visa;
+        }
+
+        &--Amex::before {
+            @include i-payment--amex;
+        }
+
+        &--MasterCard::before,
+        &--Master::before {
+            @include i-payment--mastercard;
+        }
+        
+        &--Cirrus::before {
+            @include i-payment--cirrus;
+        }
+
+        &--Maestro::before {
+            @include i-payment--maestro;
+        }
+    }
+
+    &__title {
+        font-size: $font-size-medium;
+        font-weight: $font-main-medium;
+        margin-bottom: baseline(2);
+    }
+
+    &__data {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__ends {
+        margin-right: baseline(3);
+    }
+}

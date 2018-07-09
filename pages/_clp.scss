@@ -1,0 +1,17 @@
+.l-clp {
+    overflow: visible;
+
+    &__content {
+        padding-bottom: baseline(5);
+
+        @media (--extra-small) {
+            padding-bottom: baseline(3);
+        }
+    }
+
+    &__top-banner {
+        @media (--from-small) {
+            margin-top: baseline(-8);
+        }
+    }
+}

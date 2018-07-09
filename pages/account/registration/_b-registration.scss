@@ -1,0 +1,54 @@
+.b-registration {
+    &__title {
+        @include t-hero-title($font-family-main);
+
+        margin-bottom: baseline(4);
+        text-align: center;
+
+        @media (--extra-small) {
+            margin-bottom: baseline(1);
+        }
+    }
+
+    &__caption,
+    &__oauth-caption {
+        @media (--from-small) {
+            text-align: center;
+        }
+    }
+
+    &__caption {
+        @media (--from-small) {
+            padding-bottom: baseline(2);
+        }
+    }
+
+    &__oauth {
+        padding: baseline(3) 0 baseline(2);
+
+        .b-login-oauth__actions {
+            @media (--from-small) {
+                display: flex;
+            }
+        }
+        
+        .b-login-oauth__action-btn {
+            @media (--from-small) {
+                flex: 1;
+
+                &:first-child {
+                    margin-right: rem(20);
+                }
+            }
+        }
+    }
+
+    &__oauth-form {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__oauth-error {
+        margin-bottom: baseline(2);
+    }
+}

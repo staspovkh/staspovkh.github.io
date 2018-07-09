@@ -1,0 +1,468 @@
+// Pictograms (content icons)
+//
+// Picotgrams are a used for more decorative purposes.  They help to provide visual interest and context in specific scenarios, such as hero spaces.
+//
+// markup:
+// <div class="sg-iconset">
+//  <i class="i-content--art">art</i>
+//  <i class="i-content--balls">balls</i>
+//  <i class="i-content--bath">bath</i>
+//  <i class="i-content--bike">bike</i>
+//  <i class="i-content--blaster">blaster</i>
+//  <i class="i-content--blocks">blocks</i>
+//  <i class="i-content--bottle">bottle</i>
+//  <i class="i-content--bouncy-castle">bouncy-castle</i>
+//  <i class="i-content--bubbles">bubbles</i>
+//  <i class="i-content--bucket">bucket</i>
+//  <i class="i-content--car">car</i>
+//  <i class="i-content--crib">crib</i>
+//  <i class="i-content--crown">crown</i>
+//  <i class="i-content--devices">devices</i>
+//  <i class="i-content--doll">doll</i>
+//  <i class="i-content--dummy">dummy</i>
+//  <i class="i-content--exercise-book">exercise-book</i>
+//  <i class="i-content--games-controller">games-controller</i>
+//  <i class="i-content--guitar">guitar</i>
+//  <i class="i-content--hero">hero</i>
+//  <i class="i-content--horse">horse</i>
+//  <i class="i-content--house">house</i>
+//  <i class="i-content--lawn-game">lawn-game</i>
+//  <i class="i-content--media">media</i>
+//  <i class="i-content--necklace">necklace</i>
+//  <i class="i-content--party">party</i>
+//  <i class="i-content--pencil">pencil</i>
+//  <i class="i-content--pictures">pictures</i>
+//  <i class="i-content--pool">pool</i>
+//  <i class="i-content--pull-along">pull-along</i>
+//  <i class="i-content--puzzle">puzzle</i>
+//  <i class="i-content--remote-control-car">remote-control-car</i>
+//  <i class="i-content--scooter">scooter</i>
+//  <i class="i-content--skateboard">skateboard</i>
+//  <i class="i-content--swings">swings</i>
+//  <i class="i-content--teddy">teddy</i>
+//  <i class="i-content--trampoline">trampoline</i>
+// </div>
+//
+// Styleguide 5.3
+
+@mixin i-content() {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1em;
+    line-height: 1;
+    background-image: url("../images/content-icons.svg");
+    background-repeat: no-repeat;
+    background-size: 56.76712328767123em 37em;
+}
+[class*="i-content--"]::before,
+[class*="i-content-after--"]::after {
+    @include i-content;
+}
+
+@mixin i-content--art() {
+    content: "";
+    background-position: 0em 0em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--art::before,
+.i-content-after--art::after {
+    @include i-content--art;
+}
+
+@mixin i-content--balls() {
+    content: "";
+    background-position: -1.5342465753424657em -1em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--balls::before,
+.i-content-after--balls::after {
+    @include i-content--balls;
+}
+
+@mixin i-content--bath() {
+    content: "";
+    background-position: -3.0684931506849313em -2em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--bath::before,
+.i-content-after--bath::after {
+    @include i-content--bath;
+}
+
+@mixin i-content--bike() {
+    content: "";
+    background-position: -4.602739726027397em -3em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--bike::before,
+.i-content-after--bike::after {
+    @include i-content--bike;
+}
+
+@mixin i-content--blaster() {
+    content: "";
+    background-position: -6.136986301369863em -4em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--blaster::before,
+.i-content-after--blaster::after {
+    @include i-content--blaster;
+}
+
+@mixin i-content--blocks() {
+    content: "";
+    background-position: -7.671232876712328em -5em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--blocks::before,
+.i-content-after--blocks::after {
+    @include i-content--blocks;
+}
+
+@mixin i-content--bottle() {
+    content: "";
+    background-position: -9.205479452054794em -6em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--bottle::before,
+.i-content-after--bottle::after {
+    @include i-content--bottle;
+}
+
+@mixin i-content--bouncy-castle() {
+    content: "";
+    background-position: -10.73972602739726em -7em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--bouncy-castle::before,
+.i-content-after--bouncy-castle::after {
+    @include i-content--bouncy-castle;
+}
+
+@mixin i-content--bubbles() {
+    content: "";
+    background-position: -12.273972602739725em -8em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--bubbles::before,
+.i-content-after--bubbles::after {
+    @include i-content--bubbles;
+}
+
+@mixin i-content--bucket() {
+    content: "";
+    background-position: -13.808219178082192em -9em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--bucket::before,
+.i-content-after--bucket::after {
+    @include i-content--bucket;
+}
+
+@mixin i-content--car() {
+    content: "";
+    background-position: -15.342465753424657em -10em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--car::before,
+.i-content-after--car::after {
+    @include i-content--car;
+}
+
+@mixin i-content--crib() {
+    content: "";
+    background-position: -16.876712328767123em -11em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--crib::before,
+.i-content-after--crib::after {
+    @include i-content--crib;
+}
+
+@mixin i-content--crown() {
+    content: "";
+    background-position: -18.410958904109588em -12em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--crown::before,
+.i-content-after--crown::after {
+    @include i-content--crown;
+}
+
+@mixin i-content--devices() {
+    content: "";
+    background-position: -19.945205479452056em -13em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--devices::before,
+.i-content-after--devices::after {
+    @include i-content--devices;
+}
+
+@mixin i-content--doll() {
+    content: "";
+    background-position: -21.47945205479452em -14em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--doll::before,
+.i-content-after--doll::after {
+    @include i-content--doll;
+}
+
+@mixin i-content--dummy() {
+    content: "";
+    background-position: -23.013698630136986em -15em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--dummy::before,
+.i-content-after--dummy::after {
+    @include i-content--dummy;
+}
+
+@mixin i-content--exercise-book() {
+    content: "";
+    background-position: -24.54794520547945em -16em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--exercise-book::before,
+.i-content-after--exercise-book::after {
+    @include i-content--exercise-book;
+}
+
+@mixin i-content--games-controller() {
+    content: "";
+    background-position: -26.08219178082192em -17em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--games-controller::before,
+.i-content-after--games-controller::after {
+    @include i-content--games-controller;
+}
+
+@mixin i-content--guitar() {
+    content: "";
+    background-position: -27.616438356164384em -18em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--guitar::before,
+.i-content-after--guitar::after {
+    @include i-content--guitar;
+}
+
+@mixin i-content--hero() {
+    content: "";
+    background-position: -29.15068493150685em -19em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--hero::before,
+.i-content-after--hero::after {
+    @include i-content--hero;
+}
+
+@mixin i-content--horse() {
+    content: "";
+    background-position: -30.684931506849313em -20em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--horse::before,
+.i-content-after--horse::after {
+    @include i-content--horse;
+}
+
+@mixin i-content--house() {
+    content: "";
+    background-position: -32.21917808219178em -21em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--house::before,
+.i-content-after--house::after {
+    @include i-content--house;
+}
+
+@mixin i-content--lawn-game() {
+    content: "";
+    background-position: -33.75342465753425em -22em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--lawn-game::before,
+.i-content-after--lawn-game::after {
+    @include i-content--lawn-game;
+}
+
+@mixin i-content--media() {
+    content: "";
+    background-position: -35.28767123287671em -23em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--media::before,
+.i-content-after--media::after {
+    @include i-content--media;
+}
+
+@mixin i-content--necklace() {
+    content: "";
+    background-position: -36.821917808219176em -24em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--necklace::before,
+.i-content-after--necklace::after {
+    @include i-content--necklace;
+}
+
+@mixin i-content--party() {
+    content: "";
+    background-position: -38.35616438356164em -25em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--party::before,
+.i-content-after--party::after {
+    @include i-content--party;
+}
+
+@mixin i-content--pencil() {
+    content: "";
+    background-position: -39.89041095890411em -26em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--pencil::before,
+.i-content-after--pencil::after {
+    @include i-content--pencil;
+}
+
+@mixin i-content--pictures() {
+    content: "";
+    background-position: -41.42465753424658em -27em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--pictures::before,
+.i-content-after--pictures::after {
+    @include i-content--pictures;
+}
+
+@mixin i-content--pool() {
+    content: "";
+    background-position: -42.95890410958904em -28em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--pool::before,
+.i-content-after--pool::after {
+    @include i-content--pool;
+}
+
+@mixin i-content--pull-along() {
+    content: "";
+    background-position: -44.49315068493151em -29em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--pull-along::before,
+.i-content-after--pull-along::after {
+    @include i-content--pull-along;
+}
+
+@mixin i-content--puzzle() {
+    content: "";
+    background-position: -46.02739726027397em -30em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--puzzle::before,
+.i-content-after--puzzle::after {
+    @include i-content--puzzle;
+}
+
+@mixin i-content--remote-control-car() {
+    content: "";
+    background-position: -47.56164383561644em -31em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--remote-control-car::before,
+.i-content-after--remote-control-car::after {
+    @include i-content--remote-control-car;
+}
+
+@mixin i-content--scooter() {
+    content: "";
+    background-position: -49.0958904109589em -32em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--scooter::before,
+.i-content-after--scooter::after {
+    @include i-content--scooter;
+}
+
+@mixin i-content--skateboard() {
+    content: "";
+    background-position: -50.63013698630137em -33em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--skateboard::before,
+.i-content-after--skateboard::after {
+    @include i-content--skateboard;
+}
+
+@mixin i-content--swings() {
+    content: "";
+    background-position: -52.16438356164384em -34em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--swings::before,
+.i-content-after--swings::after {
+    @include i-content--swings;
+}
+
+@mixin i-content--teddy() {
+    content: "";
+    background-position: -53.6986301369863em -35em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--teddy::before,
+.i-content-after--teddy::after {
+    @include i-content--teddy;
+}
+
+@mixin i-content--trampoline() {
+    content: "";
+    background-position: -55.23287671232877em -36em/*rtl:ignore*/;
+    width: 1.5342465753424657em;
+    height: 1em;
+}
+.i-content--trampoline::before,
+.i-content-after--trampoline::after {
+    @include i-content--trampoline;
+}
+

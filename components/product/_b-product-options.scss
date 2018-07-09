@@ -1,0 +1,269 @@
+@mixin product-option-icon($optionIconOffClass: "m-option-empty") {
+    display: flex;
+
+    &::before {
+        @include i-svg();
+
+        flex-shrink: 0;
+        font-size: $font-size-larger;
+        margin-right: baseline(1);
+        pointer-events: none;
+
+        @content;
+    }
+
+    // icon classes should be renamed according to product options IDs to be properly shown
+
+    &.m-optionWarranty::before {
+        @include i-svg--warranty();
+    }
+
+    &.m-optionInstallation::before {
+        @include i-svg--assembly();
+    }
+
+    &.m-optionGiftWrapping::before {
+        @include i-svg--present-purple();
+    }
+
+    &.m-optionFreeGift::before {
+        @include i-svg--free-gift();
+    }
+
+    &.m-optionWarranty.#{$optionIconOffClass}::before {
+        @include i-svg--warranty-off();
+    }
+
+    &.m-optionInstallation.#{$optionIconOffClass}::before {
+        @include i-svg--assembly-off();
+    }
+
+    &.m-optionGiftWrapping.#{$optionIconOffClass}::before {
+        @include i-svg--present-off();
+    }
+
+    &.m-optionFreeGift.#{$optionIconOffClass}::before {
+        @include i-svg--free-gift-off();
+    }
+
+    &.m-optionGiftWrapping,
+    &.m-optionFreeGift {
+        &::before {
+            margin-top: rem(-2); // icon specific compensation
+        }
+    }
+}
+
+.b-product-options {
+    .m-stuck & {
+        display: none;
+    }
+}
+
+.b-product-option {
+    font-size: $font-size-small;
+    line-height: $line-height-medium;
+    margin-bottom: baseline(1);
+
+    &__title {
+        display: inline-block;
+        font-weight: $font-main-medium;
+        line-height: $line-height-medium;
+        margin: 0;
+
+        .f-label--text {
+            @include product-option-icon;
+        }
+    }
+
+    .f-label {
+        display: flex;
+        line-height: $line-height-medium;
+    }
+
+    &__price {
+        font-weight: $font-main-medium;
+    }
+
+    &__price,
+    &__value-price {
+        flex-grow: 1;
+        flex-shrink: 0;
+        margin-left: baseline(1);
+        text-align: right;
+    }
+
+    .b-product__options & {
+        @include transition(background-color);
+
+        border: 1px solid color(grey, 2);
+        border-radius: $border-radius-small;
+        padding: baseline(2);
+
+        &#{$const-active} {
+            background-color: color(green, tint);
+        }
+
+        &__moreinfo {
+            display: inline-block;
+            line-height: $line-height-small;
+            margin-top: baseline(1);
+            text-transform: lowercase;
+
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .b-product__additional-options & {
+        @include product-option-icon;
+
+        align-items: center;
+        border: 0;
+        display: flex;
+        margin: 0;
+        padding: baseline(2) 0;
+
+        &::before {
+            font-size: baseline(4);
+            margin: 0;
+        }
+
+        &__info {
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            line-height: $line-height-smaller;
+            margin: 0 rem(10);
+        }
+
+        &__moreinfo {
+            font-weight: $font-main-bold;
+            line-height: inherit;
+            margin-top: baseline(0.5);
+        }
+    }
+
+    .b-cart-overlay & {
+        &__title {
+            @include product-option-icon;
+        }
+    }
+
+    .b-product-line-item & {
+        border-top: 1px solid color(grey, 3);
+        margin: 0;
+        padding: baseline(2) 0;
+
+        &:first-child {
+            border-top: 0;
+        }
+
+        &__info-wrapper {
+            @include product-option-icon {
+                font-size: $font-size-larger-up;
+                margin-right: baseline(1.5);
+            }
+
+            align-items: center;
+        }
+
+        &__info {
+            flex-wrap: wrap;
+            line-height: $line-height-smaller;
+            width: 100%;
+        }
+
+        &__actions {
+            width: 100%;
+        }
+
+        &__title {
+            font-weight: $font-main-bold;
+            line-height: $line-height-small;
+            max-width: 65%;
+        }
+
+        &__price {
+            font-weight: $font-main-bold;
+            margin-top: rem(3);
+        }
+
+        &__details {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        &__details-description {
+            font-size: $font-size-regular;
+            line-height: $line-height-regular;
+        }
+
+        &__action,
+        &__value-action {
+            color: $color-link;
+
+            .non-touch &:hover {
+                text-decoration: underline;
+            }
+
+            &::before {
+                content: "|";
+                margin: 0 baseline(0.5);
+            }
+
+            &:first-child::before {
+                content: none;
+            }
+        }
+
+        &__values {
+            margin: baseline(2) 0;
+        }
+
+        &__value--gift-message {
+            margin-bottom: 0;
+
+            @media (--from-small) {
+                min-height: baseline(18);
+            }
+        }
+
+        &__gift-msg-wrapper {
+            margin-top: baseline(3);
+        }
+
+        &__gift-msg-charsleft {
+            color: color(grey, 5);
+            font-size: $font-size-small;
+        }
+
+        &__gift-msg-input {
+            min-height: baseline(8);
+            resize: vertical;
+        }
+
+        &__gift-message-wrapper {
+            color: color(grey, 5);
+            display: flex;
+            margin-bottom: baseline(1);
+            margin-right: baseline(8);
+            width: 100%;
+        }
+    }
+
+    .b-product-option--gift-wrapping & {
+        &__values {
+            margin: baseline(2) 0 0;
+            order: 1;
+        }
+    }
+
+    .m-option-empty {
+        .b-product-option__price {
+            display: none;
+        }
+    }
+}

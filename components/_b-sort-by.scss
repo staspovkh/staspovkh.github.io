@@ -1,0 +1,26 @@
+.b-sort-by {
+    @media (--from-small) {
+        min-width: rem(200);
+    }
+
+    &__select,
+    .select2-selection {
+        font-size: $font-size-regular;
+        font-weight: $font-main-bold;
+        padding-right: rem(36);
+    }
+
+    &__field {
+        margin: 0;
+
+        .f-field__inner::before,
+        .select2-selection__arrow::before {
+            color: color(black);
+            content: icon-char(sort);
+        }
+    }
+
+    &__btn {
+        display: none;
+    }
+}

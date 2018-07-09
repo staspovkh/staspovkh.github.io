@@ -1,0 +1,51 @@
+.ui-dialog {
+    &#{$const-dialog-zoom} {
+        border-radius: 0;
+        height: 100% !important;
+        min-height: 100%;
+        min-width: 100%;
+    }
+
+    #{$const-dialog-zoom} & {
+        &-content {
+            background-color: color(black, $opacity: overlay);
+            height: 100% !important;
+            margin: 0;
+            padding: 0;
+
+            @media (--extra-small) {
+                background-color: color(white);
+            }
+        }
+
+        &-titlebar {
+            z-index: $z-small;
+
+            &-close {
+                background-color: color(white);
+                border: 1px solid color(grey, 2);
+                border-radius: rem(4);
+                height: rem(40);
+                right: rem(32);
+                top: rem(32);
+                width: rem(40);
+
+                @media (--extra-small) {
+                    right: rem(12);
+                    top: rem(12);
+                }
+
+                &::before {
+                    left: 50%;
+                    position: absolute;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                }
+
+                &:hover {
+                    background-color: color(white);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+@include b-video-styles {
+    &,
+    &:hover {
+        .vjs-big-play-button {
+            background-color: color(green, light);
+        }
+
+        .vjs-poster:before {
+            background-color: color(black, $opacity: overlay);
+        }
+    }
+
+    .vjs-big-play-button {
+        background-color: color(blue, light);
+        color: color(white);
+        font-size: baseline(4);
+
+        &:focus,
+        &:hover {
+            background-color: color(green, light);
+        }
+    }
+
+    .vjs-poster:before {
+        @include transition(background-color);
+
+        background-color: color(black, $opacity: 0);
+        content: "";
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+    .vjs-control-bar {
+        background-color: color(blue);
+        color: color(yellow);
+    }
+
+    .vjs-menu-content {
+        background-color: color(blue) !important;
+    }
+}
+
+.b-product-video {
+    .b-video__holder::before {
+        padding-bottom: 100%;
+    }
+}

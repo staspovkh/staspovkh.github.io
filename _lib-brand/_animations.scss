@@ -1,0 +1,95 @@
+// styleguide:ignore:start
+@keyframes search-spin {
+    @include full-spin-animation;
+}
+
+@keyframes search-spin-reverse {
+    @include full-spin-animation(-1);
+}
+
+@keyframes search-halfspin {
+    @include half-spin-animation;
+}
+
+@keyframes search-halfspin-reverse {
+    @include half-spin-animation($degree: 45deg);
+}
+
+@keyframes search-halfspin-2 {
+    @include half-spin-animation(-1);
+}
+
+@keyframes search-halfspin-2-reverse {
+    @include half-spin-animation(-1, 45deg);
+}
+
+@keyframes open-by-height {
+    0% {
+        max-height: 0;
+    }
+
+    75% {
+        max-height: rem(500);
+    }
+
+    99% {
+        max-height: rem(1000);
+    }
+
+    100% {
+        max-height: none;
+    }
+}
+
+@keyframes close-by-height {
+    0% {
+        max-height: none;
+    }
+
+    1% {
+        max-height: rem(1000);
+    }
+
+    25% {
+        max-height: rem(500);
+    }
+
+    100% {
+        max-height: 0;
+    }
+}
+
+@mixin arrow-bounce-rotate($direction: 1) {
+    0% {
+        transform: rotate($direction * 15deg);
+    }
+
+    40% {
+        transform: rotate($direction * 50deg);
+    }
+
+    60% {
+        transform: rotate($direction * 40deg);
+    }
+
+    80% {
+        transform: rotate($direction * 47.5deg);
+    }
+
+    90% {
+        transform: rotate($direction * 42.5deg);
+    }
+
+    100% {
+        transform: rotate($direction * 45deg);
+    }
+}
+
+@keyframes arrow-bounce-top {
+    @include arrow-bounce-rotate(-1);
+}
+
+@keyframes arrow-bounce-bottom {
+    @include arrow-bounce-rotate();
+}
+// styleguide:ignore:end

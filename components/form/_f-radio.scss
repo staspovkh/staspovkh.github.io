@@ -1,0 +1,12 @@
+.f-radio {
+    @include f-checkbox {
+        @include transition((box-shadow, border-width));
+
+        border-radius: 100%;
+    }
+
+    @include f-checkbox-checked {
+        border-width: 0;
+        box-shadow: 0 0 0 ($checkbox-size / 3) color(green, light) inset;
+    }
+}

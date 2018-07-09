@@ -1,0 +1,113 @@
+.f-field {
+    margin-bottom: baseline(2);
+    margin-top: baseline(3);
+
+    &--help-tooltip {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &--help-tooltip &__inner {
+        width: 100%;
+    }
+    
+    &--radio,
+    &--checkbox {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+}
+
+.f-label {
+    clear: both;
+    display: block;
+    font-size: $font-size-small;
+    line-height: 1;
+    margin-bottom: baseline(1);
+
+    .f-state-required > &::after {
+        color: color(red);
+        content: " *";
+    }
+
+    &__text {
+        align-self: center;
+    }
+
+    &__optional-text {
+        color: color(grey, 2);
+        float: right;
+        font-size: $font-size-small;
+
+        .ltr & {
+            float: right rtl-ignore();
+        }
+
+        .f-field--checkbox &,
+        .f-field--radio &,
+        .f-field--help-tooltip & {
+            display: none;
+        }
+    }
+
+    .f-field--help-tooltip & {
+        flex: 1;
+    }
+}
+
+.char-count,
+.f-caption {
+    color: color(grey, 2);
+    font-size: $font-size-small;
+    margin-top: baseline(0.5);
+}
+
+%f-error,
+div.f-error,
+label.error,
+.f-field-error {
+    color: color(red);
+    font-size: $font-size-small;
+    margin-top: baseline(0.5);
+}
+
+.f-form-error {
+    @include b-message(error);
+}
+
+.f-help {
+    font-size: $font-size-small;
+    line-height: 1;
+    margin-bottom: baseline(1);
+
+    &__tooltip,
+    &__dialog-link {
+        @include icon(question) {
+            background-color: color(blue, light);
+            border-radius: 100%;
+            color: color(white);
+            font-size: baseline(1.5);
+            line-height: baseline(3);
+            text-align: center;
+            width: baseline(3);
+        }
+
+        font-size: 0;
+    }
+}
+
+.f-basic-action-bar {
+    @include form-basic-action-bar;
+
+    &--checkout {
+        @media (--extra-small) {
+            padding: baseline(1) 0;
+        }
+    }
+}
+
+.m-dialog-field-help {
+    max-width: $ui-dialog-width-small;
+}

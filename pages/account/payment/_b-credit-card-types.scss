@@ -1,0 +1,21 @@
+.b-credit-card-types {
+    &__title {
+        margin-bottom: baseline(2);
+    }
+
+    &__cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 baseline(-1);
+    }
+
+    &__card {
+        font-size: rem(36);
+        margin: 0 baseline(1) baseline(2);
+
+        &::before {
+            background-color: color(grey, 4);
+        }
+    }
+}

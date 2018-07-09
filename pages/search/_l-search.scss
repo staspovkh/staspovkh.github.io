@@ -1,0 +1,129 @@
+.l-search {
+    &__top {
+        position: relative;
+    }
+
+    &__top-content {
+        .m-search-result + & {
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            z-index: $z-min;
+        }
+    }
+
+    &__bottom {
+        @media (--from-small) {
+            margin-bottom: baseline(3);
+        }
+    }
+
+    &__tabs {
+        margin-bottom: baseline(4);
+
+        @media (--extra-small) {
+            margin-bottom: baseline(3);
+        }
+    }
+
+    &__options {
+        margin-bottom: baseline(2);
+
+        &--bottom {
+            margin: baseline(4) 0 baseline(8);
+        }
+    }
+
+    &__quantity {
+        font-size: $font-size-regular;
+        font-weight: $font-main-bold;
+        margin-right: rem(8);
+
+        &--bottom {
+            display: none;
+        }
+    }
+
+    &__sticky-element {
+        @media (--extra-small) {
+            @include transition((box-shadow, opacity));
+
+            background-color: color(white);
+            display: flex;
+            justify-content: space-between;
+            padding: baseline(2) baseline(1);
+
+            &#{$const-sticky} {
+                box-shadow: 0 0 rem(40) rem(-10) color(grey);
+            }
+        }
+    }
+
+    &__sorting-options {
+        display: flex;
+
+        @media (--extra-small) {
+            max-width: 50%;
+            padding: 0 baseline(1);
+            width: 50%;
+
+            .b-sort-by {
+                width: 100%;
+            }
+        }
+    }
+
+    &__filter {
+        max-width: 50%;
+        padding: 0 baseline(1);
+        width: 50%;
+
+        .b-filter-btn {
+            box-shadow: none;
+            height: $height-form-field;
+            line-height: $height-form-field;
+            min-width: 0;
+            width: 100%;
+        }
+    }
+
+    &__featured-products {
+        margin-bottom: -1px;
+    }
+
+    &__products {
+        border-bottom: 1px solid color(grey, 2);
+        border-top: 1px solid color(grey, 2);
+    }
+
+    &__articles {
+        margin-bottom: baseline(6);
+    }
+
+    &__no-results {
+        border-top: 1px solid color(grey, 2);
+        padding-top: baseline(8);
+        padding-bottom: baseline(8);
+    }
+
+    &__suggestion {
+        margin-bottom: baseline(4);
+    }
+
+    &__popularsearch,
+    &__popularbrands {
+        @media (--from-small) {
+            display: flex;
+        }
+    }
+}
+
+.p-product-search {
+    .l-header__slot {
+        @media (--extra-small) {
+            background-color: color(grey, 4);
+        }
+    }
+}

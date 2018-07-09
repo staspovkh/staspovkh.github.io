@@ -1,0 +1,17 @@
+.b-result-search {
+    @include t-emphasis;
+
+    color: color(blue);
+    margin: baseline(6) 0 baseline(4);
+    text-align: center;
+
+    @media (--extra-small) {
+        margin: baseline(4) 0 baseline(3);
+    }
+
+    &__term {
+        @include t-hero-title;
+
+        display: block;
+    }
+}

@@ -1,0 +1,31 @@
+.b-account-address {
+    &__title {
+        font-weight: $font-main-medium;
+        margin-bottom: baseline(2);
+    }
+
+    &__title,
+    &__data {
+        padding-right: baseline(3);
+    }
+
+    &__link,
+    &__data {
+        font-size: $font-size-small;
+    }
+
+    &__data {
+        line-height: $line-height-small;
+        margin-bottom: baseline(2);
+    }
+
+    &__link + &__link::before {
+        content: "|";
+        margin: 0 baseline(0.5);
+    }
+
+    &__postalcode,
+    &__city {
+        display: inline;
+    }
+}

@@ -1,0 +1,87 @@
+.b-header-utility-menu {
+    align-items: flex-end;
+    display: flex;
+    justify-content: flex-end;
+
+    &__list {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    &__item {
+        margin-left: baseline(3);
+        position: relative;
+
+        @media (--to-small) {
+            margin-left: $header-small-icon-gutter;
+        }
+
+        &:first-item {
+            margin-left: 0;
+        }
+    }
+
+    &__link {
+        @include transition(color);
+
+        color: color(white);
+        display: block;
+        font-size: $header-icon-size;
+        position: relative;
+
+        &::before,
+        &::after {
+            @include icon-styles;
+            @include transition(opacity);
+        }
+
+        &::before {
+            opacity: 1;
+        }
+
+        &::after {
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            z-index: $z-min;
+        }
+
+        .non-touch &:hover {
+            color: color(green, light);
+            text-decoration: none;
+
+            &::before {
+                opacity: 0;
+            }
+
+            &::after {
+                opacity: 1;
+            }
+        }
+
+        .m-storelocator & {
+            &::before {
+                content: icon-char(location);
+            }
+
+            &::after {
+                content: icon-char(location-filled);
+            }
+        }
+
+        .m-wishlist & {
+            &::before {
+                content: icon-char(heart);
+            }
+
+            &::after {
+                content: icon-char(heart-filled);
+            }
+        }
+    }
+
+    &__whislist-counter {
+        display: none;
+    }
+}

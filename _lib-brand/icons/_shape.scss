@@ -1,0 +1,40 @@
+[class*="i-shape-"]::before,
+[class*="i-shape-"]::after {
+    @include i-shape-styles;
+}
+
+.i-shape-blast::before,
+.i-shape-after-blast::after {
+    content: i-shape-char(blast);
+}
+
+.i-shape-cloud::before,
+.i-shape-after-cloud::after {
+    content: i-shape-char(cloud);
+}
+
+.i-shape-pebble::before,
+.i-shape-after-pebble::after {
+    content: i-shape-char(pebble);
+}
+
+.i-shape-scribble::before,
+.i-shape-after-scribble::after {
+    content: i-shape-char(scribble);
+}
+
+.i-shape-spiral::before,
+.i-shape-after-spiral::after {
+    content: i-shape-char(spiral);
+}
+
+.i-shape-splat::before,
+.i-shape-after-splat::after {
+    content: i-shape-char(splat);
+}
+
+.i-shape-square::before,
+.i-shape-after-square::after {
+    content: i-shape-char(square);
+}
+

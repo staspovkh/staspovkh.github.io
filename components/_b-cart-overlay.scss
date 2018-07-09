@@ -1,0 +1,112 @@
+.b-cart-overlay {
+    @media (--extra-small) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__product {
+        background-color: color(green, tint);
+        overflow: hidden;
+
+        .b-miniproduct {
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            margin: baseline(2.5) 0;
+
+            @media (--extra-small) {
+                margin: baseline(2) #{map-get($outer-margins, "-xs")};
+            }
+
+            @media (--from-small) {
+                padding-left: rem(10);
+            }
+
+            &__image-wrapper {
+                @include block-proportions(1/1);
+
+                border: 1px solid color(green, light);
+                border-radius: $border-radius-small;
+                min-width: rem(112);
+                position: relative;
+                width: rem(112);
+
+                &::after {
+                    @include i-svg();
+                    @include i-svg--success;
+
+                    font-size: baseline(4);
+                    left: 0;
+                    position: absolute;
+                    top: 0;
+                    transform: translate(-44%, -44%);
+                }
+            }
+
+            &__image {
+                border-radius: $border-radius-small;
+                width: 100%;
+            }
+
+            &__details {
+                display: flex;
+                flex-direction: column;
+                max-width: calc(100% - #{rem(112)});
+                padding-left: rem(24);
+            }
+
+            &__name {
+                order: 2;
+            }
+
+            &__quantity {
+                font-size: $font-size-medium;
+                font-weight: $font-main-bold;
+                margin-bottom: baseline(0.5);
+                order: 1;
+            }
+
+            &__options {
+                margin-top: baseline(2);
+                width: 100%;
+            }
+        }
+    }
+
+    &__product-inner,
+    &__recommendations {
+        margin: 0 auto;
+        max-width: $ui-dialog-width;
+    }
+
+    &__empty {
+        .b-cart-overlay__title {
+            position: static;
+        }
+    }
+
+    &__empty-content {
+        padding: baseline(2.5);
+    }
+}
+
+// Override default dialog style
+#{$const-dialog-cart-overlay} {
+    @media (--extra-small) {
+        bottom: 0;
+        left: 0 !important;
+        max-width: none;
+        right: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+
+        .dialog-content {
+            height: 100% !important;
+        }
+
+        .l-minicart-container__cartoverlay,
+        .b-cart-overlay {
+            height: 100%;
+        }
+    }
+}

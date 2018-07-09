@@ -1,0 +1,14 @@
+.b-account-welcome {
+    @include t-subpage-title;
+
+    color: color(white);
+    display: none;
+    text-align: center;
+
+    .b-account-banner ~ & {
+        display: block;
+        position: absolute;
+        top: 45%;
+        width: 100%;
+    }
+}

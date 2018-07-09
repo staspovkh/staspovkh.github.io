@@ -1,0 +1,528 @@
+// Multicoloured Icons
+//
+// A less utilitarian multicoloured variation breathes life into areas of that site that require added impact.  They have been taken from and extended from a pre-existing global icon set.
+//
+// markup:
+// <div class="sg-iconset">
+//   <i class="i-svg--assembly">assembly</i>
+//   <i class="i-svg--assembly-off">assembly-off</i>
+//   <i class="i-svg--battery">battery</i>
+//   <i class="i-svg--book">book</i>
+//   <i class="i-svg--boy">boy</i>
+//   <i class="i-svg--calendar">calendar</i>
+//   <i class="i-svg--cash">cash</i>
+//   <i class="i-svg--click-collect">click-collect</i>
+//   <i class="i-svg--credit-card">credit-card</i>
+//   <i class="i-svg--delivery">delivery</i>
+//   <i class="i-svg--email">email</i>
+//   <i class="i-svg--free-gift">free-gift</i>
+//   <i class="i-svg--free-gift-off">free-gift-off</i>
+//   <i class="i-svg--girl">girl</i>
+//   <i class="i-svg--heart">heart</i>
+//   <i class="i-svg--info">info</i>
+//   <i class="i-svg--info-error">info-error</i>
+//   <i class="i-svg--info-warning">info-warning</i>
+//   <i class="i-svg--mask">mask</i>
+//   <i class="i-svg--page">page</i>
+//   <i class="i-svg--pay">pay</i>
+//   <i class="i-svg--pencil">pencil</i>
+//   <i class="i-svg--pencil-big">pencil-big</i>
+//   <i class="i-svg--phone">phone</i>
+//   <i class="i-svg--pin">pin</i>
+//   <i class="i-svg--present">present</i>
+//   <i class="i-svg--present-off">present-off</i>
+//   <i class="i-svg--present-purple">present-purple</i>
+//   <i class="i-svg--printer">printer</i>
+//   <i class="i-svg--returns">returns</i>
+//   <i class="i-svg--secure">secure</i>
+//   <i class="i-svg--size-guide">size-guide</i>
+//   <i class="i-svg--store">store</i>
+//   <i class="i-svg--success">success</i>
+//   <i class="i-svg--surprise">surprise</i>
+//   <i class="i-svg--tag">tag</i>
+//   <i class="i-svg--thumbs-down">thumbs-down</i>
+//   <i class="i-svg--thumbs-up">thumbs-up</i>
+//   <i class="i-svg--user">user</i>
+//   <i class="i-svg--warning">warning</i>
+//   <i class="i-svg--warranty">warranty</i>
+//   <i class="i-svg--warranty-off">warranty-off</i>
+// </div>
+//
+// Styleguide 5.2
+
+@mixin i-svg() {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1em;
+    line-height: 1;
+    background-image: url("../images/sprite.svg");
+    background-repeat: no-repeat;
+    background-size: 39.671875em 41.359375em;
+}
+[class*="i-svg--"]::before,
+[class*="i-svg-after--"]::after {
+    @include i-svg;
+}
+
+@mixin i-svg--assembly() {
+    content: "";
+    background-position: 0em 0em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--assembly::before,
+.i-svg-after--assembly::after {
+    @include i-svg--assembly;
+}
+
+@mixin i-svg--assembly-off() {
+    content: "";
+    background-position: -1em -1em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--assembly-off::before,
+.i-svg-after--assembly-off::after {
+    @include i-svg--assembly-off;
+}
+
+@mixin i-svg--battery() {
+    content: "";
+    background-position: -2em -2em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--battery::before,
+.i-svg-after--battery::after {
+    @include i-svg--battery;
+}
+
+@mixin i-svg--book() {
+    content: "";
+    background-position: -3em -3em/*rtl:ignore*/;
+    width: 0.84375em;
+    height: 1em;
+}
+.i-svg--book::before,
+.i-svg-after--book::after {
+    @include i-svg--book;
+}
+
+@mixin i-svg--boy() {
+    content: "";
+    background-position: -3.84375em -4em/*rtl:ignore*/;
+    width: 0.609375em;
+    height: 1.0015625em;
+}
+.i-svg--boy::before,
+.i-svg-after--boy::after {
+    @include i-svg--boy;
+}
+
+@mixin i-svg--calendar() {
+    content: "";
+    background-position: -4.453125em -5.015625em/*rtl:ignore*/;
+    width: 0.875em;
+    height: 0.90625em;
+}
+.i-svg--calendar::before,
+.i-svg-after--calendar::after {
+    @include i-svg--calendar;
+}
+
+@mixin i-svg--cash() {
+    content: "";
+    background-position: -5.328125em -5.921875em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--cash::before,
+.i-svg-after--cash::after {
+    @include i-svg--cash;
+}
+
+@mixin i-svg--click-collect() {
+    content: "";
+    background-position: -6.328125em -6.921875em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--click-collect::before,
+.i-svg-after--click-collect::after {
+    @include i-svg--click-collect;
+}
+
+@mixin i-svg--credit-card() {
+    content: "";
+    background-position: -7.328125em -7.921875em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--credit-card::before,
+.i-svg-after--credit-card::after {
+    @include i-svg--credit-card;
+}
+
+@mixin i-svg--delivery() {
+    content: "";
+    background-position: -8.328125em -8.921875em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--delivery::before,
+.i-svg-after--delivery::after {
+    @include i-svg--delivery;
+}
+
+@mixin i-svg--email() {
+    content: "";
+    background-position: -9.328125em -9.921875em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--email::before,
+.i-svg-after--email::after {
+    @include i-svg--email;
+}
+
+@mixin i-svg--free-gift() {
+    content: "";
+    background-position: -10.328125em -10.921875em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--free-gift::before,
+.i-svg-after--free-gift::after {
+    @include i-svg--free-gift;
+}
+
+@mixin i-svg--free-gift-off() {
+    content: "";
+    background-position: -11.328125em -11.921875em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--free-gift-off::before,
+.i-svg-after--free-gift-off::after {
+    @include i-svg--free-gift-off;
+}
+
+@mixin i-svg--girl() {
+    content: "";
+    background-position: -12.328125em -12.921875em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--girl::before,
+.i-svg-after--girl::after {
+    @include i-svg--girl;
+}
+
+@mixin i-svg--heart() {
+    content: "";
+    background-position: -13.328125em -13.921875em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--heart::before,
+.i-svg-after--heart::after {
+    @include i-svg--heart;
+}
+
+@mixin i-svg--info() {
+    content: "";
+    background-position: -14.328125em -14.921875em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--info::before,
+.i-svg-after--info::after {
+    @include i-svg--info;
+}
+
+@mixin i-svg--info-error() {
+    content: "";
+    background-position: -15.328125em -15.921875em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--info-error::before,
+.i-svg-after--info-error::after {
+    @include i-svg--info-error;
+}
+
+@mixin i-svg--info-warning() {
+    content: "";
+    background-position: -16.328125em -16.921875em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--info-warning::before,
+.i-svg-after--info-warning::after {
+    @include i-svg--info-warning;
+}
+
+@mixin i-svg--mask() {
+    content: "";
+    background-position: -17.328125em -17.921875em/*rtl:ignore*/;
+    width: 0.99875em;
+    height: 1.00171875em;
+}
+.i-svg--mask::before,
+.i-svg-after--mask::after {
+    @include i-svg--mask;
+}
+
+@mixin i-svg--page() {
+    content: "";
+    background-position: -18.328125em -18.9375em/*rtl:ignore*/;
+    width: 0.75em;
+    height: 1em;
+}
+.i-svg--page::before,
+.i-svg-after--page::after {
+    @include i-svg--page;
+}
+
+@mixin i-svg--pay() {
+    content: "";
+    background-position: -19.078125em -19.9375em/*rtl:ignore*/;
+    width: 0.9753125em;
+    height: 0.903125em;
+}
+.i-svg--pay::before,
+.i-svg-after--pay::after {
+    @include i-svg--pay;
+}
+
+@mixin i-svg--pencil() {
+    content: "";
+    background-position: -20.0625em -20.84375em/*rtl:ignore*/;
+    width: 0.3015625em;
+    height: 1.21875em;
+}
+.i-svg--pencil::before,
+.i-svg-after--pencil::after {
+    @include i-svg--pencil;
+}
+
+@mixin i-svg--pencil-big() {
+    content: "";
+    background-position: -20.375em -22.0625em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--pencil-big::before,
+.i-svg-after--pencil-big::after {
+    @include i-svg--pencil-big;
+}
+
+@mixin i-svg--phone() {
+    content: "";
+    background-position: -21.375em -23.0625em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--phone::before,
+.i-svg-after--phone::after {
+    @include i-svg--phone;
+}
+
+@mixin i-svg--pin() {
+    content: "";
+    background-position: -22.375em -24.0625em/*rtl:ignore*/;
+    width: 0.99875em;
+    height: 1.00171875em;
+}
+.i-svg--pin::before,
+.i-svg-after--pin::after {
+    @include i-svg--pin;
+}
+
+@mixin i-svg--present() {
+    content: "";
+    background-position: -23.375em -25.078125em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--present::before,
+.i-svg-after--present::after {
+    @include i-svg--present;
+}
+
+@mixin i-svg--present-off() {
+    content: "";
+    background-position: -24.375em -26.078125em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--present-off::before,
+.i-svg-after--present-off::after {
+    @include i-svg--present-off;
+}
+
+@mixin i-svg--present-purple() {
+    content: "";
+    background-position: -25.375em -27.078125em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--present-purple::before,
+.i-svg-after--present-purple::after {
+    @include i-svg--present-purple;
+}
+
+@mixin i-svg--printer() {
+    content: "";
+    background-position: -26.375em -28.078125em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--printer::before,
+.i-svg-after--printer::after {
+    @include i-svg--printer;
+}
+
+@mixin i-svg--returns() {
+    content: "";
+    background-position: -27.375em -29.078125em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--returns::before,
+.i-svg-after--returns::after {
+    @include i-svg--returns;
+}
+
+@mixin i-svg--secure() {
+    content: "";
+    background-position: -28.375em -30.078125em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--secure::before,
+.i-svg-after--secure::after {
+    @include i-svg--secure;
+}
+
+@mixin i-svg--size-guide() {
+    content: "";
+    background-position: -29.375em -31.078125em/*rtl:ignore*/;
+    width: 1em;
+    height: 0.75em;
+}
+.i-svg--size-guide::before,
+.i-svg-after--size-guide::after {
+    @include i-svg--size-guide;
+}
+
+@mixin i-svg--store() {
+    content: "";
+    background-position: -30.375em -31.828125em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--store::before,
+.i-svg-after--store::after {
+    @include i-svg--store;
+}
+
+@mixin i-svg--success() {
+    content: "";
+    background-position: -31.375em -32.828125em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--success::before,
+.i-svg-after--success::after {
+    @include i-svg--success;
+}
+
+@mixin i-svg--surprise() {
+    content: "";
+    background-position: -32.375em -33.828125em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--surprise::before,
+.i-svg-after--surprise::after {
+    @include i-svg--surprise;
+}
+
+@mixin i-svg--tag() {
+    content: "";
+    background-position: -33.375em -34.828125em/*rtl:ignore*/;
+    width: 0.74234375em;
+    height: 0.99484375em;
+}
+.i-svg--tag::before,
+.i-svg-after--tag::after {
+    @include i-svg--tag;
+}
+
+@mixin i-svg--thumbs-down() {
+    content: "";
+    background-position: -34.125em -35.828125em/*rtl:ignore*/;
+    width: 0.77671875em;
+    height: 0.7575em;
+}
+.i-svg--thumbs-down::before,
+.i-svg-after--thumbs-down::after {
+    @include i-svg--thumbs-down;
+}
+
+@mixin i-svg--thumbs-up() {
+    content: "";
+    background-position: -34.90625em -36.59375em/*rtl:ignore*/;
+    width: 0.77671875em;
+    height: 0.7575em;
+}
+.i-svg--thumbs-up::before,
+.i-svg-after--thumbs-up::after {
+    @include i-svg--thumbs-up;
+}
+
+@mixin i-svg--user() {
+    content: "";
+    background-position: -35.6875em -37.359375em/*rtl:ignore*/;
+    width: 0.97953125em;
+    height: 0.990625em;
+}
+.i-svg--user::before,
+.i-svg-after--user::after {
+    @include i-svg--user;
+}
+
+@mixin i-svg--warning() {
+    content: "";
+    background-position: -36.671875em -38.359375em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--warning::before,
+.i-svg-after--warning::after {
+    @include i-svg--warning;
+}
+
+@mixin i-svg--warranty() {
+    content: "";
+    background-position: -37.671875em -39.359375em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--warranty::before,
+.i-svg-after--warranty::after {
+    @include i-svg--warranty;
+}
+
+@mixin i-svg--warranty-off() {
+    content: "";
+    background-position: -38.671875em -40.359375em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-svg--warranty-off::before,
+.i-svg-after--warranty-off::after {
+    @include i-svg--warranty-off;
+}
+

@@ -1,0 +1,28 @@
+.l-plp {
+    &__banner-top {
+        position: relative;
+
+        &__content {
+            @media (--from-small) {
+                margin-bottom: baseline(2);
+                margin-top: baseline(-8);
+            }
+        }
+    }
+
+    &__banner-bottom {
+        &__content {
+            border-top: 1px solid color(grey, 2);
+            padding: baseline(4) 0 baseline(6);
+        }
+    }
+}
+
+.p-product-search-result {
+    .l-main__content {
+        @media (--extra-small) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}

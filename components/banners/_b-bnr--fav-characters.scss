@@ -1,0 +1,147 @@
+@mixin fav-characters-color($color) {
+    box-shadow: 0 rem(-20) rem(40) rem(24) $color;
+
+    &,
+    &::before {
+        background-color: $color;
+    }
+}
+
+// CLP - Favourite characters banners
+//
+// Please refer to Content managment documentation for specific settings: https://alfuttaim.atlassian.net/wiki/spaces/SH/pages/170524709/TRU+-+HP+-+Homepage#TRU-HP-Homepage-MostPopularCategories(homepage-slot-3)
+//
+// markup:
+// <div class="b-content-slot b-content-slot--fav-characters">
+//     <div class="b-carousel b-carousel--content ">
+//         <!-- Content Slot "callout" field is the title -->
+//         <h3 class="b-carousel__title b-content-slot__title">
+//             Favourite characters
+//         </h3>
+//         <!-- Content Slot template contentcarousel.isml will generate carousel wrapper for the tiles -->
+//         <div class="b-carousel__element js-carousel" data-carousel="{&quot;dots&quot;:false,&quot;slidesToShow&quot;:4,&quot;autoplay&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1440,&quot;settings&quot;:{&quot;slidesToShow&quot;:2}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:1}}]}">
+//             <div class="b-carousel__slide"> 
+//             <!-- 1..n assets of Content Slot's asset list - each represents fav character tile -->
+//             <div class="b-bnr b-bnr--fav-characters m-fav-character--red">
+//                 <div class="b-bnr__inner">
+//                     <!-- PICTURE section is formed automatically from asset's Images custom fields -->
+//                     <picture class="b-bnr__picture">
+//                         <img src="images/banners/fav-characters/barbie.jpg" alt="" class="b-bnr__image">
+//                     </picture>
+//                     <div class="b-bnr__content">
+//                         <!--  Content asset's BODY field content -->
+//                         <span class="m-clr--white">Barbie</span>
+//                     </div>
+//                 </div>
+//             </div>
+//             </div>
+//             <div class="b-carousel__slide">
+//             <div class="b-bnr b-bnr--fav-characters m-fav-character--blue-tint">
+//                 <div class="b-bnr__inner">
+//                     <picture class="b-bnr__picture">
+//                         <img src="images/banners/fav-characters/pony.jpg" alt="" class="b-bnr__image">
+//                     </picture>
+//                     <div class="b-bnr__content">Pony</div>
+//                 </div>
+//             </div>
+//             </div>
+//             <div class="b-carousel__slide">
+//             <div class="b-bnr b-bnr--fav-characters m-fav-character--red-light">
+//                 <div class="b-bnr__inner">
+//                     <picture class="b-bnr__picture">
+//                         <img src="images/banners/fav-characters/spiderman.jpg" alt="" class="b-bnr__image">
+//                     </picture>
+//                     <div class="b-bnr__content">Spiderman</div>
+//                 </div>
+//             </div>
+//             </div>
+//             <div class="b-carousel__slide">
+//             <div class="b-bnr b-bnr--fav-characters m-fav-character--black">
+//                 <div class="b-bnr__inner">
+//                     <picture class="b-bnr__picture">
+//                         <img src="images/banners/fav-characters/batman.jpg" alt="" class="b-bnr__image">
+//                     </picture>
+//                     <div class="b-bnr__content">Batman</div>
+//                 </div>
+//             </div>
+//             </div>
+//             <div class="b-carousel__slide">
+//             <div class="b-bnr b-bnr--fav-characters m-fav-character--blue-tint">
+//                 <div class="b-bnr__inner">
+//                     <picture class="b-bnr__picture">
+//                         <img src="images/banners/fav-characters/pony.jpg" alt="" class="b-bnr__image">
+//                     </picture>
+//                     <div class="b-bnr__content">Pony</div>
+//                 </div>
+//             </div>
+//             </div>
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide 8.8
+
+.b-bnr--fav-characters {
+    @include transition(box-shadow);
+
+    border-radius: $border-radius-small;
+    overflow: hidden;
+    position: relative;
+
+    &:hover {
+        box-shadow: $box-shadow-regular;
+
+        .b-bnr__picture {
+            transform: scale(1);
+        }
+    }
+
+    .b-bnr {
+        &__picture {
+            @include transition(transform);
+
+            transform: scale(1.5);
+            width: 100%;
+        }
+
+        &__content {
+            @include fav-characters-color(color(white));
+
+            bottom: 0;
+            font-size: $font-size-larger;
+            font-weight: $font-main-bold;
+            line-height: $line-height-larger;
+            padding: 0 baseline(3) baseline(4);
+            position: absolute;
+            text-align: center;
+            width: 100%;
+
+            // fix a gap between the shadow and the background that may appear during scale (especially in IE)
+            &::before {
+                content: "";
+                height: rem(1);
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: rem(-1);
+            }
+
+            @media (--small) {
+                font-size: $font-size-large;
+                line-height: $line-height-large;
+            }
+        }
+    }
+}
+
+@each $colorName, $colorValue in $color-palette {
+    .m-fav-character--#{$colorName} .b-bnr__content {
+        @include fav-characters-color(color($colorName, "base"));
+    }
+
+    @each $spectrumName, $spectrumValue in $colorValue {
+        .m-fav-character--#{$colorName}-#{$spectrumName} .b-bnr__content {
+            @include fav-characters-color($spectrumValue);
+        }
+    }
+}

@@ -1,0 +1,46 @@
+.b-login {
+    @include box;
+
+    margin-bottom: baseline(5);
+    padding-bottom: baseline(4);
+    padding-top: baseline(3);
+
+    @media (--extra-small) {
+        padding-top: 0;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+
+    &--wishlist,
+    &--account {
+        @media (--from-small) {
+            border: 0;
+            padding: baseline(2) 17% baseline(6);
+        }
+    }
+
+    &__title {
+        @include t-hero-title($font-family-main);
+
+        margin-bottom: baseline(4);
+        text-align: center;
+    }
+
+    &__header {
+        @include t-subpage-title($font-family-main);
+
+        margin-bottom: baseline(3);
+
+        .b-login--signin & {
+            display: none;
+        }
+    }
+
+    &--create-account {
+        .f-cta-secondary {
+            width: 100%;
+        }
+    }
+}

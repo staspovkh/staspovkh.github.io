@@ -1,0 +1,18 @@
+.b-site-offline {
+    color: color(white);
+    text-align: center;
+
+    &__logo {
+        margin-bottom: baseline(3);
+
+        @media (--extra-small) {
+            max-width: 80%;
+        }
+    }
+
+    &__title {
+        @include t-subpage-title;
+
+        margin-bottom: baseline(2);
+    }
+}

@@ -1,0 +1,60 @@
+.b-account-order {
+    width: calc(50% - #{baseline(2.5)});
+
+    @media (--to-small) {
+        margin-bottom: baseline(5);
+        width: 100%;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    &__details {
+        position: relative;
+    }
+
+    &__number {
+        font-size: $font-size-medium;
+        font-weight: $font-main-medium;
+        margin-bottom: baseline(1);
+    }
+    
+    &__placed,
+    &__total {
+        font-size: $font-size-small;
+    }
+
+    &__value {
+        font-weight: $font-main-bold;
+    }
+
+    &__count {
+        border-top: 1px solid color(grey, 3);
+        font-size: $font-size-small;
+        font-weight: $font-main-bold;
+        margin: baseline(2) 0;
+        padding-top: baseline(2);
+    }
+
+    &__status {
+        border-radius: $border-radius-small;
+        font-size: $font-size-small;
+        font-weight: $font-main-bold;
+        line-height: 1;
+        padding: baseline(1) baseline(2);
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        &--in-progress {
+            background-color: color(yellow);
+        }
+    }
+
+    &__button-details {
+        @extend %f-cta-secondary--small;
+
+        width: 100%;
+    }
+}

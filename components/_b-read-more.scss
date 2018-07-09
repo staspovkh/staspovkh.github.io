@@ -1,0 +1,58 @@
+.b-read-more {
+    &__title {
+        font-size: $font-size-medium;
+        font-weight: $font-main-bold;
+        margin-bottom: baseline(2);
+    }
+
+    &__btn {
+        cursor: pointer;
+        display: none;
+        margin-top: baseline(2.5);
+
+        .b-read-more__text--hidden ~ & {
+            display: flex;
+        }
+
+        &-icon {
+            align-self: center;
+            height: rem(32);
+            width: rem(32);
+
+            &::before {
+                font-size: rem(16);
+                display: block;
+                line-height: rem(32);
+            }
+        }
+
+        &-text {
+            align-self: center;
+            color: color(blue);
+            font-weight: $font-main-bold;
+            margin-left: rem(12);
+
+            &--hide {
+                display: none;
+            }
+        }
+
+        &.m-expanded &-text--read {
+            display: none;
+        }
+
+        &.m-expanded &-text--hide {
+            display: inline;
+        }
+
+        &.m-expanded &-icon::before {
+            content: icon-char(minus);
+        }
+    }
+
+    &__text {
+        &--hidden {
+            display: none;
+        }
+    }
+}

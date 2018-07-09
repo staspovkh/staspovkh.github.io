@@ -1,0 +1,21 @@
+// <div class="b-attributes">
+//   <div class="b-attributes__label">Key Label</div>
+//   <div class="b-attributes__value">Key Value</div>
+// </div>
+// Design: PDP > Tabs > Tab (Details)
+
+.b-attributes {
+    display: flex;
+
+    &__label,
+    &__attr {
+        font-size: $font-size-small;
+        padding: rem(13) baseline(2);
+        width: 50%;
+    }
+
+    &__label {
+        background-color: color(grey, 4);
+        font-weight: $font-main-medium;
+    }
+}

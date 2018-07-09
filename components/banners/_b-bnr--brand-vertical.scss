@@ -1,0 +1,36 @@
+.b-bnr--brand-vertical {
+    margin: 0 auto;
+    max-width: rem(480);
+
+    .b-bnr {
+        &__content {
+            color: color(white);
+            padding: 0 baseline(2);
+            position: absolute;
+            top: 10%;
+        }
+
+        &__title {
+            @include t-subpage-title(false);
+
+            font-weight: $font-main-bold;
+            margin-bottom: baseline(2.5);
+        }
+
+        &__image {
+            margin: 0 percentage(-1/6);
+            max-width: none;
+            width: percentage(4/3);
+        }
+
+        &__btn-wrapper {
+            margin-top: baseline(3);
+        }
+
+        &__btn {
+            background-color: color(none);
+            border-color: color(white);
+            color: color(white);
+        }
+    }
+}

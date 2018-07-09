@@ -1,0 +1,40 @@
+.l-confirmation {
+    @media (--from-small) {
+        background-color: color(grey, 4);
+    }
+
+    &__top {
+        @media (--from-small) {
+            margin-bottom: baseline(5);
+        }
+    }
+
+    &__content {
+        @media (--from-small) {
+            padding-bottom: baseline(6);
+        }
+    }
+
+    &__primary {
+        flex: 1;
+    }
+
+    &__secondary {
+        min-width: rem(320);
+
+        @media (--extra-small) {
+            overflow: hidden;
+        }
+
+        .b-content-slot {
+            margin-bottom: baseline(3);
+            z-index: $z-min;
+        }
+    }
+
+    .l-main__content {
+        @media (--extra-small) {
+            padding: 0;
+        }
+    }
+}

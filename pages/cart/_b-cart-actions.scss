@@ -1,0 +1,23 @@
+.b-cart-actions {
+    &__checkout-btn {
+        margin-bottom: baseline(1);
+        position: relative;
+
+        &[class*="i-font-"] {
+            text-align: center;
+        }
+
+        &::before {
+            bottom: 0;
+            font-size: rem(25);
+            left: rem(18);
+            position: absolute;
+            top: 0;
+        }
+    }
+
+    &__checkout-btn,
+    &__continue-shopping-btn {
+        width: 100%;
+    }
+}

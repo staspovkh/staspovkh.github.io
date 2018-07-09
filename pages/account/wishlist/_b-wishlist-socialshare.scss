@@ -1,0 +1,65 @@
+.b-wishlist-socialshare {
+    position: absolute;
+    right: 0;
+    top: baseline(-0.5);
+
+    @media (--extra-small) {
+        right: baseline(4);
+        top: baseline(-1);
+    }
+
+    &__button {
+        @include icon(share, after);
+
+        line-height: baseline(6);
+        min-width: baseline(14);
+        height: baseline(6);
+        text-align: left;
+    }
+
+    &__content {
+        display: none;
+    }
+
+    &__list {
+        align-items: center;
+        display: flex;
+        margin-bottom: baseline(3);
+    }
+
+    &__item {
+        margin-left: rem(16);
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    &__link {
+        font-size: baseline(5);
+    }
+
+    &__copy-link {
+        border-top: 1px solid color(grey, 3);
+        padding-top: baseline(3);
+    }
+
+    &__copy-link-title {
+        display: none;
+    }
+
+    &__copy-link-button {
+        @include icon(share);
+
+        font-size: $font-size-medium;
+        font-weight: $font-main-bold;
+        line-height: baseline(6);
+        white-space: nowrap;
+
+        &::before {
+            color: color(grey, 2);
+            font-size: baseline(6);
+            margin-right: baseline(2);
+        }
+    }
+}

@@ -1,0 +1,33 @@
+.l-product-stores {
+    @media(--from-small) {
+        display: flex;
+    }
+
+    &__map {
+        @media(--from-small) {
+            order: 2;
+            width: 57%;
+        }
+    }
+
+    &__list-container {
+        position: relative;
+
+        @media(--from-small) {
+            width: 43%;
+        }
+    }
+
+    &__list {
+        @media(--from-small) {
+            @include brand-scrollbar;
+
+            bottom: 0;
+            left: 0;
+            overflow: auto;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+}

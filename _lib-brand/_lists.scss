@@ -1,0 +1,165 @@
+// --------------------------------------------
+// Default HTML
+// <div class="b-name-class">
+//   <h3></h3>
+//   <ul>
+//     <li></li>
+//     <li></li>
+//   </ul>
+// </div>
+//
+// SCSS
+// .b-name-class { 
+//    @include list-mixin-name;
+// }
+// --------------------------------------------
+// 
+// --------------------------------------------
+// Custom HTML
+// <div class="b-name-class">
+//   <div class="b-name-class__title"></div>
+//   <div class="b-name-class__list">
+//     <div class="b-name-class__item"></div>
+//     <div class="b-name-class__item"></div>
+//   </div>
+// </div>
+//
+// SCSS
+// .b-name-class {
+//    @include list-mixin-name (
+//      $title: '&__title',
+//      $list: '&__list',
+//      $item: '&__item'
+//    )
+// };
+// --------------------------------------------
+// 
+// Lists: 
+//   @include list-style-marker();
+//   @include list-style-marker-big();
+
+// Lists
+//
+// Styleguide 3.6
+
+// Bulleted list
+//
+// markup:
+// <div class="list-style-marker">
+//   <h3>Bulleted list header</h3>
+//   <ul>
+//     <li>Lorem ipsum dolor sit amet, consectetur</li>
+//     <li>Lorem ipsum dolor sit amet, consectetur</li>
+//     <li>Lorem ipsum dolor sit amet, consectetur</li>
+//   </ul>
+// </div>
+//
+// Styleguide 3.6.1
+
+@mixin list-style-marker (
+    $title: "h3",
+    $item: "li",
+    $color: color(red)
+) {
+    @if ($title) {
+        #{$title} {
+            font-size: $font-size-large;
+            font-weight: $font-main-regular;
+            line-height: $line-height-large;
+            margin: 0 0 baseline(2);
+        }
+    }
+
+    #{$item} {
+        @include icon(list) {
+            color: $color;
+            font-size: baseline(1);
+            left: 0;
+            line-height: inherit;
+            position: absolute;
+            top: 0;
+        }
+
+        margin: 0 0 baseline(1.5);
+        padding: 0 0 0 baseline(2.5);
+        position: relative;
+    }
+
+    @content;
+}
+
+// Iconed list
+//
+// markup:
+// <div class="list-style-marker-big">
+//   <h3>Iconed list header</h3>
+//   <ul>
+//     <li>Lorem ipsum dolor sit amet, consectetur</li>
+//     <li>Lorem ipsum dolor sit amet, consectetur</li>
+//     <li>Lorem ipsum dolor sit amet, consectetur</li>
+//   </ul>
+// </div>
+//
+// Styleguide 3.6.2
+
+@mixin list-style-marker-big (
+    $title: "h3",
+    $item: "li",
+    $color: color(green, light),
+    $counter: false
+) {
+    @if $counter {
+        counter-reset: content-list;
+    }
+
+    @if ($title) {
+        #{$title} {
+            font-size: $font-size-large;
+            font-weight: $font-main-regular;
+            line-height: $line-height-large;
+            margin: 0 0 baseline(2);
+        }
+    }
+
+    #{$item} {
+        margin: 0 0 baseline(2);
+        padding: 0 0 0 rem(36);
+        position: relative;
+
+        &::before,
+        &::after {
+            left: 0;
+            position: absolute;
+            text-align: center;
+            top: rem(1);
+            width: rem(20);
+        }
+
+        &::before {
+            @include icon-styles;
+
+            color: $color;
+            content: icon-char(list);
+            font-size: rem(20);
+            z-index: $z-min;
+        }
+
+        &::after {
+            @if $counter {
+                content: counter(content-list);
+                counter-increment: content-list;
+                font-size: $font-size-small;
+                font-weight: $font-main-medium;
+            } @else {
+                @include icon-styles;
+
+                content: icon-char(tick);
+                font-size: rem(10);
+                line-height: 2;
+            }
+
+            color: color(white);
+            z-index: $z-small;
+        }
+    }
+}

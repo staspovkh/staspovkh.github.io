@@ -1,0 +1,247 @@
+body {
+    @include transition(background-color, $header-search-animation-duration);
+
+    #{$const-search-active} & {
+        background-color: $header-search-suggestions-bg;
+    }
+}
+
+.l-header__slot,
+.l-main,
+.l-footer {
+    @include transition(opacity, $header-search-animation-duration);
+
+    opacity: 1;
+
+    #{$const-search-active} & {
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+    }
+}
+
+.l-search-suggestion {
+    display: none;
+
+    #{$const-search-active} & {
+        display: block;
+    }
+}
+
+.b-header-search {
+    &__open,
+    &__submit {
+        @include transition(color, $header-search-animation-duration);
+
+        animation: search-spin-reverse 2*$header-search-animation-duration both;
+
+        #{$const-search-active} & {
+            animation: search-spin 2*$header-search-animation-duration both;
+            color: color(blue, light);
+        }
+    }
+}
+
+@media (--from-medium) {
+    // Search component
+    .b-header-search {
+        &__wrapper {
+            @include transition((width, margin-left), $header-search-animation-duration);
+
+            width: 100%;
+
+            #{$const-search-active} & {
+                margin-left: -33%;
+                transition-delay: $header-search-animation-duration;
+                width: 166%;
+            }
+        }
+
+        &__textinput {
+            @include transition(background-color, $header-search-animation-duration);
+
+            #{$const-search-active} & {
+                background-color: color(white, $opacity: original);
+                color: color(blue);
+            }
+        }
+
+        &__submit {
+            @include transition((transform, color), $header-search-animation-duration);
+
+            #{$const-search-active} & {
+                color: color(blue, light);
+            }
+        }
+
+        &__close {
+            @include transition((opacity, transform), $header-search-animation-duration);
+
+            transform: scale(0);
+
+            #{$const-search-active} & {
+                transform: scale(1);
+                transition-delay: $header-search-animation-duration;
+            }
+        }
+    }
+
+    .b-header-logo,
+    .b-header-utility-menu {
+        @include transition(opacity, $header-search-animation-delay, $header-search-animation-duration);
+
+        opacity: 1;
+
+        #{$const-search-active} & {
+            opacity: 0;
+            pointer-events: none;
+            transition-delay: 0s;
+        }
+    }
+
+    .l-header {
+        &__navigation-wrapper {
+            @include transition((opacity, max-height), $transition-delay: ($header-search-animation-duration, 0s));
+
+            opacity: 1;
+
+            #{$const-search-active} & {
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                transition-delay: 0s, $header-search-animation-duration;
+            }
+        }
+    }
+}
+
+@media (--small) {
+    .b-header-search {
+        &__wrapper {
+            $search-wrapper-indent: $header-icon-size + $header-small-icon-gutter + map-get($outer-margins, "-sm") - $header-search-gutter;
+
+            width: calc(100vw - #{$search-wrapper-indent * 2});
+
+            #{$const-search-active} & {
+                left: -#{$search-wrapper-indent};
+            }
+        }
+    }
+}
+
+@media (--extra-small) {
+    .b-header-search {
+        &__wrapper {
+            $search-wrapper-indent: $header-icon-size + $header-small-icon-gutter + map-get($outer-margins, "-xs") - $header-search-gutter;
+
+            width: calc(100vw - #{$search-wrapper-indent * 2});
+
+            #{$const-search-active} & {
+                left: -#{$search-wrapper-indent};
+            }
+        }
+    }
+}
+
+@media (--to-small) {
+    .b-header-search {
+        &__wrapper {
+            @include transition((width, left), $header-search-animation-duration);
+
+            left: -#{$header-search-gutter};
+
+            #{$const-search-active} & {
+                width: calc(100vw - #{$header-search-gutter * 2});
+            }
+        }
+
+        &__form {
+            pointer-events: none;
+
+            #{$const-search-active} & {
+                pointer-events: auto;
+            }
+        }
+
+        &__textinput {
+            @include transition(opacity, $header-search-animation-duration);
+
+            opacity: 0;
+            pointer-events: none;
+
+            #{$const-search-active} & {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+
+        &__open {
+            #{$const-search-active} & {
+                visibility: hidden;
+            }
+        }
+
+        &__submit {
+            visibility: hidden;
+
+            #{$const-search-active} & {
+                visibility: visible;
+            }
+        }
+
+        &__close {
+            @include transition(opacity);
+
+            pointer-events: none;
+
+            #{$const-search-active} & {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+    }
+
+    .b-header-logo,
+    .b-header-toggle-menu,
+    .b-header-utility-menu {
+        @include transition((opacity, transform), $header-search-animation-duration);
+
+        opacity: 1;
+        transition-delay: 0s;
+
+        #{$const-search-active} & {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    .b-header-toggle-menu {
+        transform: translate3d(0, 0, 0);
+
+        #{$const-search-active} & {
+            transform: translate3d(- map-get($outer-margins, "-sm") - $header-small-icon-gutter, 0, 0);
+        }
+    }
+
+    .b-header-utility-menu {
+        transform: translate3d(0, 0, 0);
+
+        #{$const-search-active} & {
+            transform: translate3d(map-get($outer-margins, "-sm") + $header-small-icon-gutter, 0, 0);
+        }
+    }
+
+    .l-header {
+        &__top {
+            @include transition(max-height, $header-search-animation-duration);
+
+            max-height: baseline(5);
+
+            #{$const-search-active} & {
+                max-height: 0;
+                overflow: hidden;
+            }
+        }
+    }
+}

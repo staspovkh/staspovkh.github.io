@@ -1,0 +1,419 @@
+// Buttons
+//
+// All project buttons.
+// You can review general mixins used by the most of the buttons by clicking "Show CSS" link below:
+//
+// Styleguide 1
+
+//----------------------------------------------------------------------
+// Button layout
+//----------------------------------------------------------------------
+$btn-height-small : rem(44);
+$btn-height-large : rem(56);
+
+@mixin f-button-layout($btn-size: medium, $icon-size: default) {
+    @include transition((background-color, border-color, color, box-shadow));
+
+    border-radius: $border-radius-small;
+    font-size: rem(16);
+    font-weight: $font-main-bold;
+    min-width: rem(152);
+    padding: 0 rem(10);
+    @if ($btn-size == medium) {
+        $icon-gap: rem(8) !global;
+        $icon-font-size: rem(16) !global;
+
+        height: $btn-height-small;
+        line-height: $btn-height-small;
+    } @else if $btn-size == large {
+        $icon-gap: rem(12) !global;
+        $icon-font-size: rem(32) !global;
+
+        height: $btn-height-large;
+        line-height: $btn-height-large;
+    }
+    @if $icon-size == large {
+        $icon-font-size: rem(32) !global;
+    }
+
+    &::before {
+        margin-right: $icon-gap;
+    }
+
+    &::after {
+        float: right;
+    }
+
+    &::before,
+    &::after {
+        line-height: inherit;
+    }
+
+    &[class*="i-svg-"],
+    &[class*="i-social-"],
+    &[class*="i-font-"] {
+        text-align: initial;
+    }
+
+    &[class*="i-svg-"] {
+        &::before,
+        &::after {
+            font-size: rem(43);
+        }
+    }
+
+    &[class*="i-social-"] {
+        &::before,
+        &::after {
+            font-size: rem(32);
+        }
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+@mixin f-state-disabled-style($bg-color : color(grey, 3), $color :color(grey)) {
+    @include f-state-disabled {
+        background-color: $bg-color;
+        border-color: $bg-color;
+        box-shadow: none;
+        color: $color;
+    }
+}
+
+@mixin f-button-shadow-style(
+    $shadow-size-default: 0,
+    $shadow-size-hover: -2px,
+    $shadow-size-active: 1px
+) {
+    @include f-state-hover {
+        box-shadow: inset 0 #{$shadow-size-hover} 0 color(black, $opacity: shadow);
+    }
+    @include f-state-active {
+        box-shadow: inset 0 #{$shadow-size-active} 0 color(black, $opacity: shadow);
+    }
+
+    box-shadow: inset 0 #{$shadow-size-default} 0 color(black, $opacity: shadow);
+}
+
+// Primary buttons
+//
+// Buttons have a height of 44px and a corner radius of 3px.  They have a flatter colour treatment, making them less prominent than CTAs.
+//
+// markup:
+// <button class="f-button">
+//     <span class="f-button__text">Primary</span>
+// </button>
+// <button class="f-button i-font-sort">
+//     <span class="f-button__text">With icon (left)</span>
+// </button>
+// <button class="f-button i-font-after-sort">
+//     <span class="f-button__text">With icon (right)</span>
+// </button>
+// <button class="f-button i-font-sort" disabled>
+//     <span class="f-button__text">Disabled</span>
+// </button>
+//
+// Styleguide 1.1
+
+.f-button,
+%f-button {
+    @include f-button-layout();
+    @include f-button {
+        background-color: color(grey, 4);
+        border-color: color(grey, 2);
+        color: color(black);
+    }
+    @include f-state-hover {
+        background-color: color(blue, light);
+        border-color: color(blue, light);
+        color: color(white);
+        text-decoration: none;
+    }
+    @include f-state-active {
+        background-color: color(blue, light);
+        border-color: color(blue, light);
+        box-shadow: inset 0 2px 0 color(black, $opacity: shadow);
+        color: color(white);
+    }
+    @include f-state-disabled-style();
+}
+
+// Button link
+//
+// markup:
+// <button class="f-button-link">
+//     <span class="f-button__text">Regular button</span>
+// </button>
+// <button class="f-button-link" disabled>
+//     <span class="f-button__text">Disabled</span>
+// </button>
+//
+// Styleguide 1.2
+
+.f-button-link,
+%f-button-link {
+    @include f-button-layout();
+    @include f-button {
+        background-color: color(white);
+        border-color: transparent;
+        color: color(blue);
+    }
+    @include f-state-hover {
+        background-color: color(grey, 4);
+        border-color: color(grey, 4);
+    }
+    @include f-state-active {
+        background: color(blue, light);
+        border-color: color(blue, light);
+        box-shadow: inset 0 2px 0 color(black, $opacity: shadow);
+    }
+    @include f-state-disabled-style();
+}
+
+// CTA
+//
+// CTAs have a distinctive and impactful shadow that makes that draws more attention.  They are 56px high by default with a corner radius of 3px, but can be 48px high when supporting a CTA that requires higher prominence.  CTAs are reserved for key interactions, such as add to cart.
+//
+// Styleguide 1.3
+
+// CTA Primary
+//
+// markup:
+// <button class="f-cta-primary">
+//     <span class="f-cta__text">CTA Primary</span>
+// </button>
+// <button class="f-cta-primary i-social--facebook">
+//     <span class="f-cta__text">CTA Icon (left)</span>
+// </button>
+// <button class="f-cta-primary i-social-after--facebook">
+//     <span class="f-cta__text">CTA Icon (right)</span>
+// </button>
+// <button class="f-cta-primary" disabled>
+//     <span class="f-cta__text">Disabled</span>
+// </button>
+// <button class="f-cta-primary--small">
+//     <span class="f-cta__text">CTA primary (small)</span>
+// </button>
+//
+// Styleguide 1.3.1
+
+@mixin cta-primary-style() {
+    @include f-button {
+        background-color: color(green);
+        border: 0;
+        color: color(white);
+        font-weight: $font-main-bold;
+    }
+    @include f-button-shadow-style(
+        $shadow-size-default: -2px,
+        $shadow-size-hover: -4px,
+        $shadow-size-active: 2px
+    );
+    @include f-state-disabled-style();
+}
+
+.f-cta-primary,
+%f-cta-primary {
+    @include f-button-layout(large);
+    @include cta-primary-style;
+}
+
+.f-cta-primary--small,
+%f-cta-primary--small {
+    @include f-button-layout(medium, large);
+    @include cta-primary-style;
+}
+
+// CTA secondary
+//
+// markup:
+// <button class="f-cta-secondary">
+//     <span class="f-cta__text">CTA secondary</span>
+// </button>
+// <button class="f-cta-secondary i-social--facebook">
+//     <span class="f-cta__text">CTA Icon (left)</span>
+// </button>
+// <button class="f-cta-secondary i-social-after--facebook">
+//     <span class="f-cta__text">CTA Icon (right)</span>
+// </button>
+// <button class="f-cta-secondary" disabled>
+//     <span class="f-cta__text">Disabled</span>
+// </button>
+// <button class="f-cta-secondary--small">
+//     <span class="f-cta__text">CTA secondary (small)</span>
+// </button>
+//
+// Styleguide 1.3.2
+
+@mixin cta-secondary-style() {
+    @include f-button() {
+        background-color: color(grey, 4);
+        border-color: color(black, $opacity: shadow);
+        color: color(black);
+    }
+    @include f-button-shadow-style();
+    @include f-state-disabled-style();
+}
+
+.f-cta-secondary,
+%f-cta-secondary {
+    @include f-button-layout(large);
+    @include cta-secondary-style();
+}
+
+.f-cta-secondary--small,
+%f-cta-secondary--small {
+    @include f-button-layout(medium, large);
+    @include cta-secondary-style();
+}
+
+// CTA icon only
+//
+// Used where space is limited or where the intention of the action is clear
+//
+// Styleguide 1.4
+
+// CTA icon (primary)
+//
+// markup:
+// <button class="f-cta-icon-primary i-font-chevron-right"></button>
+// <button class="f-cta-icon-primary i-font-chevron-right" disabled></button>
+//
+// Styleguide 1.4.1
+
+@mixin cta-icon-layout() {
+    min-width: rem(64);
+
+    .f-button__text,
+    .f-cta__text {
+        @include visually-hidden;
+    }
+
+    &[class*="i-svg-"],
+    &[class*="i-social-"],
+    &[class*="i-font-"] {
+        font-size: rem(22);
+        text-align: center;
+
+        &::before {
+            margin-right: 0;
+        }
+    }
+
+    &::after {
+        float: none;
+    }
+}
+
+.f-cta-icon-primary,
+%f-cta-icon-primary {
+    @include f-button-layout(large);
+    @include cta-icon-layout();
+    @include f-button-shadow-style();
+    @include f-state-disabled-style($color: color(white));
+    @include f-button() {
+        background: color(blue, light);
+        border-color: color(blue, light);
+        color: color(white);
+    }
+}
+
+// CTA icon (secondary)
+//
+// markup:
+// <button class="f-cta-icon-secondary i-font-heart"></button>
+// <button class="f-cta-icon-secondary i-font-heart" disabled></button>
+//
+// Styleguide 1.4.2
+
+.f-cta-icon-secondary,
+%f-cta-icon-secondary {
+    @include f-button-layout(large);
+    @include cta-icon-layout();
+    @include f-button-shadow-style();
+    @include f-state-disabled-style($color: color(white));
+    @include f-button() {
+        background-color: color(grey, 4);
+        border-color: color(grey, 2);
+        color: color(grey, dim);
+    }
+    @include f-state-active {
+        background-color: color(red);
+        color: color(white);
+    }
+}
+
+// Icon squircle button
+//
+// markup:
+// <button class="f-cta-icon-squircle i-font-add">
+//     <span class="f-cta__text">Button squircle</span>
+// </button>
+// <button class="f-cta-icon-squircle i-font-add" disabled></button>
+// <button class="f-cta-icon-squircle--small i-font-add">
+//     <span class="f-cta__text">Button squircle</span>
+// </button>
+//
+// Styleguide 1.4.3
+
+@mixin cta-icon-squircle-layout($btn-type: large, $btn-size: rem(48), $icon-size: rem(21)) {
+    @if $btn-type == small {
+        $btn-size : baseline(5);
+        $icon-size: rem(18);
+    }
+
+    border-radius: 45%;
+    font-size: 0;
+    height: $btn-size;
+    text-align: center;
+    width: $btn-size;
+
+    &::before,
+    &::after {
+        font-size: $icon-size;
+        line-height: $btn-size / $icon-size;
+    }
+}
+
+@mixin cta-icon-squircle-style() {
+    @include transition((background-color, color));
+    @include f-state-hover {
+        background-color: color(green, light);
+    }
+    @include f-state-active {
+        background-color: color(green, light);
+    }
+
+    background-color: color(blue, light);
+    color: color(white);
+}
+
+.f-cta-icon-squircle,
+%f-cta-icon-squircle {
+    @include cta-icon-squircle-layout();
+    @include f-state-disabled-style();
+    @include cta-icon-squircle-style();
+}
+
+.f-cta-icon-squircle--small,
+%f-cta-icon-squircle--small {
+    @include cta-icon-squircle-layout(small);
+    @include f-state-disabled-style();
+    @include cta-icon-squircle-style();
+}
+
+// Button cleared
+//
+// markup:
+// <button class="f-button-clear i-font-search">
+//     <span class="h-visually-hidden">Button squircle</span>
+// </button>
+//
+// Styleguide 1.5
+
+.f-button-clear {
+    @include f-button-clear;
+}

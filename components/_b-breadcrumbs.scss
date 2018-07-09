@@ -1,0 +1,125 @@
+// Breadcrumb
+//
+// This component requires jQuery.
+//
+// markup:
+// <div class="b-breadcrumbs">
+//     <a class="b-breadcrumbs__back" href="#"></a>
+//     <ol class="b-breadcrumbs__list b-breadcrumbs__list--content js-breadcrumbs__list">
+//         <li class="b-breadcrumbs__item">
+//             <a class="b-breadcrumbs__link i-font-chevron-left" href="#">Home</a>
+//         </li>
+//         <li class="b-breadcrumbs__item">
+//             <a class="b-breadcrumbs__link i-font-chevron-left" href="#">Babies</a>
+//         </li>
+//     </ol>
+//     <ol class="b-breadcrumbs__list b-breadcrumbs__list--active">
+//         <li class="b-breadcrumbs__item">
+//             <span class="b-breadcrumbs__text i-font-chevron-left">Womens</span>
+//         </li>
+//         <li class="b-breadcrumbs__item b-breadcrumbs__item--toggle">
+//             <button class="b-breadcrumbs__toggle i-font-add js-toggle" data-toggle-content=".js-breadcrumbs__list" type="button"></button>
+//         </li>
+//     </ol>
+// </div>
+//
+// Styleguide 7.4
+
+
+
+.b-breadcrumbs {
+    &__list {
+        font-weight: $font-main-medium;
+    }
+
+    &__text,
+    &__link,
+    &__toggle {
+        border-radius: $border-radius-small;
+        font-size: $font-size-small;
+        line-height: baseline(2);
+        padding: baseline(1);
+
+        &::before {
+            color: $color-link;
+            font-size: baseline(2);
+        }
+    }
+
+    &__link,
+    &__toggle {
+        @include transition(background-color);
+
+        &:active,
+        .non-touch &:hover {
+            background-color: color(black, $opacity: 0.05);
+        }
+    }
+
+    &__text,
+    &__link {
+        &::before {
+            margin-left: rem(-2);
+            margin-right: baseline(1);
+        }
+    }
+
+    &__toggle {
+        @include b-toggle-button(
+            $button-color: $color-link
+        ) {
+            right: baseline(1);
+        }
+
+        height: baseline(4);
+        width: baseline(4);
+    }
+}
+
+@media (--from-small) {
+    .b-breadcrumbs {
+        &__item {
+            &--last {
+                font-weight: $font-main-bold;
+            }
+        }
+
+        &__text,
+        &__link {
+            &::before {
+                font-size: rem(10);
+            }
+        }
+    }
+}
+
+@media (--extra-small) {
+    .b-breadcrumbs {
+        &__list {
+            background-color: color(grey, 4);
+            font-weight: $font-main-bold;
+            padding: baseline(1);
+
+            &--content {
+                @include transition((max-height, margin-top), $transition-duration-long);
+
+                display: flex;
+                max-height: 0;
+                overflow: hidden;
+                padding-bottom: 0;
+                padding-top: 0;
+
+                &::before,
+                &::after {
+                    content: "";
+                    height: baseline(1);
+                }
+
+                &#{$const-expanded} {
+                    margin-top: rem(1);
+                    max-height: baseline(18);
+                }
+            }
+        }
+    }
+}

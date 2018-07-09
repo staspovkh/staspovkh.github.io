@@ -1,0 +1,50 @@
+.b-search-articles {
+    overflow: hidden;
+
+    &__found {
+        margin: 0 0 baseline(4);
+
+        @media (--extra-small) {
+            display: none;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: baseline(-6);
+    }
+
+    &__item {
+        align-items: flex-start;
+        display: flex;
+        margin-bottom: baseline(6);
+        margin-right: 10%;
+        width: 40%;
+
+        @media (--extra-small) {
+            margin-right: 0;
+            width: 100%;
+        }
+    }
+
+    &__link {
+        color: color(black);
+        font-size: $font-size-medium;
+        font-weight: $font-main-bold;
+    }
+
+    &__link-icon {
+        &::before {
+            font-size: rem(64);
+            margin-right: rem(12);
+            min-width: rem(64);
+        }
+    }
+
+    &__description {
+        @include line-clamping(3);
+
+        margin-top: baseline(0.5);
+    }
+}

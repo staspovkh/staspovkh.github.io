@@ -1,0 +1,182 @@
+//----------------------------------------------------------------------
+// UI Dialog
+//----------------------------------------------------------------------
+$ui-dialog-spacing: rem(20);
+$ui-dialog-width: rem(620);
+$ui-dialog-width-small: rem(500);
+
+@mixin ui-dialog-title {
+    @include t-section-header;
+
+    border-bottom: 1px solid color(grey, 2);
+    padding: $ui-dialog-spacing;
+    padding-right: rem(50);
+
+    @media (--from-small) {
+        line-height: $line-height-medium;
+        padding: $ui-dialog-spacing rem(50);
+        text-align: center;
+    }
+}
+
+@mixin ui-dialog-content {
+    @include brand-scrollbar;
+
+    margin-right: 1px; // fake custom scroll right margin
+    max-height: calc(100vh - #{rem(250)});
+    overflow: auto;
+
+    @media (--extra-small) {
+        flex-grow: 1;
+        max-height: none;
+    }
+}
+
+@mixin ui-dialog-innercontent {
+    margin: $ui-dialog-spacing #{map-get($outer-margins, "-xs")};
+    position: relative;
+
+    @media (--from-small) {
+        margin: $ui-dialog-spacing 0 baseline(3);
+        padding: 0 baseline(8);
+    }
+}
+
+.ui-widget-overlay {
+    background-color: color(white);
+
+    @media (--from-small) {
+        background: color(black, $opacity: overlay);
+    }
+}
+
+@mixin ui-dialog-actions($btn-primary-classname: ".f-cta-primary", $btn-secondary-classname: ".f-cta-secondary") {
+    @include bottom-actions-layout;
+
+    display: flex;
+    justify-content: center;
+
+    @media (--extra-small) {
+        flex-direction: column;
+        flex-shrink: 0;
+    }
+
+    #{$btn-primary-classname},
+    #{$btn-secondary-classname} {
+        margin: 0 rem(8);
+        min-width: rem(192);
+
+        @media (--extra-small) {
+            margin: baseline(1) 0 0;
+            width: 100%;
+            order: 1;
+        }
+    }
+
+    #{$btn-primary-classname} {
+        @media (--extra-small) {
+            order: 0;
+            margin-top: 0;
+        }
+    }
+}
+
+// For custom dialogs (with action bars, scrollings) please use proposed structure of dialog content-area:
+// <div class="ui-dialog-content">
+//   <div class="ui-dialog-custom">  // This container is optional
+//     <h1 class="ui-dialog-custom-title">
+//           Dialog title
+//     </h1>
+//     <div class="ui-dialog-custom-content">    //Dialog scrollable content
+//       <div class="ui-dialog-custom-innercontent">
+//           Dialog inner content with default paddings
+//       </div>
+//     </div>
+//     <div class="ui-dialog-custom-actions">
+//            Buttons (i.e. .f-cta-secondary + .f-cta-primary)
+//     </div>
+//   </div>
+// </div>
+
+.ui-dialog {
+    background: color(white);
+    max-width: rem(940);
+
+    @media (--from-small) {
+        border-radius: $border-radius-regular;
+    }
+
+    @media (--small) {
+        max-width: calc(100% - #{baseline(10)});
+    }
+
+    @media (--extra-small) {
+        max-width: 100%;
+    }
+
+    &-titlebar {
+        &-close {
+            font-size: rem(24);
+            right: $ui-dialog-spacing;
+            top: $ui-dialog-spacing;
+            z-index: $z-small;
+        }
+
+        .ui-button-text {
+            display: none;
+        }
+    }
+
+    &-title {
+        @include ui-dialog-title;
+
+        #{$const-dialog-title-hidden} & {
+            display: none;
+        }
+    }
+
+    &-caption {
+        margin-bottom: baseline(1);
+        text-align: center;
+    }
+
+    &-content {
+        @media (--extra-small) {
+            display: flex;
+            flex-direction: column;
+            height: 100% !important; // override inline styles
+        }
+
+        // Add this container inside content area of a dialog if its needed
+        .ui-dialog-custom {
+            @media (--extra-small) {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+            }
+        }
+
+        // Add this class on title, if global title on popup is empty
+        .ui-dialog-custom-title {
+            @include ui-dialog-title;
+        }
+
+        // Add this class for content area of a dialog
+        .ui-dialog-custom-content {
+            @include ui-dialog-content;
+        }
+
+        .ui-dialog-custom-innercontent {
+            @include ui-dialog-innercontent;
+
+            &--nopaddings.ui-dialog-custom-innercontent {
+                padding: 0;
+            }
+        }
+
+        // Add this class for action bar of a dialog
+        .ui-dialog-custom-actions {
+            @include ui-dialog-actions;
+        }
+    }
+}

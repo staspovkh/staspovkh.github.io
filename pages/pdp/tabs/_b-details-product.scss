@@ -1,0 +1,29 @@
+.b-details-product {
+    margin-bottom: baseline(3);
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    &__item {
+        border-top: 1px solid color(grey, 2);
+        width: 49%;
+
+        @media (--from-small) {
+            &:nth-child(-n+2) {
+                border: none;
+            }
+        }
+
+        @media (--extra-small) {
+            width: 100%;
+
+            &:nth-child(1) {
+                border: none;
+            }
+        }
+    }
+}

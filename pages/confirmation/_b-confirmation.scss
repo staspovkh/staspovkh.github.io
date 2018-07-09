@@ -1,0 +1,105 @@
+.b-confirmation {
+    &__top {
+        background-color: color(yellow);
+        background-image: url("../images/starburst.svg");
+        background-position: 50% 67%;
+        background-repeat: no-repeat;
+        background-size: rem(1054) auto;
+        overflow: hidden;
+        padding: 0 baseline(2);
+        position: relative;
+
+        @media (--from-small) {
+            display: flex;
+            justify-content: center;
+        }
+
+        @media (--extra-small) {
+            background-position: 37% -44px;
+            background-size: rem(630) auto;
+            padding: baseline(29) baseline(2) baseline(3);
+        }
+
+        &::before {
+            @include i-geoffrey;
+            @include i-geoffrey--ta-dah;
+
+            content: "";
+            font-size: rem(288);
+            pointer-events: none;
+            transform: scale(-1, 1) rtl(none);
+
+            @media (--from-small) {
+                height: auto;
+                margin: baseline(1.5) -0.42em 0 -0.3em;
+                order: 1;
+            }
+
+            @media (--extra-small) {
+                font-size: rem(221);
+                left: 50% rtl-ignore();
+                position: absolute;
+                top: rem(5);
+                transform: translate3d(-48%, 0, 0) scale(-1, 1) rtl-ignore();
+            }
+        }
+    }
+
+    &__header {
+        background-color: color(white);
+        border-radius: $border-radius-small;
+        padding: baseline(3) baseline(2) baseline(2);
+        position: relative;
+        text-align: center;
+
+        @media (--from-small) {
+            border-radius: 100%;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: baseline(3) 0;
+            min-height: rem(320);
+            padding: baseline(8) baseline(6) baseline(4);
+            width: rem(460);
+
+            &::before {
+                border-color: color(white) transparent;
+                border-style: solid;
+                border-width: 0 rem(68) rem(40) 0;
+                bottom: rem(32);
+                content: "";
+                height: 0;
+                position: absolute;
+                right: rem(8);
+                transform: rotate(30deg);
+                width: 0;
+            }
+        }
+    }
+
+    &__title {
+        @include t-subpage-title;
+
+        margin-bottom: baseline(2);
+
+        @media (--extra-small) {
+            margin-bottom: baseline(1);
+        }
+    }
+
+    &__print-link {
+        @extend %f-button-link;
+
+        height: auto;
+        padding-bottom: baseline(1);
+        padding-top: baseline(1);
+
+        &::before {
+            @include i-svg;
+            @include i-svg--printer;
+
+            font-size: baseline(5);
+            margin-right: baseline(2);
+        }
+    }
+}

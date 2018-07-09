@@ -1,0 +1,140 @@
+@mixin block-header($color: color(pink)) {
+    background-image: svg-uri("<svg viewBox=\"0 0 28 6\" fill=\"#{$color}\" xmlns=\"http://www.w3.org/2000/svg\"><path id=\"badgeshape\" d=\"M22,6H6V3c0-1.7,1.3-3,3-3h10c1.7,0,3,1.3,3,3V6z\"/></svg>");
+}
+
+.b-toysfinder__refinement--block {
+    overflow: hidden;
+
+    .b-toysfinder__refinement-list {
+        font-size: 0;
+        margin: 0 auto;
+        max-width: 100%;
+
+        @media (--from-small) {
+            text-align: center;
+            width: rem(560);
+        }
+
+        @media (--extra-small) {
+            overflow: auto;
+        }
+    }
+
+    .b-toysfinder__refinement-line {
+        margin-left: baseline(2);
+        white-space: nowrap;
+
+        &:nth-child(2n + 1) {
+            margin-left: baseline(8);
+        }
+    }
+
+    .b-toysfinder__refinement-item {
+        display: inline-flex;
+        vertical-align: top;
+        
+        &:last-child {
+            margin-right: baseline(2);
+        }
+    }
+
+    .slick-list {
+        @media (--from-small) {
+            overflow: visible;
+        }
+    }
+
+    .slick-slide {
+        @media (--from-small) {
+            @include transition(opacity);
+
+            opacity: 0;
+            pointer-events: none;
+
+            &.slick-center,
+            &.slick-active {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+    }
+
+    .slick-arrow {
+        margin: 0 baseline(-10);
+    }
+}
+
+.b-toysfinder__block {
+    $block-colors: (color(pink), color(yellow), color(teal), color(green, light), color(blue, light), color(purple));
+    $block-count: length($block-colors);
+
+    @include icon(tick, after);
+
+    border-radius: $border-radius-small;
+    color: color(black);
+    display: flex;
+    font-size: rem(16);
+    font-weight: $font-main-bold;
+    justify-content: center;
+    margin: baseline(1) baseline(0.5);
+    padding: baseline(2);
+    position: relative;
+
+    &,
+    &:hover {
+        text-decoration: none;
+    }
+
+    &::before {
+        background-repeat: repeat-x;
+        background-size: rem(28) rem(6);
+        bottom: 99%;
+        content: "";
+        left: rem(6);
+        position: absolute;
+        right: rem(6);
+        height: rem(6);
+    }
+
+    @for $i from 1 through $block-count {
+        &.m-color-#{$i},
+        &:nth-child(#{$block-count}n + #{$i}) {
+            background-color: nth($block-colors, $i);
+
+            &::before {
+                @include block-header(nth($block-colors, $i));
+            }
+        }
+    }
+
+    &::after {
+        @include transition((transform, margin));
+
+        align-items: center;
+        background-color: color(green);
+        border-radius: 50%;
+        color: color(white);
+        display: flex;
+        font-size: baseline(1.5);
+        height: baseline(3);
+        justify-content: center;
+        margin: 0 baseline(-1.5);
+        transform: scale(0);
+        width: baseline(3);
+    }
+
+    &#{$const-selected}::after {
+        margin: 0 0 0 baseline(2);
+        transform: scale(1);
+    }
+
+    &#{$const-selected} .b-toysfinder__refinement-value {
+        margin: 0;
+    }
+
+    .b-toysfinder__refinement-value {
+        @include transition(margin);
+
+        margin: 0 baseline(2.5);
+    }
+}

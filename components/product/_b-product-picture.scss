@@ -1,0 +1,6 @@
+.b-product-picture {
+    @include block-proportions(1/1);
+
+    display: inline-block;
+    width: 100%;
+}

@@ -1,0 +1,204 @@
+// CLP - Category Banner
+//
+// Please refer to Content managment documentation for specific settings: https://alfuttaim.atlassian.net/wiki/spaces/SH/pages/170524709/TRU+-+HP+-+Homepage#TRU-HP-Homepage-MostPopularCategories(homepage-slot-3)
+//
+// markup:
+// <div class="b-content-slot b-content-slot--categories g-grid__row g-grid__row--center g-grid__row--vertical-gutter h-site-width">
+//     <!-- clp-slot (Content Slot) "callout" field is the title -->
+//     <h3 class="b-content-slot__title">
+//         <span class="b-content-slot__title-text">Categories</span>
+//     </h3>
+//     <!-- 1..n assets of Content Slot's asset list - each represents category tile -->
+//     <div class="b-bnr b-bnr--category m-color-pink g-grid__col-3 g-grid__col-sm-4 g-grid__col-xs-12">
+//         <div class="b-bnr__inner">
+//             <!-- PICTURE section is formed automatically from asset's Images custom fields -->
+//             <picture class="b-bnr__picture">
+//                 <img src="images/banners/category/batman.png" alt="Test Description" class="b-bnr__image">
+//             </picture>
+//             <div class="b-bnr__content">
+//                 <!-- BEGIN of content asset's BODY field (rest of additional wrappers are added automatically) -->
+//                 <h4 class="b-bnr__title">Batman</h4>
+//                 <i class="b-bnr__icon i-shape-blast"></i>
+//                 <a class="b-bnr__fullsize-link" href="#"></a>
+//                 <!-- END of content asset's BODY -->
+//             </div>
+//         </div>
+//     </div>
+//     <div class="b-bnr b-bnr--category m-color-purple g-grid__col-3 g-grid__col-sm-4 g-grid__col-xs-12">
+//         <div class="b-bnr__inner">
+//             <picture class="b-bnr__picture">
+//                 <img src="images/banners/category/moana.png" alt="Test Description" class="b-bnr__image">
+//             </picture>
+//             <div class="b-bnr__content">
+//                 <h4 class="b-bnr__title">Moana</h4>
+//                 <i class="b-bnr__icon i-shape-spiral"></i>
+//                 <a class="b-bnr__fullsize-link" href="#"></a>
+//             </div>
+//         </div>
+//     </div>
+//     <div class="b-bnr b-bnr--category m-color-green g-grid__col-3 g-grid__col-sm-4 g-grid__col-xs-12">
+//         <div class="b-bnr__inner">
+//             <picture class="b-bnr__picture">
+//                 <img src="images/banners/category/dino.png" alt="Test Description" class="b-bnr__image">
+//             </picture>
+//             <div class="b-bnr__content">
+//                 <h4 class="b-bnr__title">Dino</h4>
+//                 <i class="b-bnr__icon i-shape-splat"></i>
+//                 <a class="b-bnr__fullsize-link" href="#"></a>
+//             </div>
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide 8.7
+
+$additional-colors: blue, teal, green, pink, purple;
+
+.b-bnr--category {
+    @media (--from-small) {
+        display: flex;
+        height: baseline(35);
+        text-align: center;
+
+        .b-bnr {
+            &__inner {
+                @include transition(background-color, $transition-duration-long);
+
+                background-color: color(grey, 4);
+                border-radius: $border-radius-small;
+                flex: 1;
+                padding: baseline(2);
+                position: relative;
+            }
+
+            &__image,
+            &__title {
+                position: relative;
+                z-index: $z-min;
+            }
+
+            &__image {
+                @include transition(transform, $transition-duration-long);
+
+                margin: 0 auto baseline(2);
+                max-width: baseline(23.5);
+            }
+
+            &__content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                min-height: baseline(5.5);
+            }
+
+            &__title {
+                font-weight: $font-main-medium;
+            }
+
+            &__icon {
+                border-radius: $border-radius-small;
+                bottom: 0;
+                color: color(yellow, light);
+                font-size: baseline(26);
+                left: 0;
+                overflow: hidden;
+                pointer-events: none;
+                position: absolute;
+                right: 0;
+                top: 0;
+
+                &::before {
+                    @include transition((transform, opacity), $transition-duration-long);
+
+                    left: 50%;
+                    opacity: 0;
+                    position: absolute;
+                    top: 100%;
+                    transform: translate3d(-50%, 0, 0);
+                }
+            }
+        }
+
+        &:hover {
+            .b-bnr__inner,
+            .b-bnr__image,
+            .b-bnr__title,
+            .b-bnr__icon::before {
+                transition-duration: $transition-duration-regular;
+            }
+
+            .b-bnr__inner {
+                background-color: color(yellow, tint);
+            }
+
+            .b-bnr__image {
+                transform: scale(1.4) rotate(-22.5deg);
+            }
+
+            &:nth-child(odd) {
+                .b-bnr__image {
+                    transform: scale(1.4) rotate(22.5deg);
+                }
+            }
+
+            .b-bnr__title {
+                text-shadow: 0 0 0 $color-text;
+            }
+
+            .b-bnr__icon::before {
+                opacity: 1;
+                transform: translate3d(-50%, -35%, 0) scale(2);
+            }
+        }
+
+        @each $color in $additional-colors {
+            &.m-color-#{$color} {
+                &:hover .b-bnr__inner {
+                    background-color: color($color, tint);
+                }
+
+                .b-bnr__icon {
+                    color: color($color, light);
+                }
+            }
+        }
+    }
+
+    @media (--extra-small) {
+        &.b-bnr {
+            margin-bottom: 0;
+            padding: 0;
+        }
+
+        .b-bnr {
+            &__inner {
+                align-items: center;
+                border-top: 1px solid color(grey, 3);
+                display: flex;
+                padding-bottom: baseline(2);
+                padding-top: baseline(2);
+            }
+
+            &__picture {
+                order: 1;
+                width: auto;
+            }
+
+            &__image {
+                width: baseline(6);
+            }
+
+            &__content {
+                flex: 1;
+            }
+
+            &__title {
+                font-weight: $font-main-medium;
+            }
+
+            &__icon {
+                display: none;
+            }
+        }
+    }
+}

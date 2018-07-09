@@ -1,0 +1,59 @@
+// Icons & Graphics
+//
+// There are two types of icons styles.
+//
+// Styleguide 5
+
+// Monochrome Icons
+//
+// A one colour variation, designed for simplicity and recognisability, gives immediate meaning and provides additional context.  They are child-like in nature, withe chunky strokes and generous curves.  They have been design with uniform stroke widths, curves and overall shape language in order to achieve consistency.  
+//
+// markup:
+// <div class="sg-iconset">
+{{#glyphs}}
+//   <i class="i-font-{{name}}">{{name}}</i>
+{{/glyphs}}
+// </div>
+//
+// Styleguide 5.1
+
+@mixin {{options.fontId}}-styles($size: 1em) {
+    display: inline-block;
+    font-family: "{{options.fontName}}";
+    font-size: $size;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: none;
+    text-transform: none;
+    vertical-align: top;
+}
+
+%{{options.fontId}} {
+    @include {{options.fontId}}-styles;
+}
+
+@function {{options.fontId}}-char($filename) {
+    $char: "";
+{{#glyphs}}
+    @if $filename == {{name}} {
+        $char: "{{unicode}}";
+    }
+{{/glyphs}}
+    @return $char;
+}
+
+@mixin {{options.fontId}}($filename, $insert: before, $extend: true, $size: 16px) {
+    &:#{$insert} {
+        content: {{options.fontId}}-char($filename);
+        @if $extend {
+            @extend %{{options.fontId}};
+        } @else {
+            @include {{options.fontId}}-styles($size);
+        }
+        @content;
+    }
+}

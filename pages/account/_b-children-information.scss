@@ -1,0 +1,254 @@
+.b-children-information {
+    border-bottom: 1px solid color(grey, 3);
+    border-top: 1px solid color(grey, 3);
+    margin: baseline(2) baseline(-6) baseline(5);
+    overflow: hidden;
+    padding: baseline(3) 0 baseline(4);
+    position: relative;
+
+    @media (--extra-small) {
+        margin: baseline(2) baseline(-2) baseline(3);
+        padding: baseline(3) baseline(2) baseline(2);
+    }
+
+    &__wrapper-background {
+        &::before,
+        &::after {
+            @include i-svg;
+
+            font-size: rem(175);
+            position: absolute;
+
+            @media (--extra-small) {
+                font-size: rem(100);
+            }
+        }
+
+        &::before {
+            @include i-svg--boy;
+
+            bottom: rem(-17);
+            left: 0;
+            transform: rotate(28deg);
+
+            @media (--extra-small) {
+                bottom: auto;
+                left: rem(-23);
+                top: rem(3);
+            }
+        }
+
+        &::after {
+            @include i-svg--girl;
+
+            right: rem(-30);
+            top: rem(20);
+            transform: rotate(-30deg);
+
+            @media (--extra-small) {
+                right: rem(-41);
+                top: rem(-25);
+            }
+        }
+    }
+
+    .l-registration__got-kids & {
+        background-color: color(white);
+        border: none;
+        margin: baseline(3) auto;
+        max-width: rem(620);
+
+        @media (--extra-small) {
+            margin: auto;
+        }
+
+        @media (--from-small) {
+            border-radius: $border-radius-regular;
+
+            .b-children-information__wrapper-background::after {
+                right: rem(-60);
+                top: rem(-35);
+            }
+        }
+    }
+
+    &__wrapper {
+        max-width: rem(300);
+        margin: 0 auto;
+        position: relative;
+
+        @media (--extra-small) {
+            max-width: none;
+        }
+    }
+
+    &__title {
+        @include t-hero-title;
+
+        color: color(red);
+        margin-bottom: baseline(3);
+        text-align: center;
+    }
+
+    &__subtitle {
+        @include t-section-header;
+
+        border-top: 1px solid color(grey, 2);
+        padding: baseline(2) baseline(2.5);
+        text-align: center;
+
+        @media (--extra-small) {
+            margin: 0 baseline(-2);
+            padding: baseline(2) baseline(4.5);
+        }
+    }
+
+    &__description {
+        margin-bottom: baseline(3);
+        text-align: center;
+
+        @media (--extra-small) {
+            margin: 0 auto baseline(3);
+            max-width: rem(240);
+        }
+    }
+
+    &__button,
+    &__button-link {
+        margin-bottom: baseline(1);
+        width: 100%;
+    }
+
+    &__button {
+        @extend %f-cta-secondary--small;
+    }
+
+    &__button-link {
+        @extend %f-button-link;
+    }
+
+    &__button-close {
+        @include icon(close);
+
+        color: color(black);
+        font-size: 0;
+        position: absolute;
+        right: 0;
+        top: rem(20);
+        z-index: $z-small;
+
+        &::before {
+            font-size: rem(24);
+        }
+    }
+
+    &__children {
+        align-items: center;
+        display: flex;
+        background-color: color(grey, 4);
+        border: 1px solid color(grey, 2);
+        border-radius: $border-radius-small;
+        justify-content: space-between;
+        margin-bottom: baseline(1);
+        padding: baseline(2) baseline(3);
+
+        &--last {
+            margin-bottom: baseline(2);
+        }
+    }
+
+    &__children-data {
+        align-items: center;
+        display: flex;
+
+        &::before {
+            @include i-svg;
+
+            flex-shrink: 0;
+            font-size: rem(44);
+            margin-right: baseline(3);
+        }
+
+        &--boy::before {
+            @include i-svg--boy;
+        }
+
+        &--girl::before {
+            @include i-svg--girl;
+        }
+    }
+
+    &__children-name {
+        font-weight: $font-main-medium;
+    }
+
+    &__children-edit {
+        @extend %b-link;
+
+        margin-left: baseline(1.5);
+    }
+
+    .f-field--gender {
+        .f-label__optional-text {
+            display: none;
+        }
+
+        .f-field__inner {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .f-field--radio {
+            width: calc(50% - #{baseline(0.5)});
+
+            .f-label {
+                align-items: center;
+                background-color: color(grey, 4);
+                border: 1px solid color(grey, 2);
+                border-radius: $border-radius-small;
+                display: flex;
+                filter: grayscale(100%);
+                flex-direction: column;
+                font-size: $font-size-regular;
+                font-weight: $font-main-medium;
+                justify-content: center;
+                margin: 0;
+                padding: baseline(2);
+                text-align: center;
+
+                &::before {
+                    display: none;
+                }
+
+                &::after {
+                    @include i-svg;
+
+                    font-size: rem(50);
+                    margin-bottom: baseline(1.5);
+                    opacity: 0.6;
+                    order: -1;
+                }
+
+                &[for*="children_gender0"]::after {
+                    @include i-svg--boy;
+                }
+
+                &[for*="children_gender1"]::after {
+                    @include i-svg--girl;
+                }
+            }
+
+            .f-radio:checked ~ .f-label {
+                background-color: color(green, tint);
+                border-color: color(green, light);
+                color: $color-link;
+                filter: grayscale(0);
+                font-weight: $font-main-medium;
+
+                &::after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

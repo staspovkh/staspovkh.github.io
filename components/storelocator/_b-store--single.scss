@@ -1,0 +1,56 @@
+.b-store {
+    $selector: &;
+
+    &--single {
+        padding: baseline(3) map-get($outer-margins, "-xs") baseline(1);
+
+        @media (--from-small) {
+            border: 1px solid color(grey, 3);
+            border-radius: $border-radius-regular;
+            padding: baseline(3);
+        }
+
+        #{$selector}__header {
+            border-bottom: 1px solid color(grey, 3);
+            padding-bottom: baseline(3);
+        }
+
+        #{$selector}__marker {
+            margin-right: rem(18);
+
+            @media (--extra-small) {
+                margin-right: rem(12);
+            }
+
+            &::before {
+                content: icon-char(location-marker-star);
+            }
+        }
+
+        #{$selector}__marker-text {
+            display: none;
+        }
+
+        #{$selector}__info-address {
+            color: $color-text;
+        }
+
+        #{$selector}__name {
+            font-size: $font-size-medium;
+            margin-bottom: baseline(1);
+        }
+
+        #{$selector}__details-inner {
+            background-color: transparent;
+        }
+
+        #{$selector}__contact-item {
+            margin-bottom: baseline(3);
+            padding-top: baseline(1);
+        }
+
+        #{$selector}__contact-link {
+            font-size: $font-size-regular;
+        }
+    }
+}

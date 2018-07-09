@@ -1,0 +1,104 @@
+.b-size-guide {
+    &__main {
+        display: flex;
+        margin-bottom: baseline(4);
+        padding-top: baseline(1.5);
+
+        @media (--extra-small) {
+            justify-content: space-between;
+            padding: baseline(1.5) baseline(2) 0;
+        }
+
+        &-image {
+            width: 49%;
+
+            @media (--from-small) {
+                margin-right: baseline(2.5);
+                width: rem(220);
+            }
+        }
+
+        &-description {
+            padding-top: baseline(2.5);
+
+            @media (--extra-small) {
+                padding: 0;
+                width: 49%;
+            }
+        }
+
+        + .b-custom-tabs {
+            @media (--from-small) {
+                margin-top: baseline(-10);
+            }
+        }
+    }
+
+    &__table {
+        @include table-style;
+
+        td,
+        th {
+            @include rtl-english-fix;
+
+            padding: baseline(2) baseline(1);
+        }
+
+        @media (--from-small) {
+            text-align: center;
+        }
+
+        @media (--extra-small) {
+            thead {
+                display: none;
+            }
+
+            tbody {
+                display: block;
+            }
+
+                tr {
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin: 0 0 baseline(3);
+                }
+
+                th {
+                    border: none;
+                    font-size: $font-size-regular;
+                    margin: 0 0 baseline(2);
+                    padding: baseline(1.5) baseline(2);
+                    width: 100%;
+                }
+
+                td {
+                    border: none;
+                    font-weight: $font-main-bold;
+                    line-height: $line-height-large;
+                    padding: 0 baseline(2);
+                    width: 50%;
+                }
+        }
+    }
+
+    h3 {
+        @include t-sub-section-header;
+    }
+
+    p {
+        line-height: $line-height-small;
+        margin-bottom: baseline(2.5);
+
+        @media (--extra-small) {
+            font-size: $font-size-small;
+        }
+
+        a {
+            font-weight: $font-main-bold;
+        }
+    }
+
+    strong {
+        font-weight: $font-main-bold;
+    }
+}

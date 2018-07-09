@@ -1,0 +1,82 @@
+// Geoffrey
+//
+// markup:
+// <div class="sg-iconset">
+//   <i class="i-geoffrey--presenting">presenting</i>
+//   <i class="i-geoffrey--proud">proud</i>
+//   <i class="i-geoffrey--singing">singing</i>
+//   <i class="i-geoffrey--standing">standing</i>
+//   <i class="i-geoffrey--ta-dah">ta-dah</i>
+// </div>
+//
+// Styleguide 5.7
+
+@mixin i-geoffrey() {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 64px;
+    line-height: 1;
+    background-image: url("../images/geoffrey.svg");
+    background-repeat: no-repeat;
+    background-size: 7.65625em 18.34375em;
+}
+[class*="i-geoffrey--"]::before,
+[class*="i-geoffrey-after--"]::after {
+    @include i-geoffrey;
+}
+
+@mixin i-geoffrey--presenting() {
+    content: "";
+    background-position: 0em 0em/*rtl:ignore*/;
+    width: 1.71875em;
+    height: 3.625em;
+}
+.i-geoffrey--presenting::before,
+.i-geoffrey-after--presenting::after {
+    @include i-geoffrey--presenting;
+}
+
+@mixin i-geoffrey--proud() {
+    content: "";
+    background-position: -1.71875em -3.625em/*rtl:ignore*/;
+    width: 1.3125em;
+    height: 3.65625em;
+}
+.i-geoffrey--proud::before,
+.i-geoffrey-after--proud::after {
+    @include i-geoffrey--proud;
+}
+
+@mixin i-geoffrey--singing() {
+    content: "";
+    background-position: -3.03125em -7.28125em/*rtl:ignore*/;
+    width: 1.53125em;
+    height: 3.71875em;
+}
+.i-geoffrey--singing::before,
+.i-geoffrey-after--singing::after {
+    @include i-geoffrey--singing;
+}
+
+@mixin i-geoffrey--standing() {
+    content: "";
+    background-position: -4.5625em -11em/*rtl:ignore*/;
+    width: 1.25em;
+    height: 3.65625em;
+}
+.i-geoffrey--standing::before,
+.i-geoffrey-after--standing::after {
+    @include i-geoffrey--standing;
+}
+
+@mixin i-geoffrey--ta-dah() {
+    content: "";
+    background-position: -5.8125em -14.65625em/*rtl:ignore*/;
+    width: 1.84375em;
+    height: 3.6875em;
+}
+.i-geoffrey--ta-dah::before,
+.i-geoffrey-after--ta-dah::after {
+    @include i-geoffrey--ta-dah;
+}
+

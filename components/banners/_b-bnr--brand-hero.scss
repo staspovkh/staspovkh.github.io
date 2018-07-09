@@ -1,0 +1,139 @@
+// Banners
+//
+// This page contains mostly specific styling for content slots and content assets. For more complete info about assets and slots creation editing, library folder management, please see "RA Generic Content Slot Configuration" and "RA Generic Content Asset Configuration" manuals in Confluence. NOTE: proper look and feel can be achieved in Fullscreen mode of samples (psress "fullscreen" button near asset sample)
+//
+// Styleguide 8
+
+// BLP Brand - Hero
+//
+// Please refer to Content managment documentation for specific settings: https://alfuttaim.atlassian.net/wiki/spaces/SH/pages/234160355/TRU+-+BLP+-+Brand+Listing+Page
+//
+// markup:
+// <div class="b-bnr b-bnr--brand-hero m-bg--yellow">
+//     <div class="b-bnr__inner">
+//         <div class="b-bnr__content">
+//             <!-- BEGIN of content asset's BODY field (rest of additional wrappers are added automatically) -->
+//             <img alt="captain america" src="images/banners/brand-hero/hero-captain-america.png" class="b-bnr__image b-bnr__image--left h-hidden__extra-small">
+//             <img alt="spiderman" src="images/banners/brand-hero/hero-spiderman.png" class="b-bnr__image b-bnr__image--right h-hidden__extra-small">
+//             <img alt="spiderman and captain america" src="images/banners/brand-hero/hero-spider-captain-xs.png" class="b-bnr__image b-bnr__image--center h-visible__extra-small">
+//             <div class="b-bnr__logo-wrapper">
+//                 <img alt="marvel" src="images/banners/brand/brand-marvel.png" class="b-bnr__logo">
+//             </div>
+//             <p class="b-bnr__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+//             <!-- END of content asset's BODY -->
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide 8.5
+
+.b-bnr--brand-hero {
+    .b-bnr {
+        &__inner {
+            height: baseline(50);
+            overflow: hidden;
+        }
+
+        &__logo {
+            position: relative;
+            width: 100%;
+            z-index: $z-small;
+
+            @media (--small) {
+                width: baseline(27);
+            }
+        }
+
+        &__logo-wrapper {
+            flex-shrink: 0; // IE fix
+            margin-bottom: baseline(3);
+            width: 100%; // IE fix
+
+            @media (--extra-small) {
+                align-items: flex-end;
+                display: flex;
+                height: baseline(21);
+                margin-top: baseline(7);
+                width: baseline(21);
+            }
+        }
+
+        &__content {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: center;
+            margin: 0 auto;
+            max-width: rem(352);
+            text-align: center;
+
+            @media (--extra-small) {
+                max-width: baseline(36);
+            }
+
+            @media (--small) {
+                max-width: baseline(42);
+            }
+
+            @media (--from-medium) {
+                position: relative;
+                width: 30%;
+            }
+        }
+
+        &__text {
+            font-size: $font-size-small;
+            width: 100%; // IE fix
+
+            @media (--extra-small) {
+                max-width: baseline(36);
+            }
+        }
+
+        &__image {
+            max-height: rem(336);
+            max-width: none;
+            position: absolute;
+            transition: $transition-duration-regular;
+            width: auto;
+            z-index: $z-small;
+
+            @media (--extra-small) {
+                left: 50%;
+                max-height: rem(270);
+                transform: translateX(-50%);
+            }
+
+            &--left {
+                bottom: 0;
+                right: 135%;
+
+                @media (--small) {
+                    right: calc(100% - #{rem(197)});
+                }
+
+                @media (--medium) {
+                    right: 125%;
+                }
+            }
+
+            &--right {
+                left: 135%;
+                top: 0;
+
+                @media (--small) {
+                    left: calc(100% - #{rem(197)});
+                }
+
+                @media (--medium) {
+                    left: 125%;
+                }
+            }
+
+            &--center {
+                top: 0;
+            }
+        }
+    }
+}

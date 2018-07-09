@@ -1,0 +1,72 @@
+// Shapes
+//
+// markup:
+// <div class="sg-iconset sg-iconset--shape">
+//   <i class="i-shape-blast">blast</i>
+//   <i class="i-shape-cloud">cloud</i>
+//   <i class="i-shape-pebble">pebble</i>
+//   <i class="i-shape-scribble">scribble</i>
+//   <i class="i-shape-spiral">spiral</i>
+//   <i class="i-shape-splat">splat</i>
+//   <i class="i-shape-square">square</i>
+// </div>
+//
+// Styleguide 5.4
+
+@mixin i-shape-styles($size: 1em) {
+    display: inline-block;
+    font-family: "shape";
+    font-size: $size;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+    text-decoration: none;
+    text-transform: none;
+    vertical-align: middle;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+%i-shape {
+    @include i-shape-styles;
+}
+
+@function i-shape-char($filename) {
+    $char: "";
+    @if $filename == blast {
+        $char: "";
+    }
+    @if $filename == cloud {
+        $char: "";
+    }
+    @if $filename == pebble {
+        $char: "";
+    }
+    @if $filename == scribble {
+        $char: "";
+    }
+    @if $filename == spiral {
+        $char: "";
+    }
+    @if $filename == splat {
+        $char: "";
+    }
+    @if $filename == square {
+        $char: "";
+    }
+    @return $char;
+}
+
+@mixin i-shape($filename, $insert: before, $extend: true, $size: 16px) {
+    &:#{$insert} {
+        @if $extend {
+            @extend %i-shape;
+        } @else {
+            @include i-shape-styles($size);
+        }
+        content: i-shape-char($filename);
+        @content;
+    }
+}

@@ -1,0 +1,41 @@
+.b-storelocator {
+    &__breadcrumb {
+        @extend %b-link;
+
+        &::before {
+            @include icon-styles();
+            @include transition(opacity);
+
+            content: icon-char(chevron-left) rtl("\"" + icon-char(chevron-right) + "\"");
+            font-size: rem(15);
+            line-height: inherit;
+        }
+
+        font-size: $font-size-small;
+    }
+
+    &__cities-select {
+        @media (--extra-small) {
+            padding: 0 map-get($outer-margins, "-xs");
+        }
+    }
+
+    &__cities-select-field {
+        margin: 0;
+
+        .f-select,
+        .select2-selection {
+            background-color: color(white);
+        }
+
+        .f-label__optional-text {
+            display: none;
+        }
+    }
+}
+
+.b-storelocator-map {
+    @media (--from-small) {
+        padding-bottom: percentage(574/540);
+    }
+}

@@ -1,0 +1,254 @@
+
+@mixin thumbnail-bg($color, $border-color, $border-width: 1) {
+    background-image: svg-uri("<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" preserveAspectRatio=\"none\"><path fill=\"#{$color}\" d=\"M0 0v32h32v-32h-32zM30.75 29.3c-0.1 0.45-0.45 0.8-0.9 0.9-4.45 1.15-25.7 1.6-27.35 0.050-0.9-0.9-1.8-22.25-1.75-27.7 0-0.75 0.55-1.35 1.25-1.45 5.45-0.85 24 0.1 27.75 0.85 0.4 0.1 0.95 0.45 1 0.85 0.4 3.75 0.9 22.55 0 26.5z\"></path><path fill=\"none\" stroke=\"#{$border-color}\" stroke-width=\"#{$border-width}\" stroke-miterlimit=\"4\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" d=\"M2.55 30.25c1.65 1.55 22.9 1.1 27.35-0.050 0.45-0.1 0.8-0.45 0.9-0.9 0.9-3.95 0.4-22.75 0-26.5-0.050-0.45-0.55-0.75-1-0.85-3.8-0.75-22.35-1.7-27.8-0.85-0.7 0.1-1.25 0.7-1.25 1.45-0.050 5.45 0.85 26.8 1.8 27.7z\"></path></svg>");
+}
+
+@mixin thumbnail-frame(
+    $color: color(white),
+    $border-color: $color,
+    $border-color-active: color(green, light),
+    $thumbnail-class: ".b-product-thumbnails__item",
+    $thumbnail-inner-class: ".b-product-thumbnails__item-inner",
+    $carousel-current-item-class: ".slick-selected"
+) {
+    #{$thumbnail-inner-class} {
+        padding: rem(1); // to avoid image defects on thumbnail edges
+        position: relative;
+
+        &::after {
+            @include thumbnail-bg($color, $border-color);
+
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            bottom: 0;
+            content: "";
+            left: 0;
+            pointer-events: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: $z-small;
+        }
+    }
+
+    $selected-state-selector: $thumbnail-inner-class + $const-selected;
+    @if $carousel-current-item-class {
+        $selected-state-selector: $carousel-current-item-class + " " + $thumbnail-inner-class;
+    }
+
+    #{$selected-state-selector},
+    .non-touch & #{$thumbnail-inner-class}:hover {
+        &::after {
+            @include thumbnail-bg($color, $border-color-active);
+        }
+    }
+
+    #{$thumbnail-class}:nth-child(even) #{$thumbnail-inner-class} {
+        &::after {
+            transform: scaleX(-1);
+        }
+    }
+}
+
+$thumb-width-lg: rem(76);
+$thumb-gutter-lg: rem(6);
+$thumb-count-md: 5;
+$thumb-width-md: rem(76);
+$thumb-gutter-md: rem(8);
+$thumb-count-sm: 4;
+$thumb-width-sm: rem(61);
+$thumb-gutter-sm: rem(4);
+$thumb-gutter-xs: rem(4);
+
+.b-product-thumbnails {
+    margin: baseline(2) auto 0 auto;
+    position: relative;
+
+    @media (--large) {
+        margin: 0;
+        order: -1;
+        width: 10%;
+    }
+
+    @media (--extra-small) {
+        @include out-of-grid("-xs");
+    }
+
+    &__list {
+        @include thumbnail-frame();
+
+        overflow: hidden;
+        text-align: center;
+
+        @media (--large) {
+            margin: -#{$thumb-gutter-lg} 0;
+            width: $thumb-width-lg;
+        }
+
+        @media (--medium) {
+            margin: 0 auto;
+            width: $thumb-count-md * ($thumb-width-md + 2 * $thumb-gutter-md);
+        }
+
+        @media (--small) {
+            margin: 0 auto;
+            width: $thumb-count-sm * ($thumb-width-sm + 2 * $thumb-gutter-sm);
+        }
+
+        @media (--extra-small) {
+            margin: 0 -#{$thumb-gutter-xs};
+            overflow: visible;
+        }
+
+        &.slick-initialized {
+            overflow: visible;
+        }
+
+        .slick-list {
+            @media (--extra-small) {
+                overflow: visible;
+            }
+        }
+
+        .slick-track {
+            min-width: 100%;
+        }
+    }
+
+    &__item {
+        position: relative;
+
+        @media (--large) {
+            display: block;
+            padding: $thumb-gutter-lg 0;
+        }
+
+        @media (--medium) {
+            padding: 0 $thumb-gutter-md;
+            width: $thumb-width-md + 2 * $thumb-gutter-md;
+        }
+
+        @media (--small) {
+            padding: 0 $thumb-gutter-sm;
+            width: $thumb-width-sm + 2 * $thumb-gutter-sm;
+        }
+
+        @media (--extra-small) {
+            padding: 0 $thumb-gutter-xs;
+            width: percentage(1/4.5);
+        }
+
+        &-inner {
+            @include block-proportions(100/100);
+
+            overflow: hidden;
+        }
+
+        &--video .b-product-thumbnails {
+            &__image {
+                @include icon(play-arrow, after) {
+                    color: color(white);
+                    font-size: rem(20);
+                    left: 50%;
+                    position: absolute;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: $z-small;
+                }
+
+                overflow: hidden;
+                padding-top: 100%;
+                position: relative;
+
+                &:hover {
+                    &::before {
+                        background-color: color(black, $opacity: dark);
+                    }
+                }
+
+                &::before {
+                    @include transition(background-color);
+
+                    background-color: color(black, $opacity: overlay);
+                    bottom: 0;
+                    content: "";
+                    left: 0;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    z-index: $z-min;
+                }
+            }
+
+            &__img {
+                height: 100%;
+                left: 0;
+                max-width: none;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    .b-carousel__arrow {
+        background-color: transparent;
+        display: block;
+        margin: auto;
+        width: 100%;
+
+        @media (--large) {
+            position: static;
+
+            &--prev {
+                margin-top: $thumb-gutter-lg;
+            }
+
+            &--next {
+                margin-bottom: $thumb-gutter-lg;
+            }
+
+            &.slick-disabled {
+                opacity: 0.3;
+            }
+        }
+
+        @media (--medium) {
+            height: $thumb-width-md;
+            margin: 0 -#{$thumb-width-md};
+            width: $thumb-width-md;
+        }
+
+        @media (--small) {
+            height: $thumb-width-sm;
+            margin: 0 -#{$thumb-width-sm};
+            width: $thumb-width-sm;
+        }
+
+        @media (--extra-small) {
+            display: none !important;
+        }
+
+        &:hover {
+            background-color: transparent;
+        }
+
+        &::before {
+            content: none;
+        }
+    }
+
+    .b-carousel__arrow-icon {
+        @media (--large) {
+            display: block;
+            margin: 0;
+            position: static;
+        }
+
+        &::before,
+        &::after {
+            background-color: color(black);
+        }
+    }
+}

@@ -1,0 +1,26 @@
+.b-footer-need-help {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &__phone {
+        color: color(blue);
+        font-weight: $font-main-bold;
+        margin-left: baseline(1);
+
+        @media (--extra-small) {
+            margin: 0;
+            width: 100%;
+        }
+    }
+
+    &__icon {
+        display: inline-block;
+        margin-right: rem(16);
+
+        &::before {
+            font-size: rem(24);
+        }
+    }
+}

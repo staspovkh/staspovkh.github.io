@@ -1,0 +1,157 @@
+.b-store {
+    counter-increment: store-counter;
+
+    &__header {
+        align-items: flex-start;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: $font-size-small;
+    }
+
+    &__marker {
+        @include icon(location-marker) {
+            color: color(red);
+            font-size: rem(40);
+        }
+
+        margin-right: rem(6);
+        position: relative;
+    }
+
+    &__marker-text {
+        color: color(white);
+        font-weight: $font-main-medium;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -54%);
+
+        &::before {
+            content: counter(store-counter);
+        }
+    }
+
+    &__info {
+        flex: 1;
+    }
+
+    &__info-address,
+    &__info-caption {
+        color: color(grey);
+    }
+
+    &__caption {
+        margin-top: baseline(0.5);
+        width: 100%;
+    }
+
+    &__name {
+        font-size: $font-size-small;
+        font-weight: $font-main-bold;
+    }
+
+    &__address,
+    &__postal {
+        &::after {
+            content: "," rtl(none);
+        }
+
+        &::before {
+            content: none rtl("\"" + "," + "\"");
+        }
+
+        &:last-child {
+            &::before,
+            &::after {
+                content: none;
+            }
+        }
+    }
+
+    &__city {
+        &::after {
+            content: ",";
+        }
+    }
+
+    &__city,
+    &__country {
+        display: inline;
+    }
+
+    &__date,
+    &__message {
+        width: 100%;
+    }
+
+    &__details {
+        margin-top: baseline(3);
+    }
+
+    &__details-inner {
+        background-color: color(grey, 4);
+    }
+
+    &__details-item {
+        font-size: $font-size-small;
+        margin-bottom: baseline(3);
+
+        table {
+            td {
+                padding-right: rem(30);
+
+                &:nth-child(2) {
+                    font-weight: $font-main-bold;
+                }
+            }
+        }
+    }
+
+    &__details-title {
+        font-size: $font-size-regular;
+        font-weight: $font-main-medium;
+        margin-bottom: baseline(1);
+    }
+
+    &__contact {
+        width: 100%;
+    }
+
+    &__contact-item {
+        color: $color-link;
+        padding-top: baseline(1);
+
+        &--directions {
+            @include icon(direction);
+        }
+
+        &--phone {
+            @include icon(phone);
+        }
+
+        &--email {
+            @include icon(email);
+        }
+
+        &::before {
+            font-size: rem(24);
+            margin-right: rem(24);
+        }
+    }
+
+    &__contact-link {
+        font-size: $font-size-small;
+        font-weight: $font-main-bold;
+    }
+
+    &__map-link {
+        @extend %f-button-link;
+        @include icon(location-filled) {
+            font-size: baseline(3);
+        }
+
+        font-weight: $font-main-medium;
+        min-width: 0;
+        padding: 0 baseline(0.5);
+    }
+}

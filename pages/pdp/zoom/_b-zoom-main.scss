@@ -1,0 +1,31 @@
+.b-zoom-main {
+    &__control {
+        bottom: rem(40);
+        right: rem(32);
+
+        &-button {
+            @include f-button-clear;
+
+            background-color: color(white);
+            border: 1px solid color(grey, 2);
+            border-radius: rem(4);
+            display: block;
+            height: rem(40);
+            margin-top: rem(4);
+            position: relative;
+            width: rem(40);
+
+            &::before {
+                font-size: rem(20);
+                left: 50%;
+                position: absolute;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            &:hover {
+                background-color: color(white);
+            }
+        }
+    }
+}

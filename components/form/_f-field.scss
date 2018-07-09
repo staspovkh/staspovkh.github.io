@@ -1,0 +1,176 @@
+.f-field {
+    &--cc-number {
+        .f-textinput {
+            padding-right: baseline(8);
+
+            @include f-state-validated {
+                background-image: none;
+            }
+        }
+
+        .f-field__inner {
+            position: relative;
+
+            &::after {
+                @include i-payment;
+
+                font-size: $height-form-field - baseline(2);
+                position: absolute;
+                right: baseline(1);
+                top: baseline(1);
+            }
+        }
+
+        &.m-card-type--visa {
+            .f-field__inner::after {
+                @include i-payment--visa();
+            }
+        }
+
+        &.m-card-type--mastercard {
+            .f-field__inner::after {
+                @include i-payment--mastercard();
+            }
+        }
+
+        &.m-card-type--american-express {
+            .f-field__inner::after {
+                @include i-payment--amex();
+            }
+        }
+    }
+
+    &-type--password {
+        .f-field__inner {
+            position: relative;
+        }
+
+        .f-textinput {
+            padding-right: baseline(5);
+
+            @include f-state-validated {
+                padding-right: baseline(10);
+            }
+        }
+    }
+
+    &__hideshow-password {
+        $icon-size: baseline(3);
+        $icon-color: color(grey, 2);
+
+        @include icon(show) {
+            font-size: $icon-size;
+        }
+
+        color: $icon-color;
+        cursor: pointer;
+        font-size: 0;
+        padding: baseline(1);
+        position: absolute;
+        right: rem(2);
+        top: $height-form-field / 2;
+        transform: translateY(-50%);
+
+        $selector: &;
+        @at-root .f-textinput {
+            @include f-state-validated {
+                ~ #{$selector} {
+                    right: baseline(5);
+                }
+            }
+        }
+
+        &#{$const-password-shown} {
+            &::after {
+                visibility: visible;
+            }
+        }
+
+        &::after {
+            background: color(grey, 2);
+            box-shadow: 0 0 0 rem(1) color(white);
+            content: "";
+            display: block;
+            height: rem(2);
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            visibility: hidden;
+            width: $icon-size;
+        }
+    }
+
+    &__indicator {
+        $indicator-size: baseline(4);
+        $indicator-bg-color: color(grey, 2);
+        $indicator-bg-color-active: $color-success;
+        $icon-color: color(white);
+    
+        align-items: center;
+        display: flex;
+        width: 50%;
+    
+        &#{$const-active} {
+            &::before {
+                background-color: $indicator-bg-color-active;
+                color: $icon-color;
+            }
+        }
+
+        &::before {
+            @include icon-styles();
+
+            background-color: $indicator-bg-color;
+            border-radius: 100%;
+            color: $indicator-bg-color;
+            content: icon-char(tick);
+            height: $indicator-size;
+            line-height: $indicator-size;
+            text-align: center;
+            width: $indicator-size;
+        }
+
+        &-wrapper {
+            display: flex;
+            padding-top: baseline(2);
+        }
+
+        &-text {
+            flex: 1;
+            font-size: $font-size-small;
+            line-height: $line-height-smaller;
+            padding: 0 baseline(1) 0 baseline(1.5);
+        }
+    }
+
+    &--makani {
+        .f-field__inner {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .f-error {
+            width: 100%;
+        }
+
+        .f-textinput {
+            $divider-width: rem(32);
+
+            &--part {
+                width: calc(50% - #{$divider-width/2});
+
+                &:not(.m-last-part) {
+                    background: none;
+                }
+            }
+
+            &__divider {
+                color: $color-input-border;
+                width: $divider-width;
+                text-align: center;
+            }
+        }
+    }
+}

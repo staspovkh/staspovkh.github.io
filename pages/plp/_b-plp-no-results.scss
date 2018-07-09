@@ -1,0 +1,15 @@
+.b-plp-no-results {
+    margin: 0 auto;
+    text-align: center;
+    width: rem(200);
+
+    &::before {
+        @include i-svg();
+        @include i-svg--info();
+
+        content: "";
+        display: block;
+        font-size: baseline(8);
+        margin: 0 auto baseline(1);
+    }
+}

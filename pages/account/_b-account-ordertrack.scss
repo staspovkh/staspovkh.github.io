@@ -1,0 +1,45 @@
+.b-account-ordertrack {
+    background-color: color(grey, 4);
+    border-top: 1px solid color(grey, 2);
+    padding: baseline(3) baseline(3) baseline(4);
+
+    @media (--extra-small) {
+        padding-left: map-get($outer-margins, "-xs");
+        padding-right: map-get($outer-margins, "-xs");
+    }
+
+    &__title {
+        font-size: $font-size-larger;
+        font-weight: $font-main-medium;
+        margin-bottom: baseline(1);
+        text-align: center;
+    }
+
+    &__sumbit {
+        background-color: color(white);
+        width: 100%;
+    }
+
+    &__info {
+        @include b-message(success, $icon: true);
+
+        font-size: $font-size-regular;
+
+        &::before {
+            @include i-svg--success;
+        }
+    }
+
+    &__order-number {
+        font-weight: $font-main-bold;
+        margin-bottom: baseline(1);
+    }
+
+    &__error {
+        @include b-message(error, $icon: true);
+
+        &::before {
+            @include i-svg--info-error;
+        }
+    }
+}

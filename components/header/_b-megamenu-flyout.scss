@@ -1,0 +1,251 @@
+//----------------------------------------------------------------------
+// Header navigation flyout
+//----------------------------------------------------------------------
+
+@mixin flyout-shadow($shadow-color, $shadow-size: 16px) {
+    box-shadow: inset 0 0 0 $shadow-size $shadow-color;
+}
+
+@mixin megamenu-active($color) {
+    @media (--from-medium) {
+        .b-megamenu__link {
+            &:hover,
+            &#{$const-active},
+            &#{$const-open} {
+                color: $color;
+            }
+
+            &::before {
+                background-color: $color;
+            }
+        }
+
+        .b-megamenu {
+            &__flyout {
+                @include flyout-shadow($color, 0);
+
+                &#{$const-open} {
+                    @include flyout-shadow($color);
+                }
+            }
+        }
+
+        .b-megamenu:hover & .b-megamenu__flyout {
+            @include flyout-shadow($color);
+        }
+    }
+
+    .b-megamenu__topcat-title {
+        border-color: $color;
+    }
+}
+
+@mixin megamenu-highlight($color, $i-color: false) {
+    @media (--from-medium) {
+        .b-megamenu__link {
+            color: $color;
+        }
+    }
+
+    @media (--to-small) {
+        .b-megamenu__link {
+            background-color: $color;
+
+            &::after {
+                color: if($i-color, $i-color, lighten(desaturate(adjust-hue($color, -12), 1.97), 6.86));
+            }
+        }
+    }
+}
+
+//----------------------------------------------------------------------
+// Generating helper classes for styling menu items
+// Usage:
+// Set base color (-yellow):
+// <li class="b-megamenu__item m-menu-color--yellow">Menu item></li>
+// Set hue color (--carnation-pink):
+// <li class="b-megamenu__item m-menu-color--red-carnation-pink">Menu item></li> 
+//----------------------------------------------------------------------
+
+
+@each $colorName, $colorValue in $color-palette {
+    .m-menu-color--#{$colorName} {
+        @include megamenu-active(color($colorName, "base"));
+    }
+
+    @each $spectrumName, $spectrumValue in $colorValue {
+        .m-menu-color--#{$colorName}-#{$spectrumName} {
+            @include megamenu-active($spectrumValue);
+        }
+    }
+
+    .m-menu-highlight--#{$colorName} {
+        @if map-has-key($colorValue, "light") {
+            @include megamenu-highlight(color($colorName, "light"), color($colorName, "base"));
+        } @else {
+            @include megamenu-highlight(color($colorName, "base"));
+        }
+    }
+}
+
+
+//----------------------------------------------------------------------
+// Menu Item border bounce animation
+//----------------------------------------------------------------------
+
+$menuItemBorderHeight: 9px;
+$menuItemBorderOverlap: 3px;
+
+@keyframes bounce {
+    0% {
+        transform: translateY($menuItemBorderHeight + $menuItemBorderOverlap);
+    }
+
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(3px);
+    }
+
+    60% {
+        transform: translateY(1px);
+    }
+}
+
+
+//----------------------------------------------------------------------
+// Styles for main navigation flyout (medium+ @media)
+//----------------------------------------------------------------------
+$default-menu-color: color(green, light);
+
+.b-megamenu {
+    &__inner,
+    &__flyout-inner {
+        @include site-width();
+    }
+}
+
+@media (--from-medium) {
+    .b-megamenu {
+        &__link {
+            &:hover {
+                text-decoration: none;
+            }
+
+            &:hover,
+            &#{$const-active},
+            &#{$const-open} {
+                color: $default-menu-color;
+
+                &::before {
+                    animation: bounce 1s 1 linear;
+                    transform: translateY(0);
+                }
+            }
+
+            &::before {
+                @include transition(transform);
+
+                background-color: $default-menu-color;
+                border-top-left-radius: rem(4);
+                border-top-right-radius: rem(4);
+                bottom: 0;
+                content: "";
+                height: $menuItemBorderHeight;
+                left: 0;
+                position: absolute;
+                right: 0;
+                transform: translateY(100%);
+            }
+        }
+
+        &__flyout {
+            @include flyout-shadow($default-menu-color, 0);
+            @include transition(
+                (max-height, box-shadow, opacity),
+                ($transition-duration-long, $transition-duration-regular, $transition-duration-short),
+                ($transition-duration-regular, 0s, $transition-duration-max)
+            );
+
+            opacity: 0;
+            pointer-events: none;
+
+            &#{$const-open} {
+                @include flyout-shadow($default-menu-color);
+
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+
+        &:hover &__flyout {
+            @include flyout-shadow($default-menu-color);
+
+            max-height: rem(700);
+            transition-delay: $transition-duration-medium, $transition-duration-long, 0s;
+            transition-duration: $transition-duration-medium, $transition-duration-regular, 0s;
+        }
+
+        &__flyout-content {
+            display: flex;
+            padding-bottom: baseline(6);
+            padding-top: baseline(6);
+        }
+
+        &__submenu {
+            margin-bottom: rem(20);
+        }
+
+        &__submenu-dynamic {
+            margin-right: rem(50);
+            padding-right: rem(10);
+        }
+
+        &__submenu-static {
+            flex: 1;
+        }
+
+        &__submenu-static > &__submenu {
+            display: flex;
+        }
+
+        &__submenu-column {
+            margin-left: rem(90);
+            width: rem(180);
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+
+        &__submenu-title {
+            @include t-sub-section-header;
+
+            color: color(black);
+            display: block;
+            margin-bottom: rem(10);
+        }
+
+        &__submenu-item {
+            margin-bottom: rem(10);
+        }
+
+        &__submenu-link {
+            color: color(blue);
+            font-size: $font-size-small;
+
+            &-view-all {
+                font-weight: $font-main-bold;
+            }
+        }
+
+        &__submenu-image {
+            flex: 1;
+        }
+    }
+}

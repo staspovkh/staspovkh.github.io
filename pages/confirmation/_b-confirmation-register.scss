@@ -1,0 +1,77 @@
+.b-confirmation-register {
+    background-color: color(purple, tint);
+    overflow: hidden;
+    position: relative;
+
+    @media (--from-small) {
+        border-radius: $border-radius-small;
+    }
+
+    @media (--extra-small) {
+        &.m-xs-top-gradient {
+            box-shadow: 0 baseline(-5) baseline(10) baseline(5) color(purple, tint);
+        }
+    }
+
+    &::before {
+        @include i-shape-styles(rem(416));
+
+        color: color(purple);
+        content: i-shape-char(cloud);
+        left: 50% rtl-ignore();
+        margin-top: rem(-134);
+        position: absolute;
+        top: 100%;
+        transform: translate3d(-51%, 0, 0) rotate(265deg) rtl-ignore();
+    }
+
+    &::after {
+        @include i-geoffrey;
+        @include i-geoffrey--proud;
+
+        content: "";
+        font-size: rem(130);
+        left: 50%;
+        pointer-events: none;
+        position: absolute;
+        top: baseline(1.5);
+        transform: translate3d(10%, 0, 0) rotate(-10deg) rtl(translate3d(-10%, 0, 0) rotate(10deg) scale(-1, 1));
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: rem(300);
+        min-height: rem(430);
+        padding: baseline(3);
+        position: relative;
+    }
+
+    &__title {
+        @include t-subpage-title;
+
+        color: color(purple, deep);
+        margin-bottom: baseline(1.5);
+        width: 65%;
+    }
+
+    &__benefits {
+        @include list-style-marker(
+            $color: color(blue),
+            $title: false
+        );
+
+        flex: 1;
+        width: 65%;
+    }
+
+    &__link {
+        @extend %f-button;
+
+        border: 0;
+        height: $btn-height-large;
+        line-height: $btn-height-large;
+    }
+}

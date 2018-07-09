@@ -1,0 +1,18 @@
+.b-product-discount {
+    background-color: color(red);
+    color: color(white);
+    font-weight: $font-main-medium;
+    line-height: baseline(2);
+    padding: baseline(1);
+    white-space: nowrap;
+
+    &::before {
+        border-color: transparent color(red);
+        border-style: solid;
+        border-width: baseline(2) baseline(2) baseline(2) 0;
+        content: "";
+        position: absolute;
+        right: 100%;
+        top: 0;
+    }
+}

@@ -1,0 +1,128 @@
+// Forms
+//
+// Styleguide 6
+
+// Basic Input fields
+//
+// markup:
+// <div class="f-field">
+//     <label class="f-label">
+//         <span class="f-label__text">Input title</span>
+//     </label>
+//     <div class="f-field__inner">
+//         <input class="f-textinput">
+//         <div class="f-caption">Some hint message</div>
+//     </div>
+// </div>
+// <div class="f-field">
+//     <label class="f-label">
+//         <span class="f-label__text">Multiline Input title</span>
+//         <span class="f-label__optional-text">Optional title</span>
+//     </label>
+//     <div class="f-field__inner">
+//         <textarea class="f-textarea"></textarea>
+//     </div>
+// </div>
+//
+// Styleguide 6.1
+
+//  Input field states
+//
+// markup:
+// <div class="f-field f-state-required">
+//     <label class="f-label">
+//         <span class="f-label__text">Input title (required state)</span>
+//     </label>
+//     <div class="f-field__inner">
+//         <input class="f-textinput">
+//         <div class="f-caption">This sample field is required and has optional hint</div>
+//     </div>
+// </div>
+// <div class="f-field f-state-required">
+//     <label class="f-label">
+//         <span class="f-label__text">Input title (invalid state)</span>
+//     </label>
+//     <div class="f-field__inner">
+//         <input class="f-textinput f-error">
+//         <div class="f-error">Validation message</div>
+//     </div>
+// </div>
+// <div class="f-field f-state-required">
+//     <label class="f-label">
+//         <span class="f-label__text">Input title (valid state)</span>
+//     </label>
+//     <div class="f-field__inner">
+//         <input class="f-textinput f-valid">
+//     </div>
+// </div>
+//
+// Styleguide 6.2
+
+.f-select,
+.f-textarea,
+.f-textinput,
+%f-select,
+%f-textarea,
+%f-textinput {
+    @include f-textinput {
+        border: 1px solid $color-input-border;
+        border-radius: rem(4);
+        color: color(black);
+        font-family: $font-family-main;
+        font-size: $font-size-small;
+        font-weight: $font-main-regular;
+        min-height: $height-form-field;
+        padding: rem(10) rem(40) rem(10) rem(12);
+        transition: border-color 0.1s linear;
+    }
+}
+
+.f-textarea,
+.f-textinput,
+%f-textarea,
+%f-textinput {
+    background: color(white);
+
+    &::placeholder {
+        @include transition(color);
+    }
+
+    @include f-state-error {
+        border-color: $color-error;
+    }
+
+    @include f-state-success {
+        border-color: color(green, light);
+    }
+
+    @include f-state-focus {
+        border-color: color(blue, light);
+
+        &::placeholder {
+            color: color(none);
+        }
+    }
+
+    @include f-state-validated {
+        background-image: url("../images/single-icons/form-input-states.svg");
+        background-repeat: no-repeat;
+        background-color: color(white);
+        background-position: right -#{rem(596) - $height-form-field + rem(1)}; // rem(1) - border compensation
+        background-size: rem(44) rem(596);
+
+        .f-field.ltr &,
+        &.ltr {
+            background-position-x: right rtl-ignore();
+            padding-right: rem(40) rtl-ignore();
+        }
+    }
+
+    @include f-state-success {
+        background-position-y: - rem(1); // rem(1) - border compensation
+    }
+}
+
+.f-textarea,
+%f-textarea {
+    min-height: rem(100);
+}

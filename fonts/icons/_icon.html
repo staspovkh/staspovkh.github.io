@@ -1,0 +1,439 @@
+<! DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Example Description">
+        <meta name="keywords" content="Example Keywords">
+        <meta name="author" content="Vladimir Levchenko">
+        <link rel="preload" href="../icon.woff2" as="font" type="font/woff2" crossorigin>
+        <style type="text/css">
+            @font-face {
+                font-family: "icon";
+                src: url("../icon.woff2") format("woff2"),
+                    url("../icon.woff") format("woff"),
+                    url("../icon.ttf") format("truetype");
+            }
+        </style>
+        <link rel="stylesheet" type="text/css" href="../../scsstarget/style-inline.css">
+        <style>
+            body {
+                background: #202020;
+                color: #f4ebd3;
+            }
+            table {
+                width: 90%;
+                margin: 20px auto;
+                border: 1px solid #404040;
+                font-size: 13px;
+            }
+            table th, table td {
+                padding: 2px;
+                border: 1px solid #404040;
+                vertical-align: middle;
+                text-align: center;
+                white-space: nowrap;
+            }
+            table th {
+                padding: 5px 2px;
+            }
+            .icon {
+                -webkit-transition: all ease-out 0.5s;
+                -moz-transition: all ease-out 0.5s;
+                -o-transition: all ease-out 0.5s;
+                transition: all ease-out 0.5s;
+                font-size: 20px;
+            }
+            table tr:hover .icon {
+                font-size: 26px;
+            }
+            table tr:hover{
+                background: #2d2e34;
+                color: #87ceeb;
+            }
+            .code {font-family: monospace, serif;}
+        </style>
+    </head>
+    <body class="icons">
+        <table border="1" width="100%">
+            <thead>
+                <tr>
+                    <th>Result</th>
+                    <th>Class</th>
+                    <th>Variable</th>
+                    <th>SCSS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="icon"><div class="i-font-add"></div></td>
+                    <td>i-font-add</td>
+                    <td>icon-char(add) => '\EA01'</td>
+                    <td class="code">
+                            :before - @include icon(add);<br />
+                            :after  - @include icon(add, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-basket-filled"></div></td>
+                    <td>i-font-basket-filled</td>
+                    <td>icon-char(basket-filled) => '\EA02'</td>
+                    <td class="code">
+                            :before - @include icon(basket-filled);<br />
+                            :after  - @include icon(basket-filled, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-basket"></div></td>
+                    <td>i-font-basket</td>
+                    <td>icon-char(basket) => '\EA03'</td>
+                    <td class="code">
+                            :before - @include icon(basket);<br />
+                            :after  - @include icon(basket, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-calendar"></div></td>
+                    <td>i-font-calendar</td>
+                    <td>icon-char(calendar) => '\EA04'</td>
+                    <td class="code">
+                            :before - @include icon(calendar);<br />
+                            :after  - @include icon(calendar, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-chevron-down"></div></td>
+                    <td>i-font-chevron-down</td>
+                    <td>icon-char(chevron-down) => '\EA05'</td>
+                    <td class="code">
+                            :before - @include icon(chevron-down);<br />
+                            :after  - @include icon(chevron-down, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-chevron-left"></div></td>
+                    <td>i-font-chevron-left</td>
+                    <td>icon-char(chevron-left) => '\EA06'</td>
+                    <td class="code">
+                            :before - @include icon(chevron-left);<br />
+                            :after  - @include icon(chevron-left, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-chevron-right"></div></td>
+                    <td>i-font-chevron-right</td>
+                    <td>icon-char(chevron-right) => '\EA07'</td>
+                    <td class="code">
+                            :before - @include icon(chevron-right);<br />
+                            :after  - @include icon(chevron-right, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-chevron-up"></div></td>
+                    <td>i-font-chevron-up</td>
+                    <td>icon-char(chevron-up) => '\EA08'</td>
+                    <td class="code">
+                            :before - @include icon(chevron-up);<br />
+                            :after  - @include icon(chevron-up, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-close"></div></td>
+                    <td>i-font-close</td>
+                    <td>icon-char(close) => '\EA09'</td>
+                    <td class="code">
+                            :before - @include icon(close);<br />
+                            :after  - @include icon(close, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-email"></div></td>
+                    <td>i-font-email</td>
+                    <td>icon-char(email) => '\EA0A'</td>
+                    <td class="code">
+                            :before - @include icon(email);<br />
+                            :after  - @include icon(email, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-exclamation"></div></td>
+                    <td>i-font-exclamation</td>
+                    <td>icon-char(exclamation) => '\EA0B'</td>
+                    <td class="code">
+                            :before - @include icon(exclamation);<br />
+                            :after  - @include icon(exclamation, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-filter"></div></td>
+                    <td>i-font-filter</td>
+                    <td>icon-char(filter) => '\EA0C'</td>
+                    <td class="code">
+                            :before - @include icon(filter);<br />
+                            :after  - @include icon(filter, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-handle"></div></td>
+                    <td>i-font-handle</td>
+                    <td>icon-char(handle) => '\EA0D'</td>
+                    <td class="code">
+                            :before - @include icon(handle);<br />
+                            :after  - @include icon(handle, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-heart-filled"></div></td>
+                    <td>i-font-heart-filled</td>
+                    <td>icon-char(heart-filled) => '\EA0E'</td>
+                    <td class="code">
+                            :before - @include icon(heart-filled);<br />
+                            :after  - @include icon(heart-filled, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-heart"></div></td>
+                    <td>i-font-heart</td>
+                    <td>icon-char(heart) => '\EA0F'</td>
+                    <td class="code">
+                            :before - @include icon(heart);<br />
+                            :after  - @include icon(heart, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-info"></div></td>
+                    <td>i-font-info</td>
+                    <td>icon-char(info) => '\EA10'</td>
+                    <td class="code">
+                            :before - @include icon(info);<br />
+                            :after  - @include icon(info, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-location-filled"></div></td>
+                    <td>i-font-location-filled</td>
+                    <td>icon-char(location-filled) => '\EA11'</td>
+                    <td class="code">
+                            :before - @include icon(location-filled);<br />
+                            :after  - @include icon(location-filled, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-location"></div></td>
+                    <td>i-font-location</td>
+                    <td>icon-char(location) => '\EA12'</td>
+                    <td class="code">
+                            :before - @include icon(location);<br />
+                            :after  - @include icon(location, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-lock"></div></td>
+                    <td>i-font-lock</td>
+                    <td>icon-char(lock) => '\EA13'</td>
+                    <td class="code">
+                            :before - @include icon(lock);<br />
+                            :after  - @include icon(lock, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-menu"></div></td>
+                    <td>i-font-menu</td>
+                    <td>icon-char(menu) => '\EA14'</td>
+                    <td class="code">
+                            :before - @include icon(menu);<br />
+                            :after  - @include icon(menu, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-minus"></div></td>
+                    <td>i-font-minus</td>
+                    <td>icon-char(minus) => '\EA15'</td>
+                    <td class="code">
+                            :before - @include icon(minus);<br />
+                            :after  - @include icon(minus, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-phone"></div></td>
+                    <td>i-font-phone</td>
+                    <td>icon-char(phone) => '\EA16'</td>
+                    <td class="code">
+                            :before - @include icon(phone);<br />
+                            :after  - @include icon(phone, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-search"></div></td>
+                    <td>i-font-search</td>
+                    <td>icon-char(search) => '\EA17'</td>
+                    <td class="code">
+                            :before - @include icon(search);<br />
+                            :after  - @include icon(search, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-show"></div></td>
+                    <td>i-font-show</td>
+                    <td>icon-char(show) => '\EA18'</td>
+                    <td class="code">
+                            :before - @include icon(show);<br />
+                            :after  - @include icon(show, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-sort"></div></td>
+                    <td>i-font-sort</td>
+                    <td>icon-char(sort) => '\EA19'</td>
+                    <td class="code">
+                            :before - @include icon(sort);<br />
+                            :after  - @include icon(sort, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-star"></div></td>
+                    <td>i-font-star</td>
+                    <td>icon-char(star) => '\EA1A'</td>
+                    <td class="code">
+                            :before - @include icon(star);<br />
+                            :after  - @include icon(star, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-tick"></div></td>
+                    <td>i-font-tick</td>
+                    <td>icon-char(tick) => '\EA1B'</td>
+                    <td class="code">
+                            :before - @include icon(tick);<br />
+                            :after  - @include icon(tick, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-user-filled"></div></td>
+                    <td>i-font-user-filled</td>
+                    <td>icon-char(user-filled) => '\EA1C'</td>
+                    <td class="code">
+                            :before - @include icon(user-filled);<br />
+                            :after  - @include icon(user-filled, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-user"></div></td>
+                    <td>i-font-user</td>
+                    <td>icon-char(user) => '\EA1D'</td>
+                    <td class="code">
+                            :before - @include icon(user);<br />
+                            :after  - @include icon(user, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-zoom"></div></td>
+                    <td>i-font-zoom</td>
+                    <td>icon-char(zoom) => '\EA1E'</td>
+                    <td class="code">
+                            :before - @include icon(zoom);<br />
+                            :after  - @include icon(zoom, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-select-arrows"></div></td>
+                    <td>i-font-select-arrows</td>
+                    <td>icon-char(select-arrows) => '\EA1F'</td>
+                    <td class="code">
+                            :before - @include icon(select-arrows);<br />
+                            :after  - @include icon(select-arrows, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-star-rotated"></div></td>
+                    <td>i-font-star-rotated</td>
+                    <td>icon-char(star-rotated) => '\EA20'</td>
+                    <td class="code">
+                            :before - @include icon(star-rotated);<br />
+                            :after  - @include icon(star-rotated, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-play-arrow"></div></td>
+                    <td>i-font-play-arrow</td>
+                    <td>icon-char(play-arrow) => '\EA21'</td>
+                    <td class="code">
+                            :before - @include icon(play-arrow);<br />
+                            :after  - @include icon(play-arrow, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-warning"></div></td>
+                    <td>i-font-warning</td>
+                    <td>icon-char(warning) => '\EA22'</td>
+                    <td class="code">
+                            :before - @include icon(warning);<br />
+                            :after  - @include icon(warning, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-list"></div></td>
+                    <td>i-font-list</td>
+                    <td>icon-char(list) => '\EA23'</td>
+                    <td class="code">
+                            :before - @include icon(list);<br />
+                            :after  - @include icon(list, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-location-marker"></div></td>
+                    <td>i-font-location-marker</td>
+                    <td>icon-char(location-marker) => '\EA24'</td>
+                    <td class="code">
+                            :before - @include icon(location-marker);<br />
+                            :after  - @include icon(location-marker, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-location-marker-star"></div></td>
+                    <td>i-font-location-marker-star</td>
+                    <td>icon-char(location-marker-star) => '\EA25'</td>
+                    <td class="code">
+                            :before - @include icon(location-marker-star);<br />
+                            :after  - @include icon(location-marker-star, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-direction"></div></td>
+                    <td>i-font-direction</td>
+                    <td>icon-char(direction) => '\EA26'</td>
+                    <td class="code">
+                            :before - @include icon(direction);<br />
+                            :after  - @include icon(direction, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-question"></div></td>
+                    <td>i-font-question</td>
+                    <td>icon-char(question) => '\EA27'</td>
+                    <td class="code">
+                            :before - @include icon(question);<br />
+                            :after  - @include icon(question, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-add-circle"></div></td>
+                    <td>i-font-add-circle</td>
+                    <td>icon-char(add-circle) => '\EA28'</td>
+                    <td class="code">
+                            :before - @include icon(add-circle);<br />
+                            :after  - @include icon(add-circle, after);
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon"><div class="i-font-share"></div></td>
+                    <td>i-font-share</td>
+                    <td>icon-char(share) => '\EA29'</td>
+                    <td class="code">
+                            :before - @include icon(share);<br />
+                            :after  - @include icon(share, after);
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

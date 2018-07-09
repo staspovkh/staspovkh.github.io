@@ -1,0 +1,23 @@
+.b-header-promo-slot {
+    color: color(white);
+    font-size: $font-size-small;
+    line-height: $line-height-small;
+    text-align: center;
+
+    @media (--from-medium) {
+        text-align: inherit;
+    }
+
+    a {
+        color: color(blue, light);
+        font-weight: $font-main-bold;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    strong {
+        font-weight: $font-main-bold;
+    }
+}

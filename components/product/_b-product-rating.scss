@@ -1,0 +1,20 @@
+.b-product-rating {
+    &__list {
+        margin-right: rem(6);
+    }
+
+    &__list-item {
+        color: color(grey, 3);
+        margin-right: rem(2);
+
+        &.m-active {
+            color: color(yellow);
+        }
+    }
+
+    &__value {
+        color: color(blue);
+        font-size: $font-size-small;
+        font-weight: $font-main-bold;
+    }
+}

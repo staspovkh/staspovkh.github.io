@@ -1,0 +1,48 @@
+.l-checkout {
+    &--page {
+        background-color: color(grey, 4);
+        border-bottom: 1px solid color(grey, 2);
+
+        @media (--from-small) {
+            padding-bottom: baseline(3);
+        }
+    }
+
+    &__progress {
+        background-color: color(white);
+        margin-bottom: baseline(5);
+    
+        @media (--extra-small) {
+            border-bottom: baseline(1) solid color(grey, 3);
+            margin: 0;
+        }
+    }
+
+    &__progress-content {
+        @include site-width();
+    }
+
+    &__primary {
+        flex: 1;
+    }
+
+    &__box {
+        @include primary-box;
+    }
+
+    .l-main__content {
+        @media (--extra-small) {
+            padding: 0;
+        }
+    }
+}
+
+.l-single-shipping {
+    &__map {
+        margin: baseline(2) 0;
+
+        @media (--extra-small) {
+            margin: baseline(1) 0 baseline(2);
+        }
+    }
+}

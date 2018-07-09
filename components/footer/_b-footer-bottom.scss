@@ -1,0 +1,27 @@
+.b-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: baseline(3) 0;
+
+    @media (--extra-small) {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &__item {
+        @media (--extra-small) {
+            text-align: center;
+            width: 100%;
+        }
+
+        &--copyright {
+            color: color(white);
+        }
+
+        &--logo {
+            @media (--extra-small) {
+                padding: rem(24) 0;
+            }
+        }
+    }
+}

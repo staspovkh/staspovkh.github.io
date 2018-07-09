@@ -1,0 +1,42 @@
+//----------------------------------------------------------------------
+// Header navigation (megamenu)
+//----------------------------------------------------------------------
+
+@media (--from-medium) {
+    .b-megamenu {
+        &__list {
+            margin: 0 auto;
+            max-width: rem(1050);
+            width: 100%;
+        }
+
+        &__item {
+            margin: 0 0.5%;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        &__flyout {
+            margin-top: -1px; // -1 is setted to prevent bug on IE
+        }
+
+        &__link {
+            color: color(white);
+            display: block;
+            font-weight: $font-main-medium;
+            outline: none;
+            overflow: hidden;
+            padding: rem(4) rem(4) baseline(2);
+            position: relative;
+            text-align: center;
+            transition: color $transition-duration-regular;
+        }
+    }
+}
+

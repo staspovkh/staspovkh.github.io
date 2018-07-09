@@ -1,0 +1,28 @@
+.b-cart-message {
+    @include b-message(error);
+
+    margin-bottom: baseline(2);
+
+    @media (--extra-small) {
+        border-radius: 0;
+        border-width: 1px 0;
+        margin-bottom: 0;
+
+        + .b-cart-message {
+            margin-top: baseline(1);
+        }
+    }
+
+    &--discount {
+        @include b-message(success, false);
+    }
+
+    &--shipping,
+    &--promotion {
+        @include b-message(warning, false);
+    }
+
+    &__link {
+        font-weight: $font-main-bold;
+    }
+}

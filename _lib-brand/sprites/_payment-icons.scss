@@ -1,0 +1,120 @@
+// Payment Icons
+//
+// markup:
+// <div class="sg-iconset">
+//   <i class="i-payment--amex">amex</i>
+//   <i class="i-payment--android-pay">android-pay</i>
+//   <i class="i-payment--apple-pay">apple-pay</i>
+//   <i class="i-payment--cash">cash</i>
+//   <i class="i-payment--cirrus">cirrus</i>
+//   <i class="i-payment--maestro">maestro</i>
+//   <i class="i-payment--mastercard">mastercard</i>
+//   <i class="i-payment--visa">visa</i>
+// </div>
+//
+// Styleguide 5.5
+
+@mixin i-payment($color: white) {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1em;
+    line-height: 1;
+    background-color: $color;
+    background-image: url("../images/payment-icons.svg");
+    background-repeat: no-repeat;
+    background-size: 13.333333333333334em 8em;
+    border-radius: 0.05em;
+}
+[class*="i-payment--"]::before,
+[class*="i-payment-after--"]::after {
+    @include i-payment;
+}
+
+@mixin i-payment--amex() {
+    content: "";
+    background-position: 0em 0em/*rtl:ignore*/;
+    width: 1.6666666666666667em;
+    height: 1em;
+}
+.i-payment--amex::before,
+.i-payment-after--amex::after {
+    @include i-payment--amex;
+}
+
+@mixin i-payment--android-pay() {
+    content: "";
+    background-position: -1.6666666666666667em -1em/*rtl:ignore*/;
+    width: 1.6666666666666667em;
+    height: 1em;
+}
+.i-payment--android-pay::before,
+.i-payment-after--android-pay::after {
+    @include i-payment--android-pay;
+}
+
+@mixin i-payment--apple-pay() {
+    content: "";
+    background-position: -3.3333333333333335em -2em/*rtl:ignore*/;
+    width: 1.6666666666666667em;
+    height: 1em;
+}
+.i-payment--apple-pay::before,
+.i-payment-after--apple-pay::after {
+    @include i-payment--apple-pay;
+}
+
+@mixin i-payment--cash() {
+    content: "";
+    background-position: -5em -3em/*rtl:ignore*/;
+    width: 1.6666666666666667em;
+    height: 1em;
+}
+.i-payment--cash::before,
+.i-payment-after--cash::after {
+    @include i-payment--cash;
+}
+
+@mixin i-payment--cirrus() {
+    content: "";
+    background-position: -6.666666666666667em -4em/*rtl:ignore*/;
+    width: 1.6666666666666667em;
+    height: 1em;
+}
+.i-payment--cirrus::before,
+.i-payment-after--cirrus::after {
+    @include i-payment--cirrus;
+}
+
+@mixin i-payment--maestro() {
+    content: "";
+    background-position: -8.333333333333334em -5em/*rtl:ignore*/;
+    width: 1.6666666666666667em;
+    height: 1em;
+}
+.i-payment--maestro::before,
+.i-payment-after--maestro::after {
+    @include i-payment--maestro;
+}
+
+@mixin i-payment--mastercard() {
+    content: "";
+    background-position: -10em -6em/*rtl:ignore*/;
+    width: 1.6666666666666667em;
+    height: 1em;
+}
+.i-payment--mastercard::before,
+.i-payment-after--mastercard::after {
+    @include i-payment--mastercard;
+}
+
+@mixin i-payment--visa() {
+    content: "";
+    background-position: -11.666666666666666em -7em/*rtl:ignore*/;
+    width: 1.6666666666666667em;
+    height: 1em;
+}
+.i-payment--visa::before,
+.i-payment-after--visa::after {
+    @include i-payment--visa;
+}
+

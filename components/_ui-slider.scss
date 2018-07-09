@@ -1,0 +1,23 @@
+@mixin ui-slider-bg($color) {
+    background-image: svg-uri("<svg viewBox=\"0 0 13 4\" fill=\"#{$color}\" xmlns=\"http://www.w3.org/2000/svg\"><path id=\"badgeshape\" d=\"M11,4H7C5.9,4,5,3.1,5,2l0,0c0-1.1,0.9-2,2-2h4c1.1,0,2,0.9,2,2l0,0C13,3.1,12.1,4,11,4z\"/></svg>");
+}
+
+.ui-slider {
+    @include ui-slider-bg(color(green, light));
+
+    background-position: 100% 50%;
+    background-repeat: repeat-x;
+    background-size: rem(13) rem(4);
+    border-radius: rem(2);
+    height: baseline(0.5);
+}
+
+.ui-slider-range {
+    background-color: color(green, light);
+    border-radius: rem(2);
+}
+
+.ui-slider-handle {
+    @extend %f-cta-icon-squircle--small;
+    @include icon(handle);
+}

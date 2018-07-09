@@ -1,0 +1,200 @@
+// PLP - Inline Feature Products
+//
+// Note, there are 2 variants of this banner: simple and complex one (see HTML markup for details). Please refer to Content managment documentation for specific settings: https://alfuttaim.atlassian.net/wiki/spaces/SH/pages/170557747/TRU+-+PLP+-+Product+Listing+Page#TRU-PLP-ProductListingPage-PLPInlineFeatureProducts(PLP-inline-banner)
+//
+// markup:
+// <div class="b-content-slot l-clp__top-banner g-grid__row--no-gutter">
+// <!-- SAMPLE #1 - complex banner, where vector shape and separate toy image are used (see also sample #2 markup in CSS section) -->
+// <div class="b-bnr g-grid__col-12 b-bnr--inlined-complex m-bg--blue">
+//     <div class="b-bnr__inner">
+//         <!-- PICTURE section is formed automatically from asset's Images custom fields (vector shape and separate toy image are used) -->
+//         <picture class="b-bnr__picture">
+//             <img src="images/banners/content/inlined-toy.png" alt="Banner Inlined (Promo Toy Complex Sample)" class="b-bnr__image">
+//         </picture>
+//         <div class="b-bnr__content">
+//             <!-- BEGIN of content asset's BODY field (rest of additional wrappers are added automatically) -->
+//             <span class="b-bnr__shape i-shape-blast m-clr--blue-light"></span>
+//             <div class="b-bnr__textwrapper  m-clr--white">
+//                 <h4 class="b-bnr__title">Promotion title</h4>
+//                 <p class="b-bnr__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+//                 <button class="f-cta-secondary"><span class="f-cta__text">Find out more</span></button>
+//             </div>
+//             <!-- END of content asset's BODY -->
+//         </div>
+//     </div>
+// </div>
+// </div>
+//
+// Styleguide 8.11
+
+/*
+<!-- SAMPLE #2 - simple banner, where final background image is applied for different screen sizes --> 
+<div class="b-bnr g-grid__col-12 b-bnr--inlined">
+    <div class="b-bnr__inner">
+        <!-- PICTURE section is formed automatically from asset's Images custom fields (final background image is applied for different screen sizes) -->
+        <picture class="b-bnr__picture">
+            <source srcset="images/banners/content/banner-inlined-toys-bg-xs.jpg" media="(max-width : 767px)">
+            <source srcset="images/banners/content/banner-inlined-toys-bg-s.jpg" media="(max-width : 1024px)">
+            <img src="images/banners/content/banner-inlined-toys-bg-l.jpg" alt="Banner Inlined (Promo Toy)" class="b-bnr__image">
+        </picture>
+        <div class="b-bnr__content">
+            <!-- BEGIN of content asset's BODY field (rest of additional wrappers are added automatically) -->
+            <div class="b-bnr__textwrapper  m-clr--white">
+                <h4 class="b-bnr__title">Promotion title</h4>
+                <p class="b-bnr__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                <button class="f-cta-secondary"><span class="f-cta__text">Find out more</span></button>
+            </div>
+            <!-- END of content asset's BODY -->
+        </div>
+    </div>
+</div>
+*/
+
+.b-bnr--inlined,
+.b-bnr--inlined-complex {   // add .b-bnr--inlined so banner uses configured image as the fullwidth background
+    border-radius: $border-radius-regular;
+
+    @media (--extra-small) {
+        border-radius: 0;
+    }
+
+    .b-bnr {
+        &__inner,
+        &__image {
+            border-radius: $border-radius-regular;
+
+            @media (--extra-small) {
+                border-radius: 0;
+            }
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            width: 100%;
+
+            @media (--to-small) {
+                padding: baseline(3) baseline(2);
+                text-align: center;
+            }
+
+            @media (--from-medium) {
+                justify-content: center;
+            }
+        }
+
+        &__textwrapper {
+            position: relative;
+            width: 100%;
+            z-index: $z-small;
+
+            @media (--extra-small) {
+                [class*="f-cta"] {
+                    width: 100%;
+                }
+            }
+
+            @media (--from-medium) {
+                max-width: rem(400);
+                width: 40%;
+            }
+
+            @media (--medium) {
+                margin-left: baseline(5);
+            }
+
+            @media (--large) {
+                margin-left: baseline(10);
+            }
+        }
+
+        &__title {
+            @include t-subpage-title;
+
+            margin-bottom: baseline(2);
+        }
+
+        &__text {
+            margin-bottom: baseline(2);
+        }
+    }
+}
+
+.b-bnr--inlined-complex { // use .b-bnr--inlined-complex for banner's wrapper to make it consist from separate parts (image, shapes etc)
+    .b-bnr {
+        &__inner {
+            height: baseline(39);
+            overflow: hidden;
+            position: relative;
+
+            @media (--extra-small) {
+                height: baseline(59);
+            }
+
+            @media (--small) {
+                height: baseline(65);
+            }
+        }
+
+        &__image {
+            max-height: baseline(33);
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: $transition-duration-regular;
+            width: auto;
+            z-index: $z-small;
+
+            @media (--extra-small) {
+                max-height: baseline(22);
+            }
+
+            @media (--small) {
+                max-height: baseline(32);
+            }
+
+            @media (--to-small) {
+                bottom: baseline(1);
+                left: 50%;
+                top: auto;
+                transform: translateX(-50%);
+            }
+
+            @media (--medium) {
+                max-height: baseline(26);
+            }
+        }
+
+        &__content {
+            position: relative;
+        }
+
+        &__shape {
+            bottom: -75%;
+            font-size: rem(800);
+            left: 56%;
+            position: absolute;
+            transform: rotate(55deg);
+            transition: $transition-duration-regular;
+            z-index: $z-min;
+
+            @media (--extra-small) {
+                bottom: -91%;
+            }
+
+            @media (--to-small) {
+                font-size: rem(584);
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            @media (--small) {
+                bottom: -60%;
+            }
+        }
+    }
+}

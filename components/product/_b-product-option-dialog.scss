@@ -1,0 +1,22 @@
+
+
+.m-escape-dialog-padding {
+    @media (--from-small) {
+        margin-left: baseline(-6);
+        margin-right: baseline(-6);
+    }
+}
+
+.m-dialog-product-option {
+    max-width: $ui-dialog-width;
+
+    .ui-dialog-content {
+        min-height: 100% !important;
+    }
+
+    .ui-dialog-content,
+    .b-product-option__details-innercontent {
+        display: flex;
+        flex-direction: column;
+    }
+}

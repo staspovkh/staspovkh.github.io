@@ -1,0 +1,37 @@
+
+.b-toysfinder__refinement--price {
+    margin: 0 auto;
+    padding-top: baseline(3);
+    width: rem(302);
+}
+
+.b-toysfinder {
+    &__chest {
+        @include i-chest();
+        @include i-chest--small();
+
+        &.m-medium {
+            @include i-chest--medium();
+        }
+
+        &.m-large {
+            @include i-chest--large();
+        }
+    }
+
+    &__price {
+        font-weight: $font-main-bold;
+        margin-top: baseline(2.5);
+        text-align: center;
+    }
+
+    &__price-current {
+        &.m-max::after {
+            content: "+";
+        }
+    }
+
+    &__price-slider {
+        margin: baseline(3) 0 baseline(2.5);
+    }
+}

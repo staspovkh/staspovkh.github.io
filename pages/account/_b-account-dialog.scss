@@ -1,0 +1,15 @@
+.b-account-dialog {
+    padding: baseline(3.5);
+
+    @media (--extra-small) {
+        padding: baseline(3) baseline(2);
+    }
+
+    &__wrapper,
+    &__form {
+        @media (--from-small) {
+            margin: 0 auto;
+            max-width: $width-form-regular;
+        }
+    }
+}

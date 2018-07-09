@@ -1,0 +1,52 @@
+// Shapes
+//
+// markup:
+// <div class="sg-iconset sg-iconset--{{options.fontId}}">
+{{#glyphs}}
+//   <i class="i-{{options.fontId}}-{{name}}">{{name}}</i>
+{{/glyphs}}
+// </div>
+//
+// Styleguide 5.4
+
+@mixin i-{{options.fontId}}-styles($size: 1em) {
+    display: inline-block;
+    font-family: "{{options.fontName}}";
+    font-size: $size;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+    text-decoration: none;
+    text-transform: none;
+    vertical-align: middle;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+%i-{{options.fontId}} {
+    @include i-{{options.fontId}}-styles;
+}
+
+@function i-{{options.fontId}}-char($filename) {
+    $char: "";
+{{#glyphs}}
+    @if $filename == {{name}} {
+        $char: "{{unicode}}";
+    }
+{{/glyphs}}
+    @return $char;
+}
+
+@mixin i-{{options.fontId}}($filename, $insert: before, $extend: true, $size: 16px) {
+    &:#{$insert} {
+        @if $extend {
+            @extend %i-{{options.fontId}};
+        } @else {
+            @include i-{{options.fontId}}-styles($size);
+        }
+        content: i-{{options.fontId}}-char($filename);
+        @content;
+    }
+}

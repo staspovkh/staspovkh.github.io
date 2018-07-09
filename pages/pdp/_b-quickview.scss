@@ -1,0 +1,34 @@
+.l-quickview {
+    display: flex !important; // to override styles setted by dialog
+    overflow: auto;
+}
+
+.ui-dialog {
+    &#{$const-dialog-quickview} {
+        @media (--from-small) {
+            display: flex;
+            flex-direction: column;
+            max-height: 95vh;
+        }
+
+        @media (--small) {
+            max-width: rem(760);
+        }
+
+        @media (--medium) {
+            max-width: rem(960);
+        }
+
+        @media (--large) {
+            max-width: rem(1360);
+        }
+    }
+
+    &-content {
+        #{$const-dialog-quickview} & {
+            @include brand-scrollbar;
+
+            padding: baseline(2) 0;
+        }
+    }
+}

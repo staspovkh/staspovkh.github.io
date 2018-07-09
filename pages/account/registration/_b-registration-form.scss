@@ -1,0 +1,50 @@
+.b-registration-form {
+    .l-registration--start & {
+        @include account-box;
+
+        padding: baseline(6) 0;
+
+        @media (--extra-small) {
+            padding: baseline(2) 0;
+        }
+    }
+
+    &__title {
+        @include t-subpage-title($font-family-main);
+
+        margin-bottom: baseline(3);
+        text-align: center;
+
+        @media (--extra-small) {
+            margin-bottom: baseline(1);
+        }
+    }
+
+    .f-field--title {
+        .f-field__inner {
+            display: inline-flex;
+            min-width: rem(136);
+        }
+    }
+
+    .f-field--addtoemaillist {
+        color: color(grey);
+    }
+
+    &__actions {
+        @include form-basic-action-bar;
+    }
+
+    &__error {
+        margin-bottom: baseline(2);
+    }
+
+    &__agreement {
+        text-align: center;
+        margin: baseline(2) 0 baseline(8);
+    }
+
+    .b-content-asset {
+        margin: baseline(2) 0;
+    }
+}

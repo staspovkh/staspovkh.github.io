@@ -1,0 +1,9 @@
+.b-cash-on-delivery {
+    &__message {
+        margin-bottom: baseline(3);
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}

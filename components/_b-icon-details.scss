@@ -1,0 +1,51 @@
+// Default:
+// <div class="b-icon-details i-svg--book">
+//   <div class="b-icon-details__title">
+//     <div class="b-icon-details__name">Key Mane</div>
+//     <div class="b-icon-details__desc">Key Description</div>
+//   </div>
+// </div>
+// Design: PDP > Tabs > Tab (Description)
+// Modificator: m-download
+// <div class="b-icon-details i-svg--page m-download">
+//   <div class="b-icon-details__title">
+//     <div class="b-icon-details__name">Key Mane</div>
+//     <div class="b-icon-details__size">Key Description</div>
+//   </div>
+// </div>
+// Design: PDP > Tabs > Tab (Instructions & Manuals)
+.b-icon-details {
+    align-items: center;
+    display: flex;
+    font-size: $font-size-small;
+    font-weight: $font-main-regular;
+    line-height: $line-height-small;
+
+    &::before {
+        font-size: rem(32);
+        margin-right: rem(10);
+        min-width: rem(32);
+        text-align: center;
+    }
+
+    &.m-download {
+        font-size: $font-size-regular;
+
+        &::before {
+            font-size: rem(48);
+            margin-right: rem(22);
+        }
+    }
+
+    &__name {
+        font-weight: $font-main-bold;
+    }
+
+    &__desc {
+        color: color(grey, 5);
+    }
+
+    &__size {
+        margin-top: rem(5);
+    }
+}

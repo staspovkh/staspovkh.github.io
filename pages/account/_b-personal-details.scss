@@ -1,0 +1,29 @@
+.b-personal-details {
+    &__form,
+    &__actions {
+        @media (--from-small) {
+            margin: 0 auto;
+            max-width: $width-form-regular;
+        }
+    }
+
+    @media (--extra-small) {
+        max-width: none;
+    }
+
+    &__button-save {
+        @extend %f-cta-primary;
+
+        width: 100%;
+    }
+
+    .f-field--title {
+        .f-field__inner {
+            width: 50%;
+        }
+
+        .f-error {
+            width: 200%;
+        }
+    }
+}

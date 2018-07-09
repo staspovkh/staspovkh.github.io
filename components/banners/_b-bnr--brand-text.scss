@@ -1,0 +1,78 @@
+@mixin brand-text-color($color) {
+    &__content {
+        color: $color;
+    }
+
+    &__btn {
+        background-color: color(none);
+        border-color: $color;
+        color: $color;
+    }
+}
+
+// BLP Brand - Text Banner
+//
+// markup:
+// <div class="b-bnr b-bnr--brand-text m-brand-text--white">
+//     <div class="b-bnr__inner">
+//         <!-- PICTURE section is formed automatically from asset's Images custom fields -->
+//         <picture class="b-bnr__picture">
+//             <source srcset="images/banners/banners-brand-text/brand-hulk2.jpg" media="(max-width : 767px)">
+//             <img src="images/banners/banners-brand-text/brand-hulk.jpg" alt="" class="b-bnr__image">
+//         </picture>
+//         <div class="b-bnr__content">
+//             <!-- BEGIN of content asset's BODY field (rest of additional wrappers are added automatically) -->
+//             <h2 class="b-bnr__title">Banner title</h2>
+//             <div class="b-bnr__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+//             <div class="b-bnr__btn-wrapper">
+//                 <a class="b-bnr__btn f-button">Find out more</a>
+//             </div>
+//             <!-- END of content asset's BODY -->
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide 8.6
+
+.b-bnr--brand-text {
+    @include brand-text-color(color(white));
+
+    .b-bnr {
+        &__content {
+            @include site-width;
+
+            position: absolute;
+
+            @media (--from-small) {
+                top: 50%;
+                transform: translateY(-50%);
+                width: 50%;
+            }
+
+            @media (--extra-small) {
+                top: baseline(12);
+            }
+        }
+
+        &__title {
+            font-size: $font-size-big;
+            margin-bottom: baseline(2);
+        }
+
+        &__btn-wrapper {
+            margin-top: baseline(3);
+        }
+    }
+}
+
+@each $colorName, $colorValue in $color-palette {
+    .m-brand-text--#{$colorName} .b-bnr {
+        @include brand-text-color(color($colorName, "base"));
+    }
+
+    @each $spectrumName, $spectrumValue in $colorValue {
+        .m-brand-text--#{$colorName}-#{$spectrumName} .b-bnr {
+            @include brand-text-color($spectrumValue);
+        }
+    }
+}

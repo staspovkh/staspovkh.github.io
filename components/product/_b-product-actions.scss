@@ -1,0 +1,108 @@
+.b-product-actions {
+    display: flex;
+    flex-direction: column;
+
+    &__controls {
+        display: flex;
+    }
+
+    &__message {
+        margin-top: baseline(0.5);
+        order: 1;
+
+        #{$const-hidden} + &,
+        &:first-child {
+            margin-top: baseline(2);
+        }
+
+        &--offline,
+        &--out-of-stock {
+            margin-bottom: baseline(2);
+            order: 0;
+
+            &,
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+
+    .b-product-quantity {
+        .select2-selection,
+        .f-select {
+            font-size: $font-size-regular;
+            font-weight: $font-main-bold;
+            height: $btn-height-large;
+            line-height: $btn-height-large;
+        }
+
+        .f-field__inner::before,
+        .select2-selection__arrow::before {
+            top: rem(19);
+        }
+    }
+
+    .b-product-add-to-wishlist {
+        min-width: $btn-height-large;
+    }
+
+    .b-product-quantity {
+        width: baseline(8.5);
+    }
+
+    .b-product-quantity,
+    .b-product-add-to-cart {
+        margin-right: rem(8);
+    }
+
+    .b-product-add-to-cart {
+        flex: 1;
+
+        @media (--extra-small) {
+            min-width: rem(152);
+        }
+    }
+}
+
+.b-product-availability {
+    &__message {
+        margin-top: baseline(1);
+    }
+}
+
+.b-product-availability-status {
+    align-items: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+    font-size: $font-size-small;
+    line-height: $line-height-smaller;
+    padding: baseline(2) 0;
+
+    &__item {
+        display: flex;
+        flex-grow: 1;
+        width: 50%;
+
+        @media (--small) {
+            align-items: center;
+            margin-top: baseline(1.5);
+            width: 100%;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &__content {
+        align-self: center;
+        flex: 1;
+        margin: 0 rem(10);
+    }
+
+    &__content-link {
+        display: block;
+        font-weight: $font-main-bold;
+        margin-top: rem(4);
+    }
+}

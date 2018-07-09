@@ -1,0 +1,44 @@
+.b-content-header {
+    @include site-width;
+
+    padding-bottom: baseline(7);
+    padding-top: baseline(9);
+    position: relative;
+
+    @media (--extra-small) {
+        padding-bottom: baseline(5);
+        padding-top: baseline(5);
+        text-align: center;
+    }
+
+    &__title {
+        @include t-hero-title;
+
+        color: color(white);
+    }
+
+    &__description {
+        margin: baseline(1) auto 0;
+        max-width: 100%;
+        width: rem(460);
+    }
+
+    &__image-left,
+    &__image-right {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+
+        @media (--extra-small) {
+            display: none;
+        }
+    }
+
+    &__image-left {
+        right: 70%;
+    }
+
+    &__image-right {
+        left: 70%;
+    }
+}

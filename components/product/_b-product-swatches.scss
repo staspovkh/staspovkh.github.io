@@ -1,0 +1,73 @@
+.b-product-swatches {
+    font-size: $font-size-small;
+
+    &__link {
+        @include transition(border-color);
+
+        border: 1px solid color(white);
+        border-radius: 50%;
+        color: $color-text;
+        padding: rem(3);
+
+        &.is-not-orderable {
+            position: relative;
+
+            &::after {
+                @include transition(border-color);
+
+                border-top: 1px solid color(none);
+                content: "";
+                left: 0;
+                position: absolute;
+                top: 50%;
+                transform: translate3d(0, -50%, 0) rotate(45deg);
+                width: 100%;
+            }
+        }
+
+        &#{$const-selected},
+        &:hover {
+            border-color: color(grey, 2);
+            text-decoration: none;
+
+            &::after {
+                border-color: color(grey, 2);
+            }
+        }
+    }
+
+    &__text {
+        min-height: baseline(2);
+        min-width: baseline(2);
+    }
+
+    &__image {
+        border-radius: 50%;
+        height: baseline(2);
+        width: baseline(2);
+
+        .is-not-orderable & {
+            opacity: 0.5;
+        }
+    }
+
+    &__all {
+        padding: 0 rem(3);
+        width: baseline(2);
+    }
+
+    &__all-link {
+        @include transition(color);
+
+        color: color(grey, 2);
+        font-size: rem(24);
+        font-weight: $font-main-bold;
+        line-height: rem(24);
+        vertical-align: top;
+
+        &:hover {
+            color: color(black);
+            text-decoration: none;
+        }
+    }
+}

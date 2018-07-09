@@ -1,0 +1,49 @@
+//----------------------------------------------------------------------
+// @include b-header-mini-menu(
+//    $justify-content: flex-start,
+//    $text-color: color(white)
+// );
+//----------------------------------------------------------------------
+
+/*
+.b-[class-name] {
+  &__list {}
+  &__item {}
+  &__link {}
+}
+*/
+
+@mixin b-header-mini-menu($justify-content: flex-start, $text-color: color(white)) {
+    display: flex;
+    justify-content: $justify-content;
+
+    &__list {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    &__item {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+
+        &::after {
+            background-color: $text-color;
+            content: "";
+            height: 70%;
+            margin: 0 baseline(1);
+            width: 1px;
+        }
+
+        &:last-child::after {
+            display: none;
+        }
+    }
+
+    &__link {
+        color: $text-color;
+        font-size: $font-size-small;
+        font-weight: $font-main-bold;
+        line-height: $line-height-small;
+    }
+}

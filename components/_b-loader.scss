@@ -1,0 +1,56 @@
+.b-loader {
+    position: fixed;
+    background-color: color(black, null, overlay);
+
+    &__indicator {
+        @include icon("star-rotated") {
+            vertical-align: top;
+        }
+
+        animation: loader-star-large 2s infinite ease-in-out;
+        color: color(yellow);
+        font-size: baseline(22);
+        left: 50%;
+        line-height: 1;
+        margin: -0.5em 0 0 -0.5em;
+        position: absolute;
+        top: 45%;
+    }
+
+    &__indicator-item {
+        @include icon("star-rotated") {
+            vertical-align: top;
+        }
+
+        animation: loader-star-small 2s infinite ease-in-out;
+        font-size: 0.07em;
+        left: 50%;
+        padding-top: 0;
+        position: absolute;
+        top: 50%;
+        transform-origin: 0.075em 0.075em;
+
+        $star-count: 5;
+        @for $i from 1 through $star-count {
+            &:nth-child(#{$star-count}n + #{$i}) {
+                transform: rotate($i * (360 / $star-count) + 12deg);
+            }
+        }
+    }
+}
+
+#{$const-loading} {
+    @include refapp-pseudo-loader;
+}
+
+@keyframes loader-star-large {
+    50% {
+        transform: scale(1.3) rotate(16deg);
+    }
+}
+
+@keyframes loader-star-small {
+    50% {
+        padding-top: 9.5em;
+    }
+}

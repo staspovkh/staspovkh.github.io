@@ -1,0 +1,93 @@
+@mixin noresult-block-decorator($bg: color(gray, 4)) {
+    width: 100%;
+
+    &__wrapper {
+        background-color: $bg;
+        height: 100%;
+
+        @media (--extra-small) {
+            border-bottom: 8px solid color(gray, 2);
+        }
+
+        @media (--from-small) {
+            border-radius: $border-radius-regular;
+        }
+    }
+
+    &__title {
+        @include t-section-header;
+
+        padding: baseline(3) 0;
+        text-align: center;
+
+        @media (--from-small) {
+            border-bottom: 1px solid color(white);
+        }
+    }
+
+    &__list,
+    &__content {
+        @media (--extra-small) {
+            padding-bottom: baseline(2);
+            padding-top: 0;
+        }
+    }
+}
+
+.b-noresult-suggestion {
+    text-align: center;
+
+    &__link {
+        font-weight: $font-main-bold;
+    }
+}
+
+.b-noresult-popularsearch {
+    @include noresult-block-decorator;
+    @include list-style-marker($title: false);
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: baseline(3);
+        text-align: left;
+    }
+
+    &__item {
+        width: 47%;
+
+        @media (--to-small) {
+            width: 100%;
+        }
+    }
+}
+
+.b-noresult-popularbrands {
+    @include noresult-block-decorator;
+
+    &__content {
+        padding: baseline(3);
+        text-align: left;
+
+        @media (--medium) {
+            padding: baseline(3) 7%;
+        }
+
+        @media (--extra-small) {
+            padding: baseline(3) baseline(4);
+        }
+    }
+}
+
+.p-product-search-noresult {
+    .l-main__content {
+        @media (--extra-small) {
+            padding: 0;
+        }
+    }
+
+    .l-header__slot {
+        background-color: color(grey, 4);
+    }
+}

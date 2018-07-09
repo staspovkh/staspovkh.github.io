@@ -1,0 +1,36 @@
+// <div class="b-promotions-text">
+//   <p>Text Value</p>
+//   <a class="b-promotions-text__see-all-link">
+//      <span class="b-promotions-text__see-all-link--hide"></span>
+//      <span class="b-promotions-text__see-all-link--read"></span>
+//   </a>
+// </div>
+// Design: PDP > Tabs > Tab (Promotions)
+.b-promotions-text {
+    display: flex;
+    flex-direction: column;
+    font-size: $font-size-regular;
+    line-height: $line-height-regular;
+
+    &__see-all-link {
+        font-weight: $font-main-bold;
+        margin-top: baseline(1);
+
+        &--hide {
+            display: none;
+        }
+
+        &#{$const-expanded} &--read {
+            display: none;
+        }
+
+        &#{$const-expanded} &--hide {
+            display: inline;
+        }
+    }
+
+    &__full-details {
+        display: none;
+        margin-top: baseline(1);
+    }
+}

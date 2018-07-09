@@ -1,0 +1,150 @@
+.l-calendar {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.b-calendar {
+    &__actions {
+        align-items: center;
+        display: flex;
+        height: 0;
+        justify-content: space-between;
+        position: relative;
+        top: rem(10);
+        z-index: $z-medium;
+    }
+
+    &__button {
+        @include b-arrow-button($button-size: baseline(1.5));
+
+        height: baseline(3);
+        width: baseline(3);
+
+        &--prev {
+            transform: rotate(0deg) rtl(rotate(180deg));
+        }
+
+        &--next {
+            transform: rotate(180deg) rtl(rotate(0deg));
+        }
+
+        &#{$const-disabled} {
+            &::before,
+            &::after {
+                background-color: color(grey, 2);
+            }
+        }
+    }
+
+    &__group-title {
+        font-weight: $font-main-medium;
+        margin-bottom: baseline(2);
+    }
+
+    &__group-days {
+        margin: 0 baseline(-0.5) baseline(-1);
+    }
+
+    &__day {
+        display: flex;
+        flex-direction: column;
+        padding: 0 baseline(0.5) baseline(1);
+    }
+
+    &__day-name {
+        font-size: $font-size-small;
+        font-weight: $font-main-regular;
+        padding-top: baseline(1);
+    }
+
+    &__day-value {
+        font-size: $font-size-larger;
+        font-weight: $font-main-regular;
+    }
+
+    &__day-label.f-label {
+        @include transition(background-color);
+
+        background-color: color(white);
+        border: 1px solid color(grey, 2);
+        border-radius: $border-radius-small;
+        display: flex;
+        height: 100%;
+        margin: 0;
+        min-height: rem(126);
+        padding: 0;
+        position: relative;
+        text-align: center;
+
+        .m-day-info & {
+            background-color: color(yellow, tint);
+            border-color: color(yellow);
+
+            &::before {
+                border-color: color(yellow);
+            }
+        }
+
+        .non-touch .m-day-info &:hover {
+            background-color: darken(color(yellow, tint), 4%);
+        }
+
+        &::before {
+            margin: 0 auto;
+            margin-bottom: baseline(1);
+            order: 3;
+        }
+
+        &#{$const-disabled} {
+            background-color: color(grey, 2);
+            pointer-events: none;
+        }
+    }
+
+    &__day-radio {
+        &:checked ~ .f-label {
+            background-color: color(green, tint);
+            border-color: color(green, light);
+            font-weight: initial;
+
+            .m-day-info & {
+                background-color: darken(color(yellow, tint), 4%);
+                border-color: color(yellow);
+
+                &::before {
+                    box-shadow: 0 0 0 ($checkbox-size / 3) color(yellow) inset;
+                }
+            }
+        }
+
+        &:disabled ~ .f-label::before {
+            display: none;
+        }
+    }
+
+    &__day-name,
+    &__day-value,
+    &__day-header,
+    &__day-footer {
+        padding-left: rem(5);
+        padding-right: rem(5);
+    }
+
+    &__day-header,
+    &__day-footer {
+        background-color: color(yellow);
+        font-size: rem(10);
+        font-weight: $font-main-bold;
+        line-height: $line-height-smaller;
+        padding: rem(1) 0;
+    }
+
+    &__day-header {
+        margin-bottom: auto;
+    }
+
+    &__day-footer {
+        margin-top: auto;
+        order: 4;
+    }
+}

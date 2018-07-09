@@ -1,0 +1,13 @@
+.b-header-message {
+    &__text {
+        background-color: color(yellow);
+        font-weight: $font-main-bold;
+        padding: baseline(1) baseline(2);
+        text-align: center;
+
+        &--javascript {
+            background-color: color(red);
+            color: color(white);
+        }
+    }
+}

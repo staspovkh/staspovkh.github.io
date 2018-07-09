@@ -1,0 +1,226 @@
+//----------------------------------------------------------------------
+// Styles for main navigation flyout (extra small & small @media)
+//----------------------------------------------------------------------
+
+$flyout-padding-x: rem(15);
+
+@media (--to-small) {
+    .b-megamenu__holder {
+        background-color: transparent;
+    }
+
+    .b-megamenu {
+        font-size: $font-size-small;
+        max-width: calc(100% - 56px);
+        width: rem(315);
+
+        &__wrapper {
+            flex: 1;
+        }
+
+        &__close {
+            @include b-close-button(
+                $button-color: color(white),
+                $active-state-modifier: #{$const-mobile-megamenu-opened},
+                $hide-after-close: false
+            );
+            @include transition(visibility, 0s, $transition-delay: $transition-duration-regular);
+
+            left: 100%;
+            position: absolute;
+            right: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            visibility: hidden;
+
+            #{$const-mobile-megamenu-opened} & {
+                transition-delay: 0s;
+                visibility: visible;
+            }
+        }
+
+        &__close-overlay {
+            @include transition(opacity);
+
+            background-color: color(black, $opacity: overlay);
+            opacity: 0;
+
+            #{$const-mobile-megamenu-opened} & {
+                opacity: 1;
+            }
+        }
+
+        &__header {
+            background-color: color(blue);
+            color: color(white);
+            padding: baseline(3) $flyout-padding-x;
+
+            .b-header-login {
+                justify-content: flex-start;
+
+                &__link {
+                    line-height: baseline(2);
+                }
+            }
+        }
+
+        &__container {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+        }
+
+        & &__inner,
+        & &__flyout-inner {
+            margin: 0;
+            min-width: 0;
+            padding: 0;
+        }
+
+        &__breadcrumbs {
+            &-topmenu,
+            &-submenu {
+                background-color: color(white);
+                font-weight: $font-main-bold;
+                line-height: baseline(3);
+                padding: baseline(1) $flyout-padding-x;
+            }
+
+            &-submenu {
+                color: color(blue);
+
+                &::before {
+                    font-size: rem(14);
+                    margin-top: rem(-3);
+                    padding-right: rem(7);
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        &__topcat-title {
+            border-left: rem(4) solid $default-menu-color;
+        }
+
+        &__help {
+            .b-header-help {
+                background-color: color(grey, 4);
+                padding: baseline(2) $flyout-padding-x;
+
+                &__item {
+                    &::after {
+                        background-color: color(black);
+                    }
+                }
+
+                &__link {
+                    color: color(black);
+                    line-height: baseline(3);
+                }
+            }
+        }
+
+        &__footer {
+            background-color: color(green);
+            color: color(white);
+            font-size: $font-size-regular;
+            padding: rem(18) $flyout-padding-x;
+        }
+
+        &__storelocator-link {
+            color: color(white);
+            display: block;
+            font-weight: $font-main-medium;
+            padding-bottom: baseline(2);
+
+            &::before {
+                font-size: rem(24);
+                margin-top: rem(-4);
+                padding-right: rem(4);
+            }
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        &__languages {
+            border-top: 1px solid  color(white, $opacity: dark);
+            display: flex;
+            justify-content: space-between;
+            padding-top: baseline(2);
+        }
+
+        &__submenu {
+            &-item {
+                border-bottom: 1px solid color(grey, 3);
+            }
+
+            &-link {
+                background-color: color(white);
+                color: color(blue);
+                display: block;
+                padding: baseline(1.5) rem(30) baseline(1.5) $flyout-padding-x;
+
+                &:hover {
+                    text-decoration: none;
+                }
+
+                &-view-all {
+                    font-weight: $font-main-bold;
+                }
+            }
+        }
+
+        &__item {
+            border-bottom: 1px solid color(white);
+        }
+
+        &__link,
+        &__submenu-title {
+            &::after {
+                @include icon-styles();
+
+                color: color(grey, 2);
+                content: icon-char(chevron-right) rtl("\"" + icon-char(chevron-left) + "\"");
+                font-size: rem(16);
+                position: absolute;
+                right: rem(15);
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
+        &__link,
+        &__submenu-title,
+        &__submenu-category {
+            background-color: color(grey, 4);
+            color: color(black);
+            display: block;
+            font-weight: $font-main-bold;
+            line-height: baseline(3);
+            padding: baseline(2) rem(30) baseline(2) $flyout-padding-x;
+            position: relative;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+@media (--small) {
+    .b-megamenu {
+        &__close {
+            margin: 0 map-get($outer-margins, "-sm");
+        }
+    }
+}
+
+@media (--extra-small) {
+    .b-megamenu {
+        &__close {
+            margin: 0 map-get($outer-margins, "-xs");
+        }
+    }
+}

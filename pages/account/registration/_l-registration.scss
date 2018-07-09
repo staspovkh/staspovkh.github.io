@@ -1,0 +1,92 @@
+@mixin account-box() {
+    background-color: color(white);
+    border-radius: $border-radius-regular;
+}
+
+.l-registration {
+    position: relative;
+
+    &__progress {
+        @include site-width;
+
+        margin-bottom: baseline(6);
+
+        @media(--extra-small) {
+            margin-bottom: baseline(1);
+        }
+    }
+
+    &__section {
+        padding: baseline(3) 0;
+
+        @media(--extra-small) {
+            border-top: baseline(1) solid color(grey, 3);
+            padding: baseline(3) map-get($outer-margins, "-xs");
+            text-align: left;
+
+            &:first-of-type {
+                border-top: 0;
+            }
+        }
+
+        &--main {
+            @media(--from-small) {
+                background-color: color(grey, 4);
+                padding: baseline(5) 0;
+
+                .l-registration--start & {
+                    padding: baseline(5) 0 baseline(12);
+                }
+            }
+        }
+    }
+
+    &__section-inner {
+        margin: 0 auto;
+        max-width: rem(560);
+    }
+
+    &__content {
+        @media (--from-small) {
+            border-radius: $border-radius-regular;
+            margin: 0 auto;
+            max-width: rem(620);
+        }
+    }
+
+    &__form {
+        margin: 0 auto;
+        width: $width-form-regular;
+
+        @media (--extra-small) {
+            margin: 0;
+            width: 100%;
+        }
+    }
+
+    &__children-information {
+        background: color(grey, 4);
+        padding: baseline(2) 0;
+
+        @media(--extra-small) {
+            border-top: baseline(1) solid color(grey, 3);
+            padding: 0;
+        }
+    }
+}
+
+.l-registration--start,
+.l-login--checkout {
+    @media (--from-medium) {
+        &::before {
+            @include i-geoffrey;
+            @include i-geoffrey--standing;
+
+            font-size: rem(265);
+            position: absolute;
+            right: 97%;
+            top: baseline(3);
+            transform: rotate(50deg) scale(-1, 1) rtl(rotate(-45deg) scale(1, 1));
+        }
+    }
+}

@@ -1,0 +1,15 @@
+.l-error-page {
+    margin-bottom: baseline(12);
+    margin-top: baseline(8);
+
+    @media (--to-small) {
+        margin-bottom: baseline(5);
+        margin-top: baseline(2);
+    }
+}
+
+.p-error {
+    .l-header__slot {
+        background-color: color(grey, 4);
+    }
+}

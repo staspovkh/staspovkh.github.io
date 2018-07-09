@@ -1,0 +1,46 @@
+.b-store {
+    $selector: &;
+
+    &--product {
+        border-bottom: 1px solid color(grey, 2);
+        position: relative;
+
+        #{$selector}__header {
+            padding: baseline(3) baseline(2);
+        }
+
+        #{$selector}__details-toggle {
+            @include b-toggle-button;
+
+            align-self: center;
+            font-size: 0;
+            margin-left: auto;
+            opacity: 1;
+            padding: rem(6);
+            position: relative;
+
+            .non-touch &:hover::after {
+                opacity: 0.6;
+            }
+
+            &#{$const-expanded} {
+                &::after {
+                    content: icon-char(minus);
+                }
+
+                #{$selector}__details-toggle-text {
+                    display: none;
+                }
+            }
+        }
+
+        #{$selector}__details {
+            border-top: 1px solid color(grey, 2);
+            margin-top: 0;
+        }
+
+        #{$selector}__details-inner {
+            padding: baseline(2);
+        }
+    }
+}

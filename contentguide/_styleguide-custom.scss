@@ -1,0 +1,93 @@
+// styleguide:ignore:start
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,600,700");
+// styleguide:ignore:end
+
+@font-face {
+    font-family: "Shag Expert";
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/ShagExpert-Lounge/ShagExpert-Lounge.woff2") format("woff2"),
+    url("fonts/ShagExpert-Lounge/ShagExpert-Lounge.woff") format("woff"),
+    url("fonts/ShagExpert-Lounge/ShagExpert-Lounge.ttf") format("truetype");
+}
+@font-face {
+    font-family: "icon";
+    src: url("fonts/icon.woff2") format("woff2"),
+    url("fonts/icon.woff") format("woff"),
+    url("fonts/icon.ttf") format("truetype");
+}
+@font-face {
+    font-family: "shape";
+    src: url("fonts/shape.woff2") format("woff2"),
+    url("fonts/shape.woff") format("woff"),
+    url("fonts/shape.ttf") format("truetype");
+}
+
+.sg {
+    &.sg-section {
+        .sg.sg-code-listing {
+            font-size: 12px;
+        }
+
+        .sg.sg-section-partial {
+            overflow: hidden;
+        }
+    }
+
+    &.sg-wrapper {
+        max-width: 1440px;
+    }
+}
+
+.sg-color-block {
+    border: 1px solid #dbdbdb;
+    display: inline-flex;
+    flex-direction: column;
+    width: 160px;
+
+    span {
+        padding: 10px;
+
+        &:first-child {
+            padding: 30px;
+        }
+    }
+}
+
+.sg-iconset {
+    i {
+        align-items: center;
+        display: inline-flex;
+        flex-direction: column;
+        font-size: 11px;
+        line-height: 1.2;
+        margin: 10px 10px 20px;
+        text-align: center;
+        width: 75px;
+
+        &::before {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+    }
+    
+    &--shape i {
+        width: 120px;
+
+        &::before {
+            font-size: 100px;
+        }
+    }
+}
+
+.f-field {
+    max-width: 400px;
+
+    &--checkbox {
+        margin-top: 1rem;
+    }
+}
+
+.b-video {
+    background-color: white;
+}

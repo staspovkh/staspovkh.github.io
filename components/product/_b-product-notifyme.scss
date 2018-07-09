@@ -1,0 +1,33 @@
+.b-product-notifyme {
+    &__subtitle {
+        display: none;
+    }
+
+    &__message {
+        line-height: $line-height-medium;
+        padding-bottom: baseline(1.5);
+    }
+
+    &__header {
+        align-items: center;
+        display: flex;
+        margin-bottom: baseline(1);
+        position: relative;
+
+        &::before {
+            font-size: rem(35);
+            margin-right: rem(10);
+        }
+    }
+
+    &__title {
+        @include t-sub-section-header;
+
+        display: block;
+        margin-bottom: baseline(1);
+    }
+
+    &__caption {
+        padding-bottom: baseline(1);
+    }
+}

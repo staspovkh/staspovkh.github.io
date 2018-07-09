@@ -1,0 +1,65 @@
+.b-header-minicart {
+    &__link {
+        @include transition(color);
+
+        color: color(white);
+        display: block;
+        font-size: rem(28);
+        position: relative;
+
+        &::before,
+        &::after {
+            @include icon-styles;
+            @include transition(opacity);
+        }
+
+        &::before {
+            color: color(green, light);
+            content: icon-char(basket-filled);
+        }
+
+        .non-touch &:hover {
+            text-decoration: none;
+        }
+
+        &--empty {
+            &::before {
+                opacity: 0;
+            }
+
+            &::after {
+                content: icon-char(basket);
+                left: 0;
+                position: absolute;
+                top: 0;
+            }
+
+            .non-touch &:hover {
+                &::before {
+                    opacity: 1;
+                }
+
+                &::after {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    &__quantity {
+        @include text-truncate;
+
+        color: color(blue);
+        font-size: $font-size-regular;
+        font-weight: $font-main-bold;
+        left: 0;
+        letter-spacing: -0.1em;
+        line-height: 1;
+        position: absolute;
+        text-align: center;
+        text-indent: -0.1em rtl(0.1em);
+        top: 0.55em rtl(0.67em);
+        width: 100%;
+        z-index: $z-min;
+    }
+}

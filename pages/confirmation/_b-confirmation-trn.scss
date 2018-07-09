@@ -1,0 +1,7 @@
+.b-confirmation-trn {
+    @include t-caption;
+
+    background-color: color(white);
+    padding: baseline(3) baseline(2);
+    text-align: center;
+}

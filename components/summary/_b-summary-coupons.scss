@@ -1,0 +1,119 @@
+.b-summary-coupons {
+    background-color: color(grey, 4);
+    border-radius: $border-radius-small;
+
+    &__header {
+        align-items: center;
+        background-color: color(grey, 4);
+        border-radius: $border-radius-small;
+        display: flex;
+        justify-content: space-between;
+        padding-left: rem(16);
+    }
+
+    &__header-text {
+        display: block;
+        font-weight: $font-main-bold;
+        padding: baseline(1.5) 0;
+    }
+
+    &__toggle {
+        @include b-toggle-button {
+            right: baseline(1);
+        }
+
+        cursor: pointer;
+        height: baseline(4);
+        margin-right: baseline(1);
+        width: baseline(4);
+
+        @media (--extra-small) {
+            padding-right: #{map-get($outer-margins, "-xs")};
+        }
+
+        .non-touch &:hover {
+            opacity: 0.6;
+        }
+    }
+
+    &__content {
+        display: none;
+        padding: baseline(1) map-get($outer-margins, "-xs") baseline(2);
+
+        &#{$const-expanded} {
+            display: block;
+        }
+    }
+
+    &__input-form {
+        display: flex;
+        flex-flow: row wrap;
+        padding-right: rem(4);
+        position: relative;
+
+        &::before {
+            background-color: color(white);
+            border-radius: $border-radius-small;
+            content: "";
+            height: baseline(6);
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        div.f-error,
+        label.error {
+            width: 100%;
+        }
+    }
+
+    &__add-btn {
+        margin-top: rem(2);
+        min-width: 0;
+        padding-left: rem(12);
+        padding-right: rem(12);
+        position: relative;
+    }
+
+    &__field-wrapper {
+        flex: 1;
+        position: relative;
+    }
+
+    &__field {
+        background: none;
+        border: 0;
+        border-radius: $border-radius-small 0 0 $border-radius-small;
+
+        &.f-textinput {
+            background: color(white);
+            padding-right: rem(12);
+        }
+    }
+
+    &__item {
+        align-items: center;
+        border-top: 1px solid color(white);
+        display: flex;
+        justify-content: space-between;
+        padding: rem(10) rem(16);
+    }
+
+    &__item-message {
+        flex: 1;
+        font-weight: $font-main-bold;
+        padding-right: rem(10);
+        word-break: break-word;
+    }
+
+    &__status {
+        font-size: $font-size-small;
+        padding-top: baseline(1);
+        word-break: break-word;
+
+        &--error {
+            color: $color-error;
+        }
+    }
+}

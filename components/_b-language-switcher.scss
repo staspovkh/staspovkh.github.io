@@ -1,0 +1,31 @@
+.b-language-switcher {
+    font-size: $font-size-small;
+    line-height: baseline(2);
+    text-align: center;
+
+    &__list,
+    &__message {
+        padding: baseline(1) baseline(2);
+    }
+
+    &__list {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__item + &__item {
+        border-left: 1px solid color(black);
+        margin-left: baseline(2);
+        padding-left: baseline(2);
+    }
+
+    &__link {
+        font-weight: $font-main-bold;
+    }
+
+    &__message {
+        background-color: color(green);
+        color: color(white);
+        font-weight: $font-main-bold;
+    }
+}

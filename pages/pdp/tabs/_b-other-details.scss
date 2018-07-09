@@ -1,0 +1,17 @@
+.b-other-details {
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        margin-bottom: baseline(3);
+        padding-right: rem(100);
+        width: 50%;
+
+        @media (--extra-small) {
+            padding-right: 0;
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,102 @@
+// Typography
+//
+// All sizes are presented in pixels.  The xx/yy format indicates font size (xx) and line-height (yy). Whilst some flexibility is required between typefaces for different use cases, the default typeface for titles is ShagExpert and for titles Nunito Sans Light. Use a character spacing value of .25 for all instances of ShagExpert.
+//
+// Styleguide 3
+
+// Headers
+//
+// markup:
+// <h1 class="t-hero-title">Hero title</h1>
+// <h2 class="t-subpage-title">Subpage title</h2>
+// <h2 class="t-subpage-title--main">Subpage title (main font)</h2>
+// <h3 class="t-section-header">Section header</h3>
+// <h4 class="sub-section-header">Sub section header</h4>
+//
+// Styleguide 3.1
+
+.t-hero-title {
+    @include t-hero-title;
+}
+
+.t-subpage-title {
+    @include t-subpage-title;
+}
+
+.t-subpage-title--main {
+    @include t-subpage-title($font-family-main);
+}
+
+.t-section-header {
+    @include t-section-header;
+}
+
+.t-sub-section-header {
+    @include t-sub-section-header;
+}
+
+// Body
+//
+// markup:
+// <p class="t-body">Nunito Sans Light 16/22. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+//
+// Styleguide 3.2
+
+.t-body {
+    @include t-body;
+}
+
+// Caption
+//
+// markup:
+// <p class="t-caption">Nunito Sans Light 14/20</p>
+//
+// Styleguide 3.3
+
+.t-caption {
+    @include t-caption;
+}
+
+// Emphasis
+//
+// markup:
+// <p class="t-emphasis">Nunito Sans SemiBold</p>
+//
+// Styleguide 3.4
+
+.t-emphasis {
+    @include t-emphasis;
+}
+
+// Quote
+//
+// markup:
+// <p class="t-quote">Nunito Sans Light Italic</p>
+//
+// Styleguide 3.5
+
+.t-quote {
+    @include t-quote;
+}
+
+.t-border-bottom {
+    @include border-bottom;
+}
+
+.t-border-top {
+    @include border-top;
+}
+
+.t-border-bottom--extra-small {
+    @media (--extra-small) {
+        @include border-bottom;
+    }
+}
+
+.list-style-marker {
+    @include list-style-marker;
+}
+
+.list-style-marker-big {
+    @include list-style-marker-big;
+}

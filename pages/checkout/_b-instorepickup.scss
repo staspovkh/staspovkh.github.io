@@ -1,0 +1,76 @@
+.b-instorepickup {
+    &__continue {
+        display: flex;
+        justify-content: center;
+        margin-top: baseline(4);
+        width: 100%;
+
+        @media (--extra-small) {
+            margin-top: baseline(3);
+        }
+    }
+
+    &__continue-button {
+        min-width: rem(300);
+
+        @media (--extra-small) {
+            min-width: rem(288);
+        }
+    }
+
+    &__cities-select-field {
+        margin: baseline(1) 0;
+
+        .f-label__optional-text {
+            display: none;
+        }
+    }
+}
+
+.b-instorepickup-map {
+    @media (--from-small) {
+        padding-bottom: percentage(382/588);
+    }
+}
+
+.b-instorepickup-store {
+    padding-top: baseline(3);
+
+    &__header {
+        flex: 1;
+        margin-right: 4%;
+
+        @media (--extra-small) {
+            margin-right: 0;
+        }
+    }
+
+    &__action-buttons {
+        @media (--extra-small) {
+            margin-top: baseline(2);
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    &__select {
+        margin-right: baseline(1);
+    }
+
+    &__select,
+    .b-store__details-toggle {
+        min-width: rem(132);
+    }
+
+    &__content {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: baseline(3);
+
+        @media (--extra-small) {
+            display: block;
+            padding: 0 map-get($outer-margins, "-xs");
+        }
+    }
+}

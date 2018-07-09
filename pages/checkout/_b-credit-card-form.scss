@@ -1,0 +1,42 @@
+.b-credit-card-form {
+    max-width: rem(300);
+
+    &__cvn {
+        position: relative;
+    }
+
+    &__cvn-image {
+        left: baseline(14);
+        position: absolute;
+        top: baseline(2.75);
+    }
+
+    .f-field {
+        &--exp-date {
+            display: flex;
+            flex-wrap: wrap;
+
+            .f-label {
+                width: 100%;
+            }
+        }
+
+        &--month,
+        &--year {
+            margin-bottom: 0;
+            margin-right: baseline(1);
+            margin-top: 0;
+            width: rem(104);
+
+            .f-label {
+                display: none;
+            }
+        }
+
+        &--cvn {
+            .f-textinput {
+                width: rem(104);
+            }
+        }
+    }
+}

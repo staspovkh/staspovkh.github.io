@@ -1,0 +1,101 @@
+.b-payment-methods {
+    &__title {
+        @include checkout-title($edit: false);
+    }
+
+    &__method-radio:checked {
+        ~ .f-label {
+            background-color: color(green, tint);
+            border-color: color(green, light);
+            font-weight: initial;
+        }
+
+        ~ .b-payment-methods__method-content {
+            display: block;
+        }
+    }
+
+    &__method-label.f-label {
+        align-items: center;
+        background-color: color(grey, 4);
+        border: 1px solid color(grey, 2);
+        border-radius: $border-radius-small;
+        display: flex;
+        margin: 0 0 baseline(1);
+        padding: baseline(3);
+
+        @media (--extra-small) {
+            padding: baseline(2);
+        }
+
+        &::before {
+            flex-shrink: 0;
+            margin-right: baseline(3);
+
+            @media (--extra-small) {
+                margin-right: baseline(2);
+            }
+        }
+    }
+    
+    &__method-label-icon {
+        margin-right: baseline(3);
+
+        @media (--extra-small) {
+            margin-right: baseline(2);
+        }
+
+        &::before {
+            @include i-svg;
+
+            font-size: rem(40);
+        }
+
+        &--is-CREDIT_CARD::before,
+        &--is-SA_SILENTPOST::before {
+            @include i-svg--pay;
+        }
+
+        &--is-CASH_ON_DELIVERY::before {
+            @include i-svg--cash;
+        }
+
+        &--is-RESERVE_AND_COLLECT::before,
+        &--in-store::before {
+            @include i-svg--store;
+        }
+    }
+    
+    &__method-label-title {
+        font-size: $font-size-medium;
+        font-weight: $font-main-bold;
+
+        @media (--extra-small) {
+            font-size: $font-size-regular;
+        }
+    }
+    
+    &__method-label-description {
+        color: color(grey);
+        font-size: $font-size-small;
+        margin-top: baseline(0.5);
+    }
+
+    &__method-content {
+        display: none;
+        padding: baseline(3) 0 baseline(4);
+
+        &--is-CREDIT_CARD,
+        &--is-SA_SILENTPOST {
+            padding: 0;
+        }
+    }
+
+    &__method:last-of-type &__method-content {
+        padding-bottom: 0;
+    }
+
+    &__method-message + &__method-message {
+        margin-top: baseline(2);
+    }
+}

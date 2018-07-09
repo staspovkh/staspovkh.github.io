@@ -1,0 +1,43 @@
+@mixin table-style {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+
+    thead {
+        th {
+            border: 1px solid color(white);
+            border-top: 0;
+
+            &:first-child {
+                background-color: color(black, base, 0.08);
+                font-weight: $font-main-bold;
+            }
+        }
+    }
+
+    tbody {
+        font-size: $font-size-small;
+
+        th {
+            font-weight: $font-main-bold;
+        }
+    }
+
+    th,
+    td {
+        border-top: 1px solid color(black, base, 0.14);
+        padding: baseline(2);
+
+        &:first-child {
+            border-left: 0;
+        }
+
+        &:last-child {
+            border-right: 0;
+        }
+    }
+
+    th {
+        background-color: color(black, base, 0.03);
+    }
+}

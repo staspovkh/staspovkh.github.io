@@ -1,0 +1,32 @@
+.b-approaching-discount {
+    &__applied-message {
+        font-size: $font-size-small;
+        text-align: center;
+
+        &::before {
+            @include i-svg;
+            @include i-svg--success;
+
+            font-size: baseline(4);
+            margin: 0 baseline(1.5);
+        }
+    }
+
+    &__progressbar-wrapper {
+        background-color: color(white);
+    }
+
+    &__progressbar-value {
+        background-color: color(yellow);
+        border-radius: rem(3);
+        font-size: 0;
+        line-height: 0;
+        height: rem(6);
+    }
+
+    &__approaching-message {
+        font-weight: $font-main-bold;
+        margin-top: baseline(2);
+        text-align: center;
+    }
+}

@@ -1,0 +1,37 @@
+@media print {
+    .b-footer-bottom {
+        justify-content: center;
+
+        &__item--logo {
+            display: none;
+        }
+    }
+
+    .b-confirmation {
+        &__top {
+            background: none;
+            margin-bottom: baseline(3);
+    
+            &::before {
+                content: none;
+            }
+        }
+    
+        &__header {
+            background: none;
+        }
+
+        &__print {
+            display: none;
+        }
+    }
+
+    .b-order {
+        &__payment,
+        &__info,
+        &__delivery,
+        &__contact-details {
+            margin-bottom: baseline(3);
+        }
+    }
+}

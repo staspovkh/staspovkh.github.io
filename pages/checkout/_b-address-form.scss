@@ -1,0 +1,36 @@
+.b-address-form {
+    @media (--from-small) {
+        margin: 0 auto;
+        max-width: $width-form-regular;
+    }
+
+    &__title {
+        @include checkout-title($edit: false);
+    }
+
+    &__message {
+        @include checkout-message;
+    }
+
+    &__switcher {
+        border-bottom: 1px solid color(grey, 2);
+        padding-bottom: baseine(2);
+        text-align: center;
+    }
+
+    &__switcher-or {
+        font-weight: $font-main-bold;
+        margin-bottom: baseline(2);
+    }
+
+    &__button-select {
+        @include checkout-button-select;
+
+        margin-bottom: baseline(2);
+        width: 100%;
+    }
+
+    &--billing {
+        padding: baseline(2) 0;
+    }
+}

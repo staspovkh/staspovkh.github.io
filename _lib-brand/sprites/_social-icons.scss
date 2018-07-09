@@ -1,0 +1,106 @@
+// Social Icons
+//
+// markup:
+// <div class="sg-iconset">
+//   <i class="i-social--email">email</i>
+//   <i class="i-social--facebook">facebook</i>
+//   <i class="i-social--googleplus">googleplus</i>
+//   <i class="i-social--instagram">instagram</i>
+//   <i class="i-social--pinterest">pinterest</i>
+//   <i class="i-social--twitter">twitter</i>
+//   <i class="i-social--youtube">youtube</i>
+// </div>
+//
+// Styleguide 5.6
+
+@mixin i-social() {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1em;
+    line-height: 1;
+    background-image: url("../images/social-icons.svg");
+    background-repeat: no-repeat;
+    background-size: 7em 7em;
+}
+[class*="i-social--"]::before,
+[class*="i-social-after--"]::after {
+    @include i-social;
+}
+
+@mixin i-social--email() {
+    content: "";
+    background-position: 0em 0em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-social--email::before,
+.i-social-after--email::after {
+    @include i-social--email;
+}
+
+@mixin i-social--facebook() {
+    content: "";
+    background-position: -1em -1em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-social--facebook::before,
+.i-social-after--facebook::after {
+    @include i-social--facebook;
+}
+
+@mixin i-social--googleplus() {
+    content: "";
+    background-position: -2em -2em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-social--googleplus::before,
+.i-social-after--googleplus::after {
+    @include i-social--googleplus;
+}
+
+@mixin i-social--instagram() {
+    content: "";
+    background-position: -3em -3em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-social--instagram::before,
+.i-social-after--instagram::after {
+    @include i-social--instagram;
+}
+
+@mixin i-social--pinterest() {
+    content: "";
+    background-position: -4em -4em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-social--pinterest::before,
+.i-social-after--pinterest::after {
+    @include i-social--pinterest;
+}
+
+@mixin i-social--twitter() {
+    content: "";
+    background-position: -5em -5em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-social--twitter::before,
+.i-social-after--twitter::after {
+    @include i-social--twitter;
+}
+
+@mixin i-social--youtube() {
+    content: "";
+    background-position: -6em -6em/*rtl:ignore*/;
+    width: 1em;
+    height: 1em;
+}
+.i-social--youtube::before,
+.i-social-after--youtube::after {
+    @include i-social--youtube;
+}
+

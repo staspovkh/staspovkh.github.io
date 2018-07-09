@@ -1,0 +1,9 @@
+.b-summary-email {
+    font-size: $font-size-small;
+    line-height: $line-height-small;
+    text-align: center;
+
+    &__email {
+        font-weight: $font-main-bold;
+    }
+}

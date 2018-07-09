@@ -1,0 +1,11 @@
+.b-brand-switcher {
+    display: block;
+
+    img {
+        width: rem(120);
+
+        @media (--to-small) {
+            width: rem(100);
+        }
+    }
+}

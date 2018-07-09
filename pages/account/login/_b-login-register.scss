@@ -1,0 +1,46 @@
+.b-login-register {
+    padding: baseline(4) baseline(3);
+
+    @media (--extra-small) {
+        padding-left: map-get($outer-margins, "-xs");
+        padding-right: map-get($outer-margins, "-xs");
+    }
+
+    &__title {
+        font-size: $font-size-larger;
+        font-weight: $font-main-medium;
+        text-align: center;
+    }
+
+    &__field {
+        padding-top: baseline(2);
+        text-align: center;
+    }
+
+    &__submit {
+        width: 100%;
+    }
+}
+
+.b-register-advantages {
+    font-size: $font-size-small;
+    padding: baseline(2) 0;
+
+    &__item {
+        display: flex;
+        margin-top: baseline(2);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &::before {
+            font-size: rem(32);
+        }
+    }
+
+    &__item-content {
+        flex: 1;
+        padding-left: rem(10);
+    }
+}

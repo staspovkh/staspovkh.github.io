@@ -1,0 +1,12 @@
+.l-zoom {
+    &__nav {
+        background-color: $zoom-nav-bg;
+        height: baseline(15);
+        padding: 0 baseline(4);
+
+        @media (--extra-small) {
+            height: auto;
+            padding: baseline(2);
+        }
+    }
+}

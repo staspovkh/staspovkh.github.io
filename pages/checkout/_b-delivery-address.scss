@@ -1,0 +1,38 @@
+.b-delivery-address {
+    position: relative;
+
+    @media (--extra-small) {
+        margin-bottom: baseline(3);
+    }
+
+    &__title {
+        @include checkout-title;
+    }
+
+    &__button-change {
+        @include checkout-button-change;
+    }
+
+    &__address {
+        @include checkout-address;
+    }
+
+    &__note {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__note-label {
+        width: percentage(1/4);
+    }
+
+    &__note-value {
+        width: percentage(3/4);
+    }
+
+    &--stored-address,
+    &--confirm-address {
+        max-width: rem(524);
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,46 @@
+// Homepage Image Hero Banners (Homepage Slot 1, 2)
+//
+// markup:
+// <div class="b-content-slot g-grid__row g-grid__row--no-gutter b-content-slot--hero">
+//     <div class="b-bnr g-grid__col-8 g-grid__col-xs-12 m-ratio__2x1 m-ratio-xs__1x1">
+//         <div class="b-bnr__inner">
+//             <!-- PICTURE section is formed automatically from asset's Images custom fields -->
+//             <picture class="b-bnr__picture">
+//                 <source srcset="images/banners/hero/banner1_1x1.jpg" media="(max-width : 767px)">
+//                 <img src="images/banners/hero/banner1_2x1.jpg" alt="Homepage Banner Hero 1 (Nintendo)" class="b-bnr__image">
+//             </picture>
+//             <div class="b-bnr__content">
+//                 <a class="b-bnr__fullsize-link" href="#"></a>
+//             </div>
+//         </div>
+//     </div>
+//     <div class="b-bnr g-grid__col-4 g-grid__col-xs-12 m-ratio__2x1">
+//         <div class="b-bnr__inner">
+//             <div class="b-bnr__content">
+//             <div class="g-grid__row g-grid__row--no-gutter">
+//                 <div class="g-grid__col-12 g-grid__col-xs-6">
+//                     <!-- PICTURE section is formed automatically from asset's Images custom fields -->
+//                     <picture class="b-bnr__picture">
+//                         <source media="(max-width: 767px)" srcset="images/banners/hero/banner2_1x1.jpg">
+//                         <img class="b-bnr__image" src="images/banners/hero/banner2_2x1.jpg" alt="">
+//                     </picture>
+//                     <div class="b-bnr__content">
+//                         <a class="b-bnr__fullsize-link" href="#"></a>
+//                     </div>
+//                 </div>
+//                 <div class="g-grid__col-12 g-grid__col-xs-6">
+//                     <!-- PICTURE section is formed automatically from asset's Images custom fields -->
+//                     <picture class="b-bnr__picture">
+//                         <source media="(max-width: 767px)" srcset="images/banners/hero/banner3_1x1.jpg">
+//                         <img class="b-bnr__image" src="images/banners/hero/banner3_2x1.jpg" alt="">
+//                     </picture>
+//                     <div class="b-bnr__content">
+//                         <a class="b-bnr__fullsize-link" href="#"></a>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide 8.1

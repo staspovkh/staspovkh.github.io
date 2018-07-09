@@ -1,0 +1,210 @@
+[class*="i-font-"]::before,
+[class*="i-font-"]::after {
+    @include icon-styles;
+}
+
+.i-font-add::before,
+.i-font-after-add::after {
+    content: icon-char(add);
+}
+
+.i-font-basket-filled::before,
+.i-font-after-basket-filled::after {
+    content: icon-char(basket-filled);
+}
+
+.i-font-basket::before,
+.i-font-after-basket::after {
+    content: icon-char(basket);
+}
+
+.i-font-calendar::before,
+.i-font-after-calendar::after {
+    content: icon-char(calendar);
+}
+
+.i-font-chevron-down::before,
+.i-font-after-chevron-down::after {
+    content: icon-char(chevron-down);
+}
+
+.i-font-chevron-left::before,
+.i-font-after-chevron-left::after {
+    content: icon-char(chevron-left);
+}
+
+.i-font-chevron-right::before,
+.i-font-after-chevron-right::after {
+    content: icon-char(chevron-right);
+}
+
+.i-font-chevron-up::before,
+.i-font-after-chevron-up::after {
+    content: icon-char(chevron-up);
+}
+
+.i-font-close::before,
+.i-font-after-close::after {
+    content: icon-char(close);
+}
+
+.i-font-email::before,
+.i-font-after-email::after {
+    content: icon-char(email);
+}
+
+.i-font-exclamation::before,
+.i-font-after-exclamation::after {
+    content: icon-char(exclamation);
+}
+
+.i-font-filter::before,
+.i-font-after-filter::after {
+    content: icon-char(filter);
+}
+
+.i-font-handle::before,
+.i-font-after-handle::after {
+    content: icon-char(handle);
+}
+
+.i-font-heart-filled::before,
+.i-font-after-heart-filled::after {
+    content: icon-char(heart-filled);
+}
+
+.i-font-heart::before,
+.i-font-after-heart::after {
+    content: icon-char(heart);
+}
+
+.i-font-info::before,
+.i-font-after-info::after {
+    content: icon-char(info);
+}
+
+.i-font-location-filled::before,
+.i-font-after-location-filled::after {
+    content: icon-char(location-filled);
+}
+
+.i-font-location::before,
+.i-font-after-location::after {
+    content: icon-char(location);
+}
+
+.i-font-lock::before,
+.i-font-after-lock::after {
+    content: icon-char(lock);
+}
+
+.i-font-menu::before,
+.i-font-after-menu::after {
+    content: icon-char(menu);
+}
+
+.i-font-minus::before,
+.i-font-after-minus::after {
+    content: icon-char(minus);
+}
+
+.i-font-phone::before,
+.i-font-after-phone::after {
+    content: icon-char(phone);
+}
+
+.i-font-search::before,
+.i-font-after-search::after {
+    content: icon-char(search);
+}
+
+.i-font-show::before,
+.i-font-after-show::after {
+    content: icon-char(show);
+}
+
+.i-font-sort::before,
+.i-font-after-sort::after {
+    content: icon-char(sort);
+}
+
+.i-font-star::before,
+.i-font-after-star::after {
+    content: icon-char(star);
+}
+
+.i-font-tick::before,
+.i-font-after-tick::after {
+    content: icon-char(tick);
+}
+
+.i-font-user-filled::before,
+.i-font-after-user-filled::after {
+    content: icon-char(user-filled);
+}
+
+.i-font-user::before,
+.i-font-after-user::after {
+    content: icon-char(user);
+}
+
+.i-font-zoom::before,
+.i-font-after-zoom::after {
+    content: icon-char(zoom);
+}
+
+.i-font-select-arrows::before,
+.i-font-after-select-arrows::after {
+    content: icon-char(select-arrows);
+}
+
+.i-font-star-rotated::before,
+.i-font-after-star-rotated::after {
+    content: icon-char(star-rotated);
+}
+
+.i-font-play-arrow::before,
+.i-font-after-play-arrow::after {
+    content: icon-char(play-arrow);
+}
+
+.i-font-warning::before,
+.i-font-after-warning::after {
+    content: icon-char(warning);
+}
+
+.i-font-list::before,
+.i-font-after-list::after {
+    content: icon-char(list);
+}
+
+.i-font-location-marker::before,
+.i-font-after-location-marker::after {
+    content: icon-char(location-marker);
+}
+
+.i-font-location-marker-star::before,
+.i-font-after-location-marker-star::after {
+    content: icon-char(location-marker-star);
+}
+
+.i-font-direction::before,
+.i-font-after-direction::after {
+    content: icon-char(direction);
+}
+
+.i-font-question::before,
+.i-font-after-question::after {
+    content: icon-char(question);
+}
+
+.i-font-add-circle::before,
+.i-font-after-add-circle::after {
+    content: icon-char(add-circle);
+}
+
+.i-font-share::before,
+.i-font-after-share::after {
+    content: icon-char(share);
+}
+
